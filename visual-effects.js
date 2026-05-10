@@ -1,0 +1,151 @@
+(() => {
+    const body = document.body;
+    if (!body || !body.classList.contains('site-body')) return;
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const ensureLayers = () => {
+        if (!document.getElementById('constellation')) {
+            const canvas = document.createElement('canvas');
+            canvas.id = 'constellation';
+            canvas.setAttribute('aria-hidden', 'true');
+            body.prepend(canvas);
+        }
+
+        if (!document.querySelector('.grid-lines')) {
+            const grid = document.createElement('div');
+            grid.className = 'grid-lines';
+            grid.setAttribute('aria-hidden', 'true');
+            grid.innerHTML = '<span class="v-line"></span><span class="v-line"></span><span class="v-line"></span>';
+            body.prepend(grid);
+        }
+    };
+
+    const initReveal = () => {
+        const targets = document.querySelectorAll('section, .card, .blog-card, .photo-card, .blog-article');
+        targets.forEach((el) => el.classList.add('reveal'));
+
+        if (reducedMotion) {
+            targets.forEach((el) => el.classList.add('is-visible'));
+            body.classList.add('site-ready');
+            return;
+        }
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.14, rootMargin: '0px 0px -8% 0px' }
+        );
+
+        targets.forEach((el) => observer.observe(el));
+        window.setTimeout(() => body.classList.add('site-ready'), 120);
+    };
+
+    const initConstellation = () => {
+        const canvas = document.getElementById('constellation');
+        if (!canvas || reducedMotion) return;
+
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        let width = 0;
+        let height = 0;
+        const particleCount = 38;
+        const maxDistance = 165;
+        const mouse = { x: null, y: null };
+        const particles = [];
+
+        const resize = () => {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width * window.devicePixelRatio;
+            canvas.height = height * window.devicePixelRatio;
+            canvas.style.width = `${width}px`;
+            canvas.style.height = `${height}px`;
+            ctx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
+        };
+
+        const random = (min, max) => Math.random() * (max - min) + min;
+
+        const seedParticles = () => {
+            particles.length = 0;
+            for (let i = 0; i < particleCount; i += 1) {
+                particles.push({
+                    x: random(0, width),
+                    y: random(0, height),
+                    vx: random(-0.25, 0.25),
+                    vy: random(-0.25, 0.25),
+                    r: random(1.2, 2.4)
+                });
+            }
+        };
+
+        const step = () => {
+            ctx.clearRect(0, 0, width, height);
+
+            for (let i = 0; i < particles.length; i += 1) {
+                const a = particles[i];
+                a.x += a.vx;
+                a.y += a.vy;
+
+                if (a.x < 0 || a.x > width) a.vx *= -1;
+                if (a.y < 0 || a.y > height) a.vy *= -1;
+
+                ctx.beginPath();
+                ctx.fillStyle = 'rgba(16, 152, 247, 0.45)';
+                ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
+                ctx.fill();
+
+                for (let j = i + 1; j < particles.length; j += 1) {
+                    const b = particles[j];
+                    const dx = a.x - b.x;
+                    const dy = a.y - b.y;
+                    const distance = Math.hypot(dx, dy);
+
+                    if (distance < maxDistance) {
+                        const alpha = (1 - distance / maxDistance) * 0.22;
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(168,130,255,${alpha})`;
+                        ctx.lineWidth = 1;
+                        ctx.moveTo(a.x, a.y);
+                        ctx.lineTo(b.x, b.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            if (mouse.x !== null && mouse.y !== null) {
+                ctx.beginPath();
+                ctx.fillStyle = 'rgba(227,86,84,0.28)';
+                ctx.arc(mouse.x, mouse.y, 3, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            requestAnimationFrame(step);
+        };
+
+        resize();
+        seedParticles();
+        step();
+
+        window.addEventListener('resize', () => {
+            resize();
+            seedParticles();
+        });
+
+        window.addEventListener('mousemove', (event) => {
+            mouse.x = event.clientX;
+            mouse.y = event.clientY;
+        });
+    };
+
+    ensureLayers();
+    initReveal();
+    initConstellation();
+})();
