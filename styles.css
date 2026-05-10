@@ -24,6 +24,9 @@
     --radius: 10px;
     --radius-lg: 16px;
     --max-w: 1400px;
+    --hero-name-min: 68px;
+    --hero-name-max: 120px;
+    --hero-line-offset: 120%;
     --font: 'Inter', sans-serif;
     --font-display: 'Space Grotesk', sans-serif;
     --font-serif: 'Instrument Serif', serif;
@@ -232,7 +235,7 @@ h3 {
 
 .hero-name {
     margin: 0.35rem 0 1rem;
-    font-size: clamp(68px, 9vw, 120px);
+    font-size: clamp(var(--hero-name-min), 9vw, var(--hero-name-max));
     line-height: 0.94;
 }
 
@@ -243,7 +246,7 @@ h3 {
 
 .hero-name .line-inner {
     display: block;
-    transform: translateY(120%);
+    transform: translateY(var(--hero-line-offset));
     transition: transform 0.75s var(--ease);
 }
 

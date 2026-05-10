@@ -3,6 +3,14 @@
     if (!body || !body.classList.contains('site-body')) return;
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const REVEAL_THRESHOLD = 0.14;
+    const REVEAL_MARGIN = '0px 0px -8% 0px';
+    const PARTICLE_COUNT = 38;
+    const MAX_CONNECTION_DISTANCE = 165;
+    const rootStyles = window.getComputedStyle(document.documentElement);
+    const COLOR_BLUE = rootStyles.getPropertyValue('--blue').trim() || '#1098f7';
+    const COLOR_PURPLE_RGB = '168,130,255';
+    const COLOR_RED_RGB = '227,86,84';
 
     const ensureLayers = () => {
         if (!document.getElementById('constellation')) {
@@ -40,7 +48,7 @@
                     }
                 });
             },
-            { threshold: 0.14, rootMargin: '0px 0px -8% 0px' }
+            { threshold: REVEAL_THRESHOLD, rootMargin: REVEAL_MARGIN }
         );
 
         targets.forEach((el) => observer.observe(el));
@@ -56,8 +64,6 @@
 
         let width = 0;
         let height = 0;
-        const particleCount = 38;
-        const maxDistance = 165;
         const mouse = { x: null, y: null };
         const particles = [];
 
@@ -75,7 +81,7 @@
 
         const seedParticles = () => {
             particles.length = 0;
-            for (let i = 0; i < particleCount; i += 1) {
+            for (let i = 0; i < PARTICLE_COUNT; i += 1) {
                 particles.push({
                     x: random(0, width),
                     y: random(0, height),
@@ -98,7 +104,7 @@
                 if (a.y < 0 || a.y > height) a.vy *= -1;
 
                 ctx.beginPath();
-                ctx.fillStyle = 'rgba(16, 152, 247, 0.45)';
+                ctx.fillStyle = `${COLOR_BLUE}73`;
                 ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
                 ctx.fill();
 
@@ -108,10 +114,10 @@
                     const dy = a.y - b.y;
                     const distance = Math.hypot(dx, dy);
 
-                    if (distance < maxDistance) {
-                        const alpha = (1 - distance / maxDistance) * 0.22;
+                    if (distance < MAX_CONNECTION_DISTANCE) {
+                        const alpha = (1 - distance / MAX_CONNECTION_DISTANCE) * 0.22;
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(168,130,255,${alpha})`;
+                        ctx.strokeStyle = `rgba(${COLOR_PURPLE_RGB},${alpha})`;
                         ctx.lineWidth = 1;
                         ctx.moveTo(a.x, a.y);
                         ctx.lineTo(b.x, b.y);
@@ -122,7 +128,7 @@
 
             if (mouse.x !== null && mouse.y !== null) {
                 ctx.beginPath();
-                ctx.fillStyle = 'rgba(227,86,84,0.28)';
+                ctx.fillStyle = `rgba(${COLOR_RED_RGB},0.28)`;
                 ctx.arc(mouse.x, mouse.y, 3, 0, Math.PI * 2);
                 ctx.fill();
             }
