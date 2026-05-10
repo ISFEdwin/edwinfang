@@ -175,6 +175,12 @@ main {
     border-color: var(--border);
 }
 
+.nav-links a[aria-current='page'] {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-h);
+}
+
 .hero {
     padding: 120px 0;
 }
