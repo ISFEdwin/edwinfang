@@ -404,6 +404,11 @@ h3 {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
+.blog-list {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+}
+
 .photo-grid {
     grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
 }
