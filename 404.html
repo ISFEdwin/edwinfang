@@ -1,41 +1,21 @@
 <!DOCTYPE html>
-<html id="htmlcode">
-  <head>
-    <meta name ="viewport" content="initial-scale=1, width=device-width">
-    <link rel="stylesheet" href="styles.css">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="images/logo.png">
-    <title>404</title>
-  </head>
-    <script>
-    function deleteall(x) {
-        document.getElementById(x).innerHTML = "";
-    }
-    function NewTab() {
-        window.open(
-        "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley", "_blank");
-    }
-    function both(){
-        deleteall("htmlcode");
-        NewTab();
-    }
-  </script>
-  <header>
-    <div class="sidebar">
-      <nav>
-        <b>
-        <a class="navitem" href="index.html">Home</a> |
-        <a class="navitem" href="aboutme.html">About me</a> |
-        <a class="navitem" href="accomplishments.html">Accomplishments</a> |
-        <a class="navitem" href="triviaaboutme.html">Trivia</a>| 
-        <a class="navitem" href="album.html">Album</a>
-        </b>
-      </nav>
-    </div>
-  </header>
-  <body>
-    <div class="title-3">
-        <h1 class="gradient-text-404">404</h1>
-    </div>
-    <button class="button-19" role="button" onclick="both()">Home</button>
-  </body>
+    <link rel="stylesheet" href="styles.css">
+    <title>404 | Page Not Found</title>
+</head>
+<body class="site-body">
+    <div class="geometric-accent" aria-hidden="true"></div>
+    <main class="simple-center">
+        <div>
+            <p class="eyebrow">404</p>
+            <h1>Page not found</h1>
+            <p>The page you requested does not exist or may have moved.</p>
+            <a class="btn btn-primary" href="index.html">Back to Home</a>
+        </div>
+    </main>
+</body>
 </html>

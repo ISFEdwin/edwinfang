@@ -1,62 +1,130 @@
 <!DOCTYPE html>
-<!-- Inspired by https://codepen.io/bradtraversy/pen/BaoWWjb and https://www.youtube.com/watch?v=Gx_7GQtSdpc and https://getcssscan.com/css-buttons-examples, music from internet archive-->
 <html lang="en">
-    <head>
-        <meta name ="viewport" content="initial-scale=1, width=device-width">
-        <link href="styles.css" rel="stylesheet">
-        <link rel="icon" type="image/x-icon" href="images/logo.png">
-        <title>Edwin</title>
-    </head>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            let audio = document.getElementById('audio');
-            audio.currentTime = 20;
-            let musicplayer = document.getElementById("playmusic");
-            musicplayer.addEventListener("click",function(){
-                videomusic();
-                if(audio.paused===true){
-                    musicplayer.innerText="BGM: off";
-                }
-                else{
-                    musicplayer.innerText="BGM: on"
-                }
-            });
-            let redirector = document.getElementById("redirect");
-            redirector.addEventListener("click",function(){
-                location.href = "aboutme.html";
-            });
-        });
-        
-        function videomusic()
-        {
-            let audio = document.getElementById('audio');
-            if(audio.paused===true){
-                audio.play();
-            }
-            else{
-                audio.pause();
-                audio.innerText="Enable Background Music";
-            }
-        }
-        
-    </script>
-    <body class="index">
-        <div id="soundtrack">
-            <audio loop autoplay volume = 0.5 id='audio' ><source src='music/Cornfield Chase.mp3' type='audio/mpeg'>Your browser does not support the audio element.</audio>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Edwin's personal website: computer science, projects, and photography.">
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <title>Edwin | Personal Website</title>
+</head>
+<body class="site-body">
+    <div class="geometric-accent" aria-hidden="true"></div>
+
+    <header class="navbar">
+        <div class="container">
+            <a class="brand" href="index.html">Edwin</a>
+            <nav class="nav-links" aria-label="Primary">
+                <a href="index.html">Home</a>
+                <a href="#skills">Skills</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="photography.html">Photography</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
-        <div class="video-background">
-            <div class="video-foreground">
-                <iframe id="videoitself" src="https://www.youtube.com/embed/xTvvQ65jWVs?si=rLNxdyV5Dd75SkdD&autoplay=1&controls=0&fs=0&loop=1&rel=0&showinfo=0&disablekb=1&start=53&end=174&mute=1" frameborder="0" allowfullscreen ></iframe>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-layout">
+                <div class="hero-portrait">
+                    <img src="images/coolphoto.jpg" alt="Professional portrait of Edwin with a confident and approachable expression">
+                </div>
+                <div>
+                    <p class="eyebrow">Computer Science Student & Builder</p>
+                    <h1>Designing thoughtful digital experiences with clean code and clear communication.</h1>
+                    <p class="lead">
+                        I'm Edwin, a computer science student focused on practical software projects, collaborative problem solving,
+                        and continuous learning. I enjoy building products that are useful, reliable, and easy to use.
+                        Outside coding, I am deeply interested in photography and visual storytelling.
+                    </p>
+                    <div class="cta-group">
+                        <a class="btn btn-primary" href="photography.html">View Photography</a>
+                        <a class="btn btn-secondary" href="accomplishments.html">See Accomplishments</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="skills">
+            <div class="container">
+                <h2>Services & Skills</h2>
+                <p class="section-intro">A focused mix of technical capability and product-minded execution.</p>
+                <div class="card-grid">
+                    <article class="card">
+                        <h3>Web Development</h3>
+                        <p>Building responsive, accessible websites with modern HTML, CSS, and JavaScript.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Python & Fundamentals</h3>
+                        <p>Applying strong computer science foundations to solve real-world programming challenges.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Game & Interactive Projects</h3>
+                        <p>Experience building complete projects with gameplay systems, UI, and iterative debugging.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Problem Solving</h3>
+                        <p>Structured approach to debugging, optimization, and translating ideas into practical solutions.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Collaboration</h3>
+                        <p>Comfortable working in teams, documenting progress, and communicating with clarity.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Visual Storytelling</h3>
+                        <p>Photography-driven perspective that supports thoughtful composition and communication.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="testimonials">
+            <div class="container">
+                <h2>Testimonials</h2>
+                <p class="section-intro">Feedback from people I have collaborated with in academic and project settings.</p>
+                <div class="testimonial-grid">
+                    <article class="testimonial">
+                        <img src="images/IMG_0182.jpeg" alt="Client portrait">
+                        <div>
+                            <p>“Edwin consistently brings calm, focused energy and delivers high-quality work with strong ownership.”</p>
+                            <span>— Project Teammate</span>
+                        </div>
+                    </article>
+                    <article class="testimonial">
+                        <img src="images/IMG_0165.jpeg" alt="Client portrait">
+                        <div>
+                            <p>“Reliable and thoughtful. He communicates clearly and keeps improving every iteration.”</p>
+                            <span>— Course Collaborator</span>
+                        </div>
+                    </article>
+                    <article class="testimonial">
+                        <img src="images/IMG_0003.jpeg" alt="Client portrait">
+                        <div>
+                            <p>“Professional, creative, and detail-oriented — especially strong at turning ideas into concrete outcomes.”</p>
+                            <span>— Peer Reviewer</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="contact">
+        <div class="container footer-main">
+            <p>Let’s connect and create something meaningful. © 2026 Edwin.</p>
+            <div class="social-links" aria-label="Social media">
+                <a href="https://github.com/ISFEdwin" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3-.3 6.2-1.5 6.2-6.8a5.3 5.3 0 0 0-1.4-3.7 4.9 4.9 0 0 0-.1-3.7s-1.2-.4-3.9 1.4a13.4 13.4 0 0 0-7 0C6.2.9 5 1.3 5 1.3a4.9 4.9 0 0 0-.1 3.7 5.3 5.3 0 0 0-1.4 3.7c0 5.3 3.2 6.5 6.2 6.8a3.4 3.4 0 0 0-.9 2.6V22"/></svg>
+                </a>
+                <a href="mailto:edwin@example.com" aria-label="Email">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>
+                </a>
+                <a href="aboutme.html" aria-label="About page">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20a8 8 0 0 1 16 0"/></svg>
+                </a>
             </div>
         </div>
-        <div id="vidtop-content">
-            <div class="vid-info">
-                <h1><strong>Welcome, Netizen</strong></h1>
-                <p>to my landing page.</p>
-                <button class="button-85" id="redirect"><strong>About me</strong></button> <!--Using https://getcssscan.com/css-buttons-examples-->
-                <button class ="bgmbutton" id="playmusic" >BGM: off</button>
-            </div>
-        </div>
-        
-    </body>
+    </footer>
+</body>
 </html>

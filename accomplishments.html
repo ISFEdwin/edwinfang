@@ -1,136 +1,56 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta name ="viewport" content="initial-scale=1, width=device-width">
-    <link rel="stylesheet" href="styles.css">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Accomplishments and projects by Edwin.">
     <link rel="icon" type="image/x-icon" href="images/logo.png">
-    <title>Accomplishments</title>
-  </head>
-  <header>
-    <div class="sidebar">
-      <nav>
-        <b>
-        <a class="navitem" href="index.html">Home</a> |
-        <a class="navitem" href="aboutme.html">About me</a> |
-        <a class="navitem" href="accomplishments.html">Accomplishments</a> |
-        <a class="navitem" href="triviaaboutme.html">Trivia</a> | 
-        <a class="navitem" href="album.html">Album</a>
-        </b>
-      </nav>
-    </div>
-  </header>
-    
-  <body>
-    <div class="page2">
-      <section>
-        <div class="title-2">
-          <h1 class="gradient-text-2">Accomplishments</h1>
+    <link rel="stylesheet" href="styles.css">
+    <title>Edwin | Accomplishments</title>
+</head>
+<body class="site-body">
+    <div class="geometric-accent" aria-hidden="true"></div>
+
+    <header class="navbar">
+        <div class="container">
+            <a class="brand" href="index.html">Edwin</a>
+            <nav class="nav-links" aria-label="Primary">
+                <a href="index.html">Home</a>
+                <a href="aboutme.html">About</a>
+                <a href="photography.html">Photography</a>
+            </nav>
         </div>
-      </section>
-      <div class="glossary">
-        <h1>Glossary</h1>
-        <p>1. <a class="glink" href="#pp"> Personal Project</a></p>
-        <p>2. <a class="glink" href="#ppsnippets"> Snippets</a></p>
-        <p>3. <a class="glink" href="#scs"> Shuyuan Computer Science</a></p>
-      </div> 
-      <div class="personal-project" id="pp">
-        <div class="pp1">
-          <h1>Personal Project</h1>
-          <p>This is one of the most impactful coding adventure I went on. I started with virtually no knowledge about pygame and ended up with a fantastic game!</p>
-          <h3>Quick Explanation:</h3>
-          <p>My final product was a game combining elements of a platformer and a shooter game. This game has 6 levels, dialogues that sum up to over one thousand words, UI, and most of the components you expect from a game. Since it is inspired by platformers such as Mario and shooter games, it includes mechanics such as shooting, healing, collecting coins and a timer system to stop you from wandering around the level. A permanent death system occurs when you lose all your health, but it still allows you to keep all your coins. If you fall into the void in a level, you return to the level selecting the menu at the cost of 10 coins.</p>
-          <a class="playhere" href="https://12029.itch.io/the-tales-of-churd" target="_blank">Play here!</a>
-          <p>Password: the-tales-of-churd</p>
-        </div>
-        <div class="media">
-          <iframe class="pvid" width="700" height="315" src="https://www.youtube-nocookie.com/embed/_5dLvnOulxs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          <div class="images-media">
-            <img src="images/pp1.png" alt="personal project image">
-            <img src="images/pp2.png" alt="personal project image">
-          </div>
-        </div>
-      </div>
-      <div class="personal-project-2" id="ppsnippets">
-        <div class="pp1">
-          <h1 class="snippettext">Some Snippets</h1>
-        </div>
-        <div class="images-descs-flex">
-          <div class="images-descs">
-            <div class="image-desc">
-              <img src="images/ppprogress.png" alt="personal project progress">
-              <h2><b>An example of my process journal entry</b></h2>
-              <p>
-                These are some examples of my code and me testing my game.
-                <br>
-                This process journal entry is close to the final project deadline so the game is basically complete.
-                <br>
-                I edited the ui, the main file, how the level works and how the saving system works. 
-              </p>
+    </header>
+
+    <main class="section">
+        <div class="container">
+            <p class="eyebrow">Professional Highlights</p>
+            <h1>Accomplishments</h1>
+            <p class="section-intro">Selected projects and milestones that represent my technical growth.</p>
+
+            <div class="card-grid">
+                <article class="card">
+                    <h3>Game Development Personal Project</h3>
+                    <p>Built a complete game with multiple levels, UI systems, and gameplay mechanics from concept to final delivery.</p>
+                </article>
+                <article class="card">
+                    <h3>Process Documentation & Iteration</h3>
+                    <p>Maintained journals and debugging records to track progress, decisions, and improvements across development stages.</p>
+                </article>
+                <article class="card">
+                    <h3>Web Development Projects</h3>
+                    <p>Designed and implemented web projects using modern front-end structure, responsive layouts, and polished visual presentation.</p>
+                </article>
+                <article class="card">
+                    <h3>Collaborative Problem-Solving</h3>
+                    <p>Contributed to team projects by aligning on goals, sharing ownership, and delivering reliable outcomes.</p>
+                </article>
             </div>
-            <div class="image-desc">
-              <img src="images/ppprogress2.png" alt="personal project progress2">
-              <h2><b>Example of me debugging my personal project</b></h2>
-              <p>
-                My coding journey wasn't all that smooth. I encountered a range of bugs and unfamiliar situations
-                <br>
-                which I dealt with as best as I can. Here is an example of me adding and adjusting a new feature
-                <br>
-                (a timer) and I tried my best to fix it, which took quite some time. This example was actually
-                <br>
-                quite a simple bug and everything went quite smoothly. 
-              </p>
+
+            <div class="section">
+                <a class="btn btn-primary" href="https://12029.itch.io/the-tales-of-churd" target="_blank" rel="noopener noreferrer">View Featured Project</a>
             </div>
-          </div>
-          <div class="images-descs-2">
-            <div class="image-desc">
-              <img src="images/ppprogress3.png" alt="personal project progress3">
-              <h2>Summary of the final adjustments</h2>
-              <p>
-                In this example of my personal project process journal exntry, I presented the different
-                <br>
-                things I accomplished in a section of time. 
-              </p>
-            </div>
-            <div class="image-desc">
-              <img src="images/itch.png" alt="personal project itch.io page">
-              <h2>Itch.io page for my Personal Project</h2>
-              <p>
-                Here is the itch.io page that I created for my personal project. It was my first experience
-                <br>
-                creating a page for my coding projects and it was quite interesting to use. You could access
-                <br>
-                this website through the links in my personal project (<a href="#pp">press here</a>). 
-              </p>
-            </div>
-          </div>
         </div>
-      </div>
-      <div class="shuyuancs" id="scs">
-        <div class="pp1">
-          <h1 class="scs-text">Shuyuan Computer Science</h1>
-        </div>
-        <div class="project">
-          <a href="index.html" target="_blank"><img src="images/website.png" alt="my website!"></a>
-          <div class="projecttext">
-            <h1 class="scs">This website!</h1>
-            <p>This is one of the many project I created in my Shuyuan Computer science course! 
-              <br>
-              It took a lot of effort and was quite fun to create. I learnt a lot of new skills
-              <br>
-              and elements of css and html, such as the background of the page. 
-            </p>
-          </div>
-        </div>
-        <div class="project">
-          <a href="https://drive.google.com/file/d/1YtcuIp3f5Zfel5qkIcSgcVwbAUXTiCy2/view?usp=sharing" target="_blank"><img src="images/cryptography.png" alt="first clue of the puzzle"></a>
-          <div class="projecttext">
-            <h1 class="scs">Crpytography Puzzle</h1>
-            <p>This was a fun project, me and ns created an interesting puzzle that leads you to a special gift!</p>
-            <p>If you want to "enjoy" it yourself, you could find it <a class= playhere href="https://drive.google.com/file/d/1YtcuIp3f5Zfel5qkIcSgcVwbAUXTiCy2/view?usp=sharing" target="_blank">here!</a></p>
-            <p>(The image is the first clue of the puzzle)</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
+    </main>
+</body>
 </html>
