@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Edwin's personal website: computer science, projects, and photography.">
+    <meta name="description" content="Edwin's personal website: CV snapshot, projects, photography, and blog.">
     <link rel="icon" type="image/x-icon" href="images/logo.png">
     <link rel="stylesheet" href="styles.css">
     <title>Edwin | Personal Website</title>
@@ -16,9 +16,9 @@
             <a class="brand" href="index.html">Edwin</a>
             <nav class="nav-links" aria-label="Primary">
                 <a href="index.html">Home</a>
-                <a href="#skills">Skills</a>
-                <a href="#testimonials">Testimonials</a>
+                <a href="#cv">CV</a>
                 <a href="photography.html">Photography</a>
+                <a href="blog.html">Blog</a>
                 <a href="#contact">Contact</a>
             </nav>
         </div>
@@ -31,24 +31,47 @@
                     <img src="images/coolphoto.jpg" alt="Professional portrait of Edwin with a confident and approachable expression">
                 </div>
                 <div>
-                    <p class="eyebrow">Computer Science Student & Builder</p>
-                    <h1>Designing thoughtful digital experiences with clean code and clear communication.</h1>
+                    <p class="eyebrow">Computer Science Student</p>
+                    <h1>Building thoughtful products while growing through real-world software projects.</h1>
                     <p class="lead">
-                        I'm Edwin, a computer science student focused on practical software projects, collaborative problem solving,
-                        and continuous learning. I enjoy building products that are useful, reliable, and easy to use.
-                        Outside coding, I am deeply interested in photography and visual storytelling.
+                        Hi, I’m Yi Zhou (Edwin) Fang. I focus on practical software development, clear communication,
+                        and continuous learning. I enjoy turning ideas into polished outcomes, from web experiences to
+                        project-based technical work.
                     </p>
                     <div class="cta-group">
-                        <a class="btn btn-primary" href="photography.html">View Photography</a>
-                        <a class="btn btn-secondary" href="accomplishments.html">See Accomplishments</a>
+                        <a class="btn btn-primary" href="mailto:fyzedwin@gmail.com">Send Email</a>
+                        <a class="btn btn-secondary" href="https://www.linkedin.com/in/yi-zhou-edwin-fang-989780273/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a class="btn btn-secondary" href="photography.html">Photography</a>
+                        <a class="btn btn-secondary" href="blog.html">Read Blog</a>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="cv">
+            <div class="container">
+                <h2>CV Snapshot</h2>
+                <p class="section-intro">Quick highlights covering education, current status, and strengths.</p>
+                <div class="card-grid">
+                    <article class="card">
+                        <h3>School & Education</h3>
+                        <p>Currently pursuing Computer Science with a strong focus on software engineering fundamentals and practical implementation.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Current Working Status</h3>
+                        <p>Actively studying and building portfolio projects, with ongoing work in web development, Python, and collaborative project delivery.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Professional Direction</h3>
+                        <p>Focused on growth through meaningful technical challenges and teamwork-oriented software development opportunities.</p>
+                    </article>
                 </div>
             </div>
         </section>
 
         <section class="section" id="skills">
             <div class="container">
-                <h2>Services & Skills</h2>
+                <h2>Skills</h2>
                 <p class="section-intro">A focused mix of technical capability and product-minded execution.</p>
                 <div class="card-grid">
                     <article class="card">
@@ -79,31 +102,28 @@
             </div>
         </section>
 
-        <section class="section" id="testimonials">
+        <section class="section" id="blog-preview">
             <div class="container">
-                <h2>Testimonials</h2>
-                <p class="section-intro">Feedback from people I have collaborated with in academic and project settings.</p>
-                <div class="testimonial-grid">
-                    <article class="testimonial">
-                        <img src="images/IMG_0182.jpeg" alt="Client portrait">
-                        <div>
-                            <p>“Edwin consistently brings calm, focused energy and delivers high-quality work with strong ownership.”</p>
-                            <span>— Project Teammate</span>
-                        </div>
+                <h2>Blog</h2>
+                <p class="section-intro">Notes on projects, lessons learned, and personal reflections.</p>
+                <div class="blog-grid">
+                    <article class="blog-card">
+                        <p class="blog-meta">Template</p>
+                        <h3>How I Structure a Project Week</h3>
+                        <p>An example post format you can reuse for future entries.</p>
+                        <a class="btn btn-secondary" href="blog-template.html">Open Template</a>
                     </article>
-                    <article class="testimonial">
-                        <img src="images/IMG_0165.jpeg" alt="Client portrait">
-                        <div>
-                            <p>“Reliable and thoughtful. He communicates clearly and keeps improving every iteration.”</p>
-                            <span>— Course Collaborator</span>
-                        </div>
+                    <article class="blog-card">
+                        <p class="blog-meta">Latest</p>
+                        <h3>Building with Clear Iteration</h3>
+                        <p>A short reflection on planning, executing, and improving each version of a project.</p>
+                        <a class="btn btn-secondary" href="blog.html">View Blog</a>
                     </article>
-                    <article class="testimonial">
-                        <img src="images/IMG_0003.jpeg" alt="Client portrait">
-                        <div>
-                            <p>“Professional, creative, and detail-oriented — especially strong at turning ideas into concrete outcomes.”</p>
-                            <span>— Peer Reviewer</span>
-                        </div>
+                    <article class="blog-card">
+                        <p class="blog-meta">Creative</p>
+                        <h3>What Photography Teaches Coding</h3>
+                        <p>How composition, clarity, and pacing in photos influence product and code decisions.</p>
+                        <a class="btn btn-secondary" href="blog.html">View Blog</a>
                     </article>
                 </div>
             </div>
@@ -117,11 +137,11 @@
                 <a href="https://github.com/ISFEdwin" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3-.3 6.2-1.5 6.2-6.8a5.3 5.3 0 0 0-1.4-3.7 4.9 4.9 0 0 0-.1-3.7s-1.2-.4-3.9 1.4a13.4 13.4 0 0 0-7 0C6.2.9 5 1.3 5 1.3a4.9 4.9 0 0 0-.1 3.7 5.3 5.3 0 0 0-1.4 3.7c0 5.3 3.2 6.5 6.2 6.8a3.4 3.4 0 0 0-.9 2.6V22"/></svg>
                 </a>
-                <a href="mailto:edwin@example.com" aria-label="Email">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>
+                <a href="https://www.linkedin.com/in/yi-zhou-edwin-fang-989780273/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                 </a>
-                <a href="aboutme.html" aria-label="About page">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20a8 8 0 0 1 16 0"/></svg>
+                <a href="mailto:fyzedwin@gmail.com" aria-label="Email">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>
                 </a>
             </div>
         </div>
