@@ -27,6 +27,7 @@
     --hero-name-min: 68px;
     --hero-name-max: 120px;
     --hero-line-offset: 120%;
+    --pulse-duration: 2s;
     --font: 'Inter', sans-serif;
     --font-display: 'Space Grotesk', sans-serif;
     --font-serif: 'Instrument Serif', serif;
@@ -210,7 +211,7 @@ main {
     height: 8px;
     border-radius: 999px;
     background: var(--red);
-    animation: pulse-dot 2s infinite var(--ease);
+    animation: pulse-dot var(--pulse-duration) infinite var(--ease);
 }
 
 .eyebrow,

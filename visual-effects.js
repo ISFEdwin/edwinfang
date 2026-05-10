@@ -7,8 +7,11 @@
     const REVEAL_MARGIN = '0px 0px -8% 0px';
     const PARTICLE_COUNT = 38;
     const MAX_CONNECTION_DISTANCE = 165;
-    const rootStyles = window.getComputedStyle(document.documentElement);
-    const COLOR_BLUE = rootStyles.getPropertyValue('--blue').trim() || '#1098f7';
+    const PARTICLE_ALPHA = 0.45;
+    const MAX_LINE_ALPHA = 0.22;
+    const CURSOR_ALPHA = 0.28;
+    const CURSOR_RADIUS = 3;
+    const COLOR_BLUE_RGB = '16,152,247';
     const COLOR_PURPLE_RGB = '168,130,255';
     const COLOR_RED_RGB = '227,86,84';
 
@@ -104,7 +107,7 @@
                 if (a.y < 0 || a.y > height) a.vy *= -1;
 
                 ctx.beginPath();
-                ctx.fillStyle = `${COLOR_BLUE}73`;
+                ctx.fillStyle = `rgba(${COLOR_BLUE_RGB},${PARTICLE_ALPHA})`;
                 ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
                 ctx.fill();
 
@@ -115,7 +118,7 @@
                     const distance = Math.hypot(dx, dy);
 
                     if (distance < MAX_CONNECTION_DISTANCE) {
-                        const alpha = (1 - distance / MAX_CONNECTION_DISTANCE) * 0.22;
+                        const alpha = (1 - distance / MAX_CONNECTION_DISTANCE) * MAX_LINE_ALPHA;
                         ctx.beginPath();
                         ctx.strokeStyle = `rgba(${COLOR_PURPLE_RGB},${alpha})`;
                         ctx.lineWidth = 1;
@@ -128,8 +131,8 @@
 
             if (mouse.x !== null && mouse.y !== null) {
                 ctx.beginPath();
-                ctx.fillStyle = `rgba(${COLOR_RED_RGB},0.28)`;
-                ctx.arc(mouse.x, mouse.y, 3, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${COLOR_RED_RGB},${CURSOR_ALPHA})`;
+                ctx.arc(mouse.x, mouse.y, CURSOR_RADIUS, 0, Math.PI * 2);
                 ctx.fill();
             }
 
