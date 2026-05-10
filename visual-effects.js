@@ -11,6 +11,11 @@
     const MAX_LINE_ALPHA = 0.22;
     const CURSOR_ALPHA = 0.28;
     const CURSOR_RADIUS = 3;
+    const SITE_READY_DELAY = 120;
+    const MIN_PARTICLE_VELOCITY = -0.25;
+    const MAX_PARTICLE_VELOCITY = 0.25;
+    const MIN_PARTICLE_RADIUS = 1.2;
+    const MAX_PARTICLE_RADIUS = 2.4;
     const COLOR_BLUE_RGB = '16,152,247';
     const COLOR_PURPLE_RGB = '168,130,255';
     const COLOR_RED_RGB = '227,86,84';
@@ -55,7 +60,7 @@
         );
 
         targets.forEach((el) => observer.observe(el));
-        window.setTimeout(() => body.classList.add('site-ready'), 120);
+        window.setTimeout(() => body.classList.add('site-ready'), SITE_READY_DELAY);
     };
 
     const initConstellation = () => {
@@ -88,9 +93,9 @@
                 particles.push({
                     x: random(0, width),
                     y: random(0, height),
-                    vx: random(-0.25, 0.25),
-                    vy: random(-0.25, 0.25),
-                    r: random(1.2, 2.4)
+                    vx: random(MIN_PARTICLE_VELOCITY, MAX_PARTICLE_VELOCITY),
+                    vy: random(MIN_PARTICLE_VELOCITY, MAX_PARTICLE_VELOCITY),
+                    r: random(MIN_PARTICLE_RADIUS, MAX_PARTICLE_RADIUS)
                 });
             }
         };
