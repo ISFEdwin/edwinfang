@@ -1,6 +1,7 @@
 (() => {
     const body = document.body;
     if (!body || !body.classList.contains('site-body')) return;
+    body.classList.add('site-loading');
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const REVEAL_THRESHOLD = 0.14;
@@ -37,6 +38,13 @@
         }
     };
 
+    const initLoadIn = () => {
+        const loadTargets = document.querySelectorAll('.load-in');
+        loadTargets.forEach((el, index) => {
+            el.style.setProperty('--load-delay', `${index * 70}ms`);
+        });
+    };
+
     const initReveal = () => {
         const targets = document.querySelectorAll('section, .card, .blog-card, .photo-card, .blog-article');
         targets.forEach((el) => el.classList.add('reveal'));
@@ -44,6 +52,7 @@
         if (reducedMotion) {
             targets.forEach((el) => el.classList.add('is-visible'));
             body.classList.add('site-ready');
+            body.classList.remove('site-loading');
             return;
         }
 
@@ -60,7 +69,10 @@
         );
 
         targets.forEach((el) => observer.observe(el));
-        window.setTimeout(() => body.classList.add('site-ready'), SITE_READY_DELAY);
+        window.setTimeout(() => {
+            body.classList.add('site-ready');
+            window.requestAnimationFrame(() => body.classList.remove('site-loading'));
+        }, SITE_READY_DELAY);
     };
 
     const initConstellation = () => {
@@ -160,6 +172,7 @@
     };
 
     ensureLayers();
+    initLoadIn();
     initReveal();
     initConstellation();
 })();
