@@ -52,24 +52,39 @@
   },
   "experience": {
     "title": "经历",
-    "subtitle": "目前在做什么",
-    "current_title": "现在",
-    "current_role": "资产管理实习生",
-    "current_company": "B2B 部门",
-    "current_desc": "探索 AI 如何优化资产管理工作流程，协助 B2B 端客户解决方案。",
-    "past_title": "之前",
-    "card1": {
-      "title": "实战项目",
-      "desc": "开发真正有人用的网页应用、工具和 side projects。"
-    },
-    "card2": {
-      "title": "团队合作",
-      "desc": "良好沟通、共同参与，把事情做好。"
-    },
-    "card3": {
-      "title": "迭代与交付",
-      "desc": "调试、测试、优化——每次交付都更好。"
-    }
+    "subtitle": "做过的事。",
+    "items": [
+      {
+        "date": "06/26 – 08/26",
+        "role": "资产管理实习生",
+        "org": "BOC International · B2B",
+        "desc": "探索 AI 如何协助资产管理工作流程。"
+      },
+      {
+        "date": "02/26 – 02/27",
+        "role": "对外副主席",
+        "org": "计算机科学协会 (CDSS)，港大",
+        "desc": "举办活动并与 10+ 家科技及金融公司建立合作。"
+      },
+      {
+        "date": "04/26 – 04/27",
+        "role": "对外秘书",
+        "org": "全球工程与商业协会，港大",
+        "desc": "协助对外关系与学生活动筹划。"
+      },
+      {
+        "date": "01/26 – 01/27",
+        "role": "名誉司库",
+        "org": "Hornell Hall 学生会，港大",
+        "desc": "管理宿舍预算与 160+ 位宿生的活动开支。"
+      },
+      {
+        "date": "07/25 – 08/25",
+        "role": "研究助理",
+        "org": "Galaxy VR",
+        "desc": "开发大型 4D VR 体验设施的后端控制软件。"
+      }
+    ]
   },
   "cv": {
     "title": "简历",

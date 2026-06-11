@@ -52,24 +52,39 @@
   },
   "experience": {
     "title": "Experience",
-    "subtitle": "What I've been up to",
-    "current_title": "Now",
-    "current_role": "Asset Management Intern",
-    "current_company": "B2B Department",
-    "current_desc": "Exploring how AI can streamline asset management workflows and support B2B client solutions.",
-    "past_title": "Before",
-    "card1": {
-      "title": "Building Real Things",
-      "desc": "Shipping web apps, tools, and side projects that people actually use."
-    },
-    "card2": {
-      "title": "Team Work",
-      "desc": "Good communication, shared ownership, getting stuff done."
-    },
-    "card3": {
-      "title": "Iterate & Ship",
-      "desc": "Debug, test, refine — ship better each time."
-    }
+    "subtitle": "Things I've done.",
+    "items": [
+      {
+        "date": "06/26 – 08/26",
+        "role": "Asset Management Intern",
+        "org": "BOC International · B2B",
+        "desc": "Exploring how AI can help with asset management workflows."
+      },
+      {
+        "date": "02/26 – 02/27",
+        "role": "External Vice-Chairperson",
+        "org": "Computer Science Association (CDSS), HKU",
+        "desc": "Run events and partnerships with 10+ tech and finance firms."
+      },
+      {
+        "date": "04/26 – 04/27",
+        "role": "External Secretary",
+        "org": "Global Engineering and Business Society, HKU",
+        "desc": "Support external relations and help organize student activities."
+      },
+      {
+        "date": "01/26 – 01/27",
+        "role": "Honorary Treasurer",
+        "org": "Hornell Hall Students' Association, HKU",
+        "desc": "Manage the hall budget and track expenses for 160+ members."
+      },
+      {
+        "date": "07/25 – 08/25",
+        "role": "Research Assistant",
+        "org": "Galaxy VR",
+        "desc": "Built backend control software for a 4D VR motion simulator."
+      }
+    ]
   },
   "cv": {
     "title": "CV",
