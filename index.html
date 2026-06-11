@@ -5,29 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Edwin's personal website: CV snapshot, projects, photography, and blog." data-i18n="meta.description">
     <meta name="keywords" content="Edwin, HKU, Computer Engineering, Finance, Personal Website, Photography, Blog" data-i18n="meta.keywords">
+    <meta name="author" content="Edwin Fang">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Performance: Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://ipapi.co">
+    <link rel="dns-prefetch" href="https://formspree.io">
+    
+    <!-- Performance: Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="i18n.js" as="script">
+    <link rel="preload" href="images/logo.png" as="image">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://isfedwin.github.io/">
     <meta property="og:title" content="Edwin - Builder & Connector">
-    <meta property="og:description" content="CS + Finance undergraduate at HKU. Photograpy, projects, and blog." data-i18n="meta.description">
+    <meta property="og:description" content="CS + Finance undergraduate at HKU. Photography, projects, and blog." data-i18n="meta.description">
     <meta property="og:image" content="https://isfedwin.github.io/images/logo.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="zh_Hant">
     <meta property="og:locale:alternate" content="zh_Hans">
+    <meta property="og:site_name" content="Edwin Fang">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Edwin - Builder & Connector">
     <meta name="twitter:description" content="CE + Finance undergraduate at HKU. Photography, projects, and blog." data-i18n="meta.description">
     <meta name="twitter:image" content="https://isfedwin.github.io/images/logo.png">
+    <meta name="twitter:creator" content="@edwinfang">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://isfedwin.github.io/">
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Person",
-        "name": "Edwin Fang",
+        "name": "Edwin Fang (方一舟)",
+        "givenName": "Edwin",
+        "familyName": "Fang",
         "url": "https://isfedwin.github.io/",
         "image": "https://isfedwin.github.io/images/logo.png",
         "sameAs": [
@@ -38,11 +60,19 @@
         "worksFor": {
             "@type": "Organization",
             "name": "University of Hong Kong - Global Engineering and Business Program"
-        }
+        },
+        "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "University of Hong Kong"
+        },
+        "knowsAbout": ["Computer Engineering", "Finance", "AI Workflows", "Photography"],
+        "description": "CS + Finance undergraduate at HKU, passionate about building and connecting."
     }
     </script>
     
     <link rel="icon" type="image/x-icon" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="styles.css">
     <script src="i18n.js"></script>
     <script src="terminal.js" defer></script>
@@ -55,19 +85,17 @@
     <header class="navbar">
         <div class="container">
             <a class="brand" href="index.html" data-i18n="nav.home">Edwin</a>
-            <div class="nav-actions">
+            <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-overlay">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-overlay" id="nav-overlay" aria-hidden="true">
                 <div class="lang-switcher" role="group" aria-label="Language selection">
                     <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
                     <button class="lang-btn" data-lang="zh-TW" aria-label="繁體中文">繁</button>
                     <button class="lang-btn" data-lang="zh-CN" aria-label="简体中文">简</button>
                 </div>
-                <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-overlay">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-            <div class="nav-overlay" id="nav-overlay" aria-hidden="true">
                 <nav class="nav-links" aria-label="Primary">
                     <a href="index.html" aria-current="page" data-i18n="nav.home">Home</a>
                     <a href="#about" data-i18n="nav.about">About</a>
@@ -75,7 +103,8 @@
                     <a href="#cv" data-i18n="nav.cv">CV</a>
                     <a href="#accomplishments" data-i18n="nav.accomplishments">Accomplishments</a>
                     <a href="photography.html" data-i18n="nav.photography">Photography</a>
-                    <a href="blog.html" data-i18n="nav.blog">Blog</a>
+                    <!-- Blog link temporarily hidden -->
+                    <!-- <a href="blog.html" data-i18n="nav.blog">Blog</a> -->
                     <a href="#contact" data-i18n="nav.contact">Get in Contact</a>
                 </nav>
             </div>
@@ -98,22 +127,21 @@
                         <span class="line"><span class="line-inner">Edwin</span></span>
                         <span class="line"><span class="line-inner">Fang</span></span>
                     </h1>
-                    <p class="hero-role load-in" data-i18n="hero.tag">Build · Ship · Learn</p>
+                    <p class="hero-role load-in">Build · Ship · Learn</p>
                     <p class="lead load-in" data-i18n="hero.description">
                         I build practical software with clarity and intent.
                         From product ideas to polished delivery, I focus on outcomes that matter.
                     </p>
                     <div class="cta-group load-in">
                         <a class="btn btn-primary" href="https://www.linkedin.com/in/yi-zhou-edwin-fang-989780273/" target="_blank" rel="noopener noreferrer" data-i18n="nav.linkedin">LinkedIn</a>
-                        <a class="btn btn-secondary" href="mailto:fyzedwin@gmail.com" data-i18n="contact.email">Send Email</a>
+                        <a class="btn btn-secondary" href="mailto:fyzedwin@gmail.com" data-i18n="contact.email.button">Send Email</a>
                         <a class="btn btn-secondary" href="photography.html" data-i18n="nav.photography">Photography</a>
-                        <a class="btn btn-secondary" href="blog.html" data-i18n="nav.blog">Read Blog</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section" id="about">
+        <section class="section reveal" id="about">
             <div class="container">
                 <h2 data-i18n="about.title">About Me</h2>
                 <p class="section-intro" data-i18n="about.subtitle">Get to know me better</p>
@@ -144,7 +172,7 @@
             </div>
         </section>
 
-        <section class="section" id="experience">
+        <section class="section reveal" id="experience">
             <div class="container">
                 <h2 data-i18n="experience.title">Experience</h2>
                 <p class="section-intro" data-i18n="experience.subtitle">Professional experiences and delivery-focused work.</p>
@@ -165,7 +193,7 @@
             </div>
         </section>
 
-        <section class="section" id="cv">
+        <section class="section reveal" id="cv">
             <div class="container">
                 <h2 data-i18n="cv.title">CV</h2>
                 <p class="section-intro" data-i18n="cv.subtitle">Quick snapshot of where I've been.</p>
@@ -186,7 +214,7 @@
             </div>
         </section>
 
-        <section class="section" id="skills">
+        <section class="section reveal" id="skills">
             <div class="container">
                 <h2 data-i18n="skills.title">Skills</h2>
                 <p class="section-intro" data-i18n="skills.subtitle">What I actually use to ship.</p>
@@ -219,7 +247,7 @@
             </div>
         </section>
 
-        <section class="section" id="accomplishments">
+        <section class="section reveal" id="accomplishments">
             <div class="container">
                 <h2 data-i18n="accomplishments.title">Accomplishments</h2>
                 <p class="section-intro" data-i18n="accomplishments.subtitle">Things I'm proud of.</p>
@@ -246,8 +274,9 @@
                 </div>
             </div>
         </section>
-
-        <section class="section" id="blog-preview">
+        
+        <!-- Blog section temporarily hidden -->
+        <!-- <section class="section" id="blog-preview">
             <div class="container">
                 <h2 data-i18n="blog.title">Blog</h2>
                 <p class="section-intro" data-i18n="blog.subtitle">Thoughts, builds, lessons.</p>
@@ -272,8 +301,8 @@
                     </article>
                 </div>
             </div>
-        </section>
-        <section class="section contact-section" id="contact">
+        </section> -->
+        <section class="section contact-section reveal" id="contact">
             <div class="container contact-layout">
                 <div class="contact-info">
                     <p class="eyebrow" data-i18n="contact.eyebrow">Get in Touch</p>
@@ -281,7 +310,7 @@
                     <p class="section-intro" data-i18n="contact.subtitle">Have a project idea, question, or just want to say hi? Drop me a message.</p>
                     
                     <div class="contact-details">
-                        <div class="contact-detail-item">
+                        <a href="mailto:fyzedwin@gmail.com" class="contact-detail-item" style="text-decoration: none; color: inherit;">
                             <div class="contact-detail-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
@@ -290,11 +319,11 @@
                             </div>
                             <div class="contact-detail-text">
                                 <h4 data-i18n="contact.email.label">Email</h4>
-                                <a href="mailto:fyzedwin@gmail.com">fyzedwin@gmail.com</a>
+                                <span>fyzedwin@gmail.com</span>
                             </div>
-                        </div>
+                        </a>
                         
-                        <div class="contact-detail-item">
+                        <a href="https://www.linkedin.com/in/yi-zhou-edwin-fang-989780273/" target="_blank" rel="noopener noreferrer" class="contact-detail-item" style="text-decoration: none; color: inherit;">
                             <div class="contact-detail-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
@@ -304,11 +333,11 @@
                             </div>
                             <div class="contact-detail-text">
                                 <h4 data-i18n="contact.linkedin.label">LinkedIn</h4>
-                                <a href="https://www.linkedin.com/in/yi-zhou-edwin-fang-989780273/" target="_blank" rel="noopener noreferrer">yi-zhou-edwin-fang</a>
+                                <span>yi-zhou-edwin-fang</span>
                             </div>
-                        </div>
+                        </a>
                         
-                        <div class="contact-detail-item">
+                        <a href="https://github.com/ISFEdwin" target="_blank" rel="noopener noreferrer" class="contact-detail-item" style="text-decoration: none; color: inherit;">
                             <div class="contact-detail-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3-.3 6.2-1.5 6.2-6.8a5.3 5.3 0 0 0-1.4-3.7 4.9 4.9 0 0 0-.1-3.7s-1.2-.4-3.9 1.4a13.4 13.4 0 0 0-7 0C6.2.9 5 1.3 5 1.3a4.9 4.9 0 0 0-.1 3.7 5.3 5.3 0 0 0-1.4 3.7c0 5.3 3.2 6.5 6.2 6.8a3.4 3.4 0 0 0-.9 2.6V22"/>
@@ -316,9 +345,9 @@
                             </div>
                             <div class="contact-detail-text">
                                 <h4 data-i18n="contact.github.label">GitHub</h4>
-                                <a href="https://github.com/ISFEdwin" target="_blank" rel="noopener noreferrer">@ISFEdwin</a>
+                                <span>@ISFEdwin</span>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 
@@ -427,20 +456,62 @@
             });
         }
     </script>
-</body>
-</html>
 
-<script>
-    // Register service worker for PWA
+    <script>
+    // Register service worker for PWA with update handling
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('./sw.js')
                 .then(registration => {
                     console.log('[PWA] Service Worker registered with scope:', registration.scope);
+                    
+                    // Check for updates
+                    registration.addEventListener('updatefound', () => {
+                        const newWorker = registration.installing;
+                        console.log('[PWA] New service worker found');
+                        
+                        newWorker.addEventListener('statechange', () => {
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                // New version available
+                                console.log('[PWA] New version available');
+                                showUpdateNotification();
+                            }
+                        });
+                    });
                 })
                 .catch(error => {
                     console.error('[PWA] Service Worker registration failed:', error);
                 });
+                
+            // Listen for messages from service worker
+            navigator.serviceWorker.addEventListener('message', event => {
+                if (event.data && event.data.type === 'SW_UPDATED') {
+                    console.log('[PWA] Service Worker updated to version:', event.data.version);
+                }
+            });
         });
     }
-</script>
+    
+    // Show update notification
+    function showUpdateNotification() {
+        const toast = document.createElement('div');
+        toast.className = 'update-toast';
+        toast.innerHTML = `
+            <span>New version available!</span>
+            <button onclick="refreshPage()">Update Now</button>
+        `;
+        document.body.appendChild(toast);
+        
+        setTimeout(() => toast.classList.add('show'), 100);
+    }
+    
+    // Refresh page to load new version
+    function refreshPage() {
+        if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+            navigator.serviceWorker.controller.postMessage({ type: 'SKIP_WAITING' });
+        }
+        window.location.reload();
+    }
+    </script>
+</body>
+</html>

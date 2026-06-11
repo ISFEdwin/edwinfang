@@ -4,8 +4,9 @@
     <meta name="description" content="Blog posts by Edwin on software projects and learning." data-i18n="meta.description">
     <meta name="keywords" content="Edwin, Blog, Software, Projects, Learning" data-i18n="meta.keywords">
     <link rel="icon" type="image/x-icon" href="images/logo.png">
-    
-    <!-- Open Graph / Facebook -->
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://isfedwin.github.io/blog.html">
     <meta property="og:title" content="Edwin | Blog" data-i18n="blog.title">
@@ -63,14 +64,15 @@
                     <a href="index.html#cv" data-i18n="nav.cv">CV</a>
                     <a href="index.html#accomplishments" data-i18n="nav.accomplishments">Accomplishments</a>
                     <a href="photography.html" data-i18n="nav.photography">Photography</a>
-                    <a href="blog.html" aria-current="page" data-i18n="nav.blog">Blog</a>
+                    <!-- Blog link temporarily hidden (current page) -->
+                    <!-- <a href="blog.html" aria-current="page" data-i18n="nav.blog">Blog</a> -->
                     <a href="#contact" data-i18n="nav.contact">Get in Contact</a>
                 </nav>
             </div>
         </div>
     </header>
 
-    <main class="section">
+    <main class="section reveal">
         <div class="container">
             <p class="eyebrow" data-i18n="blog.eyebrow">Writing</p>
             <h1 data-i18n="blog.title">Blog</h1>
@@ -121,61 +123,58 @@
 </html>
 
 <script>
-    // Register service worker for PWA
+    // Register service worker for PWA with update handling
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('./sw.js')
                 .then(registration => {
                     console.log('[PWA] Service Worker registered with scope:', registration.scope);
+                    
+                    // Check for updates
+                    registration.addEventListener('updatefound', () => {
+                        const newWorker = registration.installing;
+                        console.log('[PWA] New service worker found');
+                        
+                        newWorker.addEventListener('statechange', () => {
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                // New version available
+                                console.log('[PWA] New version available');
+                                showUpdateNotification();
+                            }
+                        });
+                    });
                 })
                 .catch(error => {
                     console.error('[PWA] Service Worker registration failed:', error);
                 });
+                
+            // Listen for messages from service worker
+            navigator.serviceWorker.addEventListener('message', event => {
+                if (event.data && event.data.type === 'SW_UPDATED') {
+                    console.log('[PWA] Service Worker updated to version:', event.data.version);
+                }
+            });
         });
     }
-</script>
-
-<script>
-    // Register service worker for PWA
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('./sw.js')
-                .then(registration => {
-                    console.log('[PWA] Service Worker registered with scope:', registration.scope);
-                })
-                .catch(error => {
-                    console.error('[PWA] Service Worker registration failed:', error);
-                });
-        });
+    
+    // Show update notification
+    function showUpdateNotification() {
+        const toast = document.createElement('div');
+        toast.className = 'update-toast';
+        toast.innerHTML = `
+            <span>New version available!</span>
+            <button onclick="refreshPage()">Update Now</button>
+        `;
+        document.body.appendChild(toast);
+        
+        setTimeout(() => toast.classList.add('show'), 100);
     }
-</script>
-
-<script>
-    // Register service worker for PWA
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('./sw.js')
-                .then(registration => {
-                    console.log('[PWA] Service Worker registered with scope:', registration.scope);
-                })
-                .catch(error => {
-                    console.error('[PWA] Service Worker registration failed:', error);
-                });
-        });
-    }
-</script>
-
-<script>
-    // Register service worker for PWA
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('./sw.js')
-                .then(registration => {
-                    console.log('[PWA] Service Worker registered with scope:', registration.scope);
-                })
-                .catch(error => {
-                    console.error('[PWA] Service Worker registration failed:', error);
-                });
-        });
+    
+    // Refresh page to load new version
+    function refreshPage() {
+        if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+            navigator.serviceWorker.controller.postMessage({ type: 'SKIP_WAITING' });
+        }
+        window.location.reload();
     }
 </script>

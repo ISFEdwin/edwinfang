@@ -177,42 +177,68 @@
     initConstellation();
 
     /* ===== Mobile Menu Toggle ===== */
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navOverlay = document.querySelector('.nav-overlay');
-    const navLinks = document.querySelectorAll('.nav-overlay .nav-links a');
+    const initMobileMenu = () => {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navOverlay = document.querySelector('.nav-overlay');
 
-    if (menuToggle && navOverlay) {
+        if (!menuToggle || !navOverlay) {
+            console.warn('[Mobile Menu] Menu toggle or nav overlay not found');
+            return;
+        }
+
+        // Remove existing listeners by replacing the button
+        const newMenuToggle = menuToggle.cloneNode(true);
+        menuToggle.parentNode.replaceChild(newMenuToggle, menuToggle);
+
         const toggleMenu = (forceClose = false) => {
-            const isActive = menuToggle.classList.contains('active') && !forceClose;
+            const isActive = newMenuToggle.classList.contains('active');
+            const shouldBeActive = forceClose ? false : !isActive;
 
-            menuToggle.classList.toggle('active', !isActive);
-            navOverlay.classList.toggle('active', !isActive);
-            menuToggle.setAttribute('aria-expanded', !isActive);
-            navOverlay.setAttribute('aria-hidden', isActive);
+            newMenuToggle.classList.toggle('active', shouldBeActive);
+            navOverlay.classList.toggle('active', shouldBeActive);
+            newMenuToggle.setAttribute('aria-expanded', shouldBeActive.toString());
+            navOverlay.setAttribute('aria-hidden', (!shouldBeActive).toString());
 
-            document.body.style.overflow = isActive ? '' : 'hidden';
+            document.body.style.overflow = shouldBeActive ? 'hidden' : '';
         };
 
-        menuToggle.addEventListener('click', () => toggleMenu());
+        newMenuToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleMenu();
+        });
 
+        // Close menu when clicking nav links
+        const navLinks = navOverlay.querySelectorAll('.nav-links a');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                if (menuToggle.classList.contains('active')) {
+                if (newMenuToggle.classList.contains('active')) {
                     toggleMenu(true);
                 }
             });
         });
 
+        // Close on ESC key
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && menuToggle.classList.contains('active')) {
+            if (e.key === 'Escape' && newMenuToggle.classList.contains('active')) {
                 toggleMenu(true);
             }
         });
 
+        // Close when clicking outside nav content
         navOverlay.addEventListener('click', (e) => {
             if (e.target === navOverlay) {
                 toggleMenu(true);
             }
         });
+
+        console.log('[Mobile Menu] Initialized successfully');
+    };
+
+    // Initialize mobile menu when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initMobileMenu);
+    } else {
+        initMobileMenu();
     }
 })();

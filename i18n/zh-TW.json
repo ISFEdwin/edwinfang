@@ -1,32 +1,32 @@
 {
   "nav": {
-    "home": "首頁",
-    "about": "關於",
+    "home": "主頁",
+    "about": "關於我",
     "experience": "經驗",
     "cv": "履歷",
-    "accomplishments": "成果",
-    "photography": "攝影",
-    "blog": "部落格",
-    "contact": "聯絡",
+    "accomplishments": "小成就",
+    "photography": "拍照",
+    "blog": "寫字",
+    "contact": "找我",
     "linkedin": "LinkedIn"
   },
   "hero": {
-    "greeting": "嗨，我是",
+    "greeting": "嘿，我是",
     "name": "Edwin",
-    "role": "港大 GEB 學程 | 工學士 + 商學士",
-    "tag": "開放機會",
+    "role": "港大 GEB · 工+商",
+    "tag": "尋找下一個可能",
     "description": "香港大學全球工程與商業學程（GEB）二年級。雙學位：電腦工程（工學士）與金融（商學士）。喜歡動手做東西、試錯、快速學習。",
-    "cta_about": "關於我",
-    "cta_contact": "聯絡我"
+    "cta_about": "更多關於我",
+    "cta_contact": "來聊天"
   },
   "about": {
     "title": "關於我",
     "subtitle": "重點速覽",
-    "bio": "我是香港大學全球工程與商業學程（GEB）的二年級學生——雙學位：電腦工程（工學士）與金融（商學士）。喜歡做專案、研究 AI 工作流程，還有探索科技與商業的交集。",
-    "interests_title": "我在意的",
+    "bio": "我在港大全球工程與商業學程（GEB）——雙學位：電腦工程（工學士）與金融（商學士）。喜歡做專案、研究 AI 工作流，還有探索科技與商業的交叉點。",
+    "interests_title": "目前在意",
     "interests": [
       "side project 開發",
-      "AI x 工作流程優化",
+      "AI x 工作流優化",
       "黑客松與個案競賽",
       "新創生態系",
       "有空就貢獻開源"
@@ -51,13 +51,13 @@
     ]
   },
   "experience": {
-    "title": "工作經驗",
-    "subtitle": "實戰學習",
-    "current_title": "目前",
+    "title": "經驗",
+    "subtitle": "目前在做什麼",
+    "current_title": "現在",
     "current_role": "資產管理實習生",
     "current_company": "B2B 部門",
     "current_desc": "探索 AI 如何優化資產管理工作流程，支援 B2B 客戶解決方案。",
-    "past_title": "過往經驗",
+    "past_title": "之前",
     "card1": {
       "title": "實作專案",
       "desc": "交付真正被使用的網頁應用、工具和 side projects。"
@@ -73,8 +73,8 @@
   },
   "cv": {
     "title": "履歷",
-    "subtitle": "快速覽",
-    "download": "下載履歷 (PDF)",
+    "subtitle": "精華版",
+    "download": "下載 PDF",
     "view_online": "線上查看",
     "card1": {
       "title": "學歷",
@@ -90,7 +90,7 @@
     }
   },
   "accomplishments": {
-    "title": "成果",
+    "title": "小成就",
     "subtitle": "值得驕傲的事",
     "section_title": "近期亮點",
     "card1": {
@@ -111,12 +111,12 @@
     }
   },
   "photography": {
-    "title": "攝影",
+    "title": "拍照",
     "subtitle": "光影、構圖、故事",
     "view_gallery": "查看畫廊"
   },
   "skills": {
-    "title": "技能",
+    "title": "工具箱",
     "subtitle": "我實際用來交付的。",
     "card1": {
       "title": "網頁開發",
@@ -144,7 +144,7 @@
     }
   },
   "blog": {
-    "title": "部落格",
+    "title": "寫字",
     "subtitle": "想法、實作、學習",
     "read_more": "閱讀更多",
     "view_all": "查看所有文章",
@@ -179,11 +179,12 @@
     }
   },
   "contact": {
-    "eyebrow": "聯絡我",
+    "eyebrow": "來聊天",
     "title": "讓我們連線",
     "subtitle": "有專案想法、問題，或只是想打招呼？給我留言。",
     "email": {
-      "label": "電子郵件"
+      "label": "電子郵件",
+      "button": "傳送郵件"
     },
     "linkedin": {
       "label": "LinkedIn"
@@ -201,7 +202,7 @@
       "subject_placeholder": "這是關於什麼？",
       "message": "訊息",
       "message_placeholder": "你的訊息...",
-      "submit": "傳送訊息",
+      "submit": "送出",
       "success": "訊息已送出！我會盡快回覆你。",
       "error": "喔不！出了點問題。請再試一次。"
     }

@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemap xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://isfedwin.github.io/</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://isfedwin.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://isfedwin.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://isfedwin.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isfedwin.github.io/"/>
   </url>
   <url>
     <loc>https://isfedwin.github.io/photography.html</loc>
@@ -16,12 +21,18 @@
     <loc>https://isfedwin.github.io/blog.html</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://isfedwin.github.io/blog-template.html</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.5</priority>
   </url>
-</sitemap>
+  <url>
+    <loc>https://isfedwin.github.io/accomplishments.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>

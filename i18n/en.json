@@ -13,17 +13,17 @@
   "hero": {
     "greeting": "Hey, I'm",
     "name": "Edwin",
-    "role": "GEB @ HKU | BEng + BBA",
-    "tag": "Open to Opportunities",
-    "description": "Sophomore at HKU's Global Engineering and Business Program. I build stuff, break things, and learn fast. Dual degrees in Computer Engineering and Finance.",
-    "cta_about": "About Me",
-    "cta_contact": "Let's Connect"
+    "role": "CS + Finance @ HKU",
+    "tag": "Down for what's next",
+    "description": "Making things at the intersection of code and capital. GEB sophomore @ HKU — dual degree in Computer Engineering and Finance.",
+    "cta_about": "More about me",
+    "cta_contact": "Let's chat"
   },
   "about": {
-    "title": "About Me",
-    "subtitle": "Quick highlights",
-    "bio": "I'm a sophomore in HKU's Global Engineering and Business (GEB) Program — a dual-degree track in Computer Engineering (BEng) and Finance (BBA). I'm into building products, exploring AI workflows, and figuring out how tech and business actually intersect.",
-    "interests_title": "What I'm Into",
+    "title": "About",
+    "subtitle": "The gist of it",
+    "bio": "I'm in HKU's Global Engineering and Business (GEB) Program — a dual-degree track in Computer Engineering (BEng) and Finance (BBA). I like building products, exploring AI workflows, and figuring out where tech and business actually meet in real life.",
+    "interests_title": "Currently into",
     "interests": [
       "Shipping side projects",
       "AI x workflow hacks",
@@ -31,7 +31,7 @@
       "Startup ecosystem",
       "Open source when I can"
     ],
-    "roles_title": "What I Do on Campus",
+    "roles_title": "Campus things",
     "roles": [
       {
         "title": "External VP",
@@ -52,19 +52,19 @@
   },
   "experience": {
     "title": "Experience",
-    "subtitle": "Real work, real lessons",
-    "current_title": "Current",
+    "subtitle": "What I've been up to",
+    "current_title": "Now",
     "current_role": "Asset Management Intern",
     "current_company": "B2B Department",
     "current_desc": "Exploring how AI can streamline asset management workflows and support B2B client solutions.",
-    "past_title": "Past Experience",
+    "past_title": "Before",
     "card1": {
       "title": "Building Real Things",
-      "desc": "Shipping web apps, tools, and side projects that actually get used."
+      "desc": "Shipping web apps, tools, and side projects that people actually use."
     },
     "card2": {
       "title": "Team Work",
-      "desc": "Good communication, shared ownership, and getting stuff done."
+      "desc": "Good communication, shared ownership, getting stuff done."
     },
     "card3": {
       "title": "Iterate & Ship",
@@ -73,9 +73,9 @@
   },
   "cv": {
     "title": "CV",
-    "subtitle": "Quick snapshot",
-    "download": "Download CV (PDF)",
-    "view_online": "View Online",
+    "subtitle": "The highlights",
+    "download": "Grab the PDF",
+    "view_online": "View online",
     "card1": {
       "title": "Education",
       "desc": "HKU Global Engineering and Business Program — BEng + BBA."
@@ -91,8 +91,8 @@
   },
   "accomplishments": {
     "title": "Wins",
-    "subtitle": "Things I'm proud of",
-    "section_title": "Recent Highlights",
+    "subtitle": "Stuff I'm chuffed about",
+    "section_title": "Recent highlights",
     "card1": {
       "title": "Game Dev Project",
       "desc": "Shipped a multi-level game with custom systems and UI."
@@ -113,10 +113,10 @@
   "photography": {
     "title": "Photography",
     "subtitle": "Light, composition, stories",
-    "view_gallery": "View Gallery"
+    "view_gallery": "View gallery"
   },
   "skills": {
-    "title": "Skills",
+    "title": "Toolbox",
     "subtitle": "What I actually use to ship.",
     "card1": {
       "title": "Web Dev",
@@ -146,8 +146,8 @@
   "blog": {
     "title": "Blog",
     "subtitle": "Thoughts, builds, lessons",
-    "read_more": "Read More",
-    "view_all": "View All Posts",
+    "read_more": "Read more",
+    "view_all": "View all posts",
     "template": {
       "title": "Blog Template",
       "eyebrow": "Template Post",
@@ -179,11 +179,12 @@
     }
   },
   "contact": {
-    "eyebrow": "Get in Touch",
-    "title": "Let's Connect",
-    "subtitle": "Have a project idea, question, or just want to say hi? Drop me a message.",
+    "eyebrow": "Say hi",
+    "title": "Let's chat",
+    "subtitle": "Got an idea? Question? Just wanna say hey? Hit me up.",
     "email": {
-      "label": "Email"
+      "label": "Email",
+      "button": "Send Email"
     },
     "linkedin": {
       "label": "LinkedIn"
@@ -192,7 +193,7 @@
       "label": "GitHub"
     },
     "form": {
-      "title": "Send Me a Message",
+      "title": "Send me a message",
       "name": "Name",
       "name_placeholder": "Your name",
       "email": "Email",
@@ -201,13 +202,13 @@
       "subject_placeholder": "What's this about?",
       "message": "Message",
       "message_placeholder": "Your message...",
-      "submit": "Send Message",
-      "success": "Message sent! I'll get back to you soon.",
-      "error": "Oops! Something went wrong. Please try again."
+      "submit": "Send it",
+      "success": "Got it! I'll be in touch soon.",
+      "error": "Oops! Something went wrong. Try again?"
     }
   },
   "footer": {
-    "copyright": "Let's build something meaningful. © 2026 Edwin."
+    "copyright": "Let's build something cool. © 2026 Edwin."
   },
   "meta": {
     "description": "Edwin's personal site — HKU GEB sophomore, Computer Engineering + Finance. Projects, photos, and blog.",

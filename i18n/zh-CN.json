@@ -1,29 +1,29 @@
 {
   "nav": {
-    "home": "首页",
-    "about": "关于",
-    "experience": "经验",
+    "home": "主页",
+    "about": "关于我",
+    "experience": "经历",
     "cv": "简历",
-    "accomplishments": "成果",
-    "photography": "摄影",
-    "blog": "博客",
-    "contact": "联系",
+    "accomplishments": "小成就",
+    "photography": "拍照",
+    "blog": "写字",
+    "contact": "找我",
     "linkedin": "LinkedIn"
   },
   "hero": {
-    "greeting": "嗨，我是",
+    "greeting": "嘿，我是",
     "name": "Edwin",
-    "role": "港大 GEB 学程 | 工学士 + 商学士",
-    "tag": "开放机会",
+    "role": "港大 GEB · 工+商",
+    "tag": "寻找下一个可能",
     "description": "香港大学全球工程与商业学程（GEB）二年级。双学位：计算机工程（工学士）与金融（商学士）。喜欢动手做东西、试错、快速学习。",
-    "cta_about": "关于我",
-    "cta_contact": "联系我"
+    "cta_about": "更多关于我",
+    "cta_contact": "来聊天"
   },
   "about": {
     "title": "关于我",
     "subtitle": "重点速览",
-    "bio": "我是香港大学全球工程与商业学程（GEB）的二年级学生——双学位：计算机工程（工学士）与金融（商学士）。喜欢做项目、研究 AI 工作流，还有探索科技与商业的交集。",
-    "interests_title": "我在意的",
+    "bio": "我在港大全球工程与商业学程（GEB）——双学位：计算机工程（工学士）与金融（商学士）。喜欢做项目、研究 AI 工作流，还有探索科技与商业的交叉点。",
+    "interests_title": "目前在意",
     "interests": [
       "side project 开发",
       "AI x 工作流优化",
@@ -51,13 +51,13 @@
     ]
   },
   "experience": {
-    "title": "工作经验",
-    "subtitle": "实战学习",
-    "current_title": "目前",
+    "title": "经历",
+    "subtitle": "目前在做什么",
+    "current_title": "现在",
     "current_role": "资产管理实习生",
     "current_company": "B2B 部门",
     "current_desc": "探索 AI 如何优化资产管理工作流程，支持 B2B 客户解决方案。",
-    "past_title": "过往经验",
+    "past_title": "之前",
     "card1": {
       "title": "实战项目",
       "desc": "交付真正被使用的网页应用、工具和 side projects。"
@@ -73,8 +73,8 @@
   },
   "cv": {
     "title": "简历",
-    "subtitle": "快速览",
-    "download": "下载简历 (PDF)",
+    "subtitle": "精华版",
+    "download": "下载 PDF",
     "view_online": "在线查看",
     "card1": {
       "title": "学历",
@@ -90,7 +90,7 @@
     }
   },
   "accomplishments": {
-    "title": "成果",
+    "title": "小成就",
     "subtitle": "值得骄傲的事",
     "section_title": "近期亮点",
     "card1": {
@@ -111,12 +111,12 @@
     }
   },
   "photography": {
-    "title": "摄影",
+    "title": "拍照",
     "subtitle": "光影、构图、故事",
     "view_gallery": "查看画廊"
   },
   "skills": {
-    "title": "技能",
+    "title": "工具箱",
     "subtitle": "我实际用来交付的。",
     "card1": {
       "title": "网页开发",
@@ -144,7 +144,7 @@
     }
   },
   "blog": {
-    "title": "博客",
+    "title": "写字",
     "subtitle": "想法、实作、学习",
     "read_more": "阅读更多",
     "view_all": "查看所有文章",
@@ -179,11 +179,12 @@
     }
   },
   "contact": {
-    "eyebrow": "取得联系",
+    "eyebrow": "来聊天",
     "title": "让我们连线",
     "subtitle": "有项目想法、问题，或只是想打招呼？给我留言。",
     "email": {
-      "label": "电子邮件"
+      "label": "电子邮件",
+      "button": "发送邮件"
     },
     "linkedin": {
       "label": "LinkedIn"
@@ -201,7 +202,7 @@
       "subject_placeholder": "这是关于什么？",
       "message": "讯息",
       "message_placeholder": "你的讯息...",
-      "submit": "传送讯息",
+      "submit": "送出",
       "success": "讯息已送出！我会尽快回复你。",
       "error": "喔不！出了点问题。请再试一次。"
     }
