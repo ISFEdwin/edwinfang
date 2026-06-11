@@ -4,39 +4,39 @@
     "about": "关于我",
     "experience": "经历",
     "cv": "简历",
-    "accomplishments": "小成就",
-    "photography": "拍照",
-    "blog": "写字",
-    "contact": "找我",
+    "accomplishments": "成果",
+    "photography": "摄影",
+    "blog": "博客",
+    "contact": "联系",
     "linkedin": "LinkedIn"
   },
   "hero": {
     "greeting": "嘿，我是",
     "name": "Edwin",
-    "role": "港大 GEB · 工+商",
-    "tag": "寻找下一个可能",
-    "description": "香港大学全球工程与商业学程（GEB）二年级。双学位：计算机工程（工学士）与金融（商学士）。喜欢动手做东西、试错、快速学习。",
+    "role": "港大 GEBP · 工+商",
+    "tag": "探索下一个可能",
+    "description": "香港大学全球工程与商业学程（GEBP）二年级。双学位：计算机工程（工学士）与金融（商学士）。喜欢动手实操、从错误中学习、快速迭代。",
     "cta_about": "更多关于我",
-    "cta_contact": "来聊天"
+    "cta_contact": "来聊聊"
   },
   "about": {
     "title": "关于我",
-    "subtitle": "重点速览",
-    "bio": "我在港大全球工程与商业学程（GEB）——双学位：计算机工程（工学士）与金融（商学士）。喜欢做项目、研究 AI 工作流，还有探索科技与商业的交叉点。",
-    "interests_title": "目前在意",
+    "subtitle": "重点整理",
+    "bio": "我在港大全球工程与商业学程（GEBP）——双学位：计算机工程（工学士）与金融（商学士）。喜欢做项目、研究 AI 工作流，还有探索科技与商业的交汇点。",
+    "interests_title": "目前关注",
     "interests": [
-      "side project 开发",
+      "副项目开发",
       "AI x 工作流优化",
-      "黑客松与个案竞赛",
+      "黑客松与案例竞赛",
       "新创生态系",
       "有空就贡献开源"
     ],
-    "roles_title": "校园角色",
+    "roles_title": "校园参与",
     "roles": [
       {
         "title": "对外副主席",
         "org": "计算机科学协会 (CDSS)",
-        "desc": "与 10+ 家科技／金融公司建立合作"
+        "desc": "与 10+ 家科技/金融公司建立合作"
       },
       {
         "title": "名誉司库",
@@ -56,15 +56,15 @@
     "current_title": "现在",
     "current_role": "资产管理实习生",
     "current_company": "B2B 部门",
-    "current_desc": "探索 AI 如何优化资产管理工作流程，支持 B2B 客户解决方案。",
+    "current_desc": "探索 AI 如何优化资产管理工作流程，协助 B2B 端客户解决方案。",
     "past_title": "之前",
     "card1": {
       "title": "实战项目",
-      "desc": "交付真正被使用的网页应用、工具和 side projects。"
+      "desc": "开发真正有人用的网页应用、工具和 side projects。"
     },
     "card2": {
       "title": "团队合作",
-      "desc": "良好的沟通、共同拥有，把事情做完。"
+      "desc": "良好沟通、共同参与，把事情做好。"
     },
     "card3": {
       "title": "迭代与交付",
@@ -73,29 +73,29 @@
   },
   "cv": {
     "title": "简历",
-    "subtitle": "精华版",
+    "subtitle": "精华摘要",
     "download": "下载 PDF",
     "view_online": "在线查看",
     "card1": {
       "title": "学历",
-      "desc": "港大全球工程与商业学程（GEB）——工学士 + 商学士。"
+      "desc": "港大全球工程与商业学程（GEBP）——工学士 + 商学士。"
     },
     "card2": {
       "title": "目前重心",
-      "desc": "做项目、快速学习、探索交集。"
+      "desc": "做项目、快速学习、探索跨领域机会。"
     },
     "card3": {
       "title": "方向",
-      "desc": "寻找有实质技术所有权的机会。"
+      "desc": "寻找能实际主导技术的机会。"
     }
   },
   "accomplishments": {
-    "title": "小成就",
+    "title": "成果",
     "subtitle": "值得骄傲的事",
     "section_title": "近期亮点",
     "card1": {
       "title": "Game Dev 项目",
-      "desc": "交付有多关卡、自制系统与 UI 的游戏。"
+      "desc": "开发多关卡、自制系统与 UI 的游戏。"
     },
     "card2": {
       "title": "迭代与进步",
@@ -106,21 +106,21 @@
       "desc": "响应式网页体验，干净的前端结构。"
     },
     "card4": {
-      "title": "团队交付",
+      "title": "团队成果",
       "desc": "合作、交付，并从真实限制中学习。"
     }
   },
   "photography": {
-    "title": "拍照",
-    "subtitle": "光影、构图、故事",
+    "title": "摄影",
+    "subtitle": "光影、构图、叙事",
     "view_gallery": "查看画廊"
   },
   "skills": {
     "title": "工具箱",
-    "subtitle": "我实际用来交付的。",
+    "subtitle": "我实际用来交付的工具。",
     "card1": {
       "title": "网页开发",
-      "desc": "响应式、无障碍界面。HTML、CSS、JS——干净快速。"
+      "desc": "响应式、无障碍访问界面。HTML、CSS、JS——干净快速。"
     },
     "card2": {
       "title": "Python & CS 基础",
@@ -132,20 +132,20 @@
     },
     "card4": {
       "title": "问题解决",
-      "desc": "结构化调试、优化、把事情做完。"
+      "desc": "结构化调试、优化、把事情做好。"
     },
     "card5": {
       "title": "协作",
-      "desc": "清晰沟通、共同拥有、可靠交付。"
+      "desc": "清晰沟通、共同参与、可靠交付。"
     },
     "card6": {
       "title": "视觉叙事",
-      "desc": "摄影训练我对构图与流的眼光。"
+      "desc": "摄影训练我对构图与视觉流的眼光。"
     }
   },
   "blog": {
-    "title": "写字",
-    "subtitle": "想法、实作、学习",
+    "title": "博客",
+    "subtitle": "想法、实操、学习笔记",
     "read_more": "阅读更多",
     "view_all": "查看所有文章",
     "template": {
@@ -169,7 +169,7 @@
     },
     "card2": {
       "meta": "最新",
-      "title": "清晰迭代地构建",
+      "title": "迭代式开发",
       "desc": "每次迭代都交付得更好。"
     },
     "card3": {
@@ -179,9 +179,9 @@
     }
   },
   "contact": {
-    "eyebrow": "来聊天",
-    "title": "让我们连线",
-    "subtitle": "有项目想法、问题，或只是想打招呼？给我留言。",
+    "eyebrow": "联系我",
+    "title": "合作共赢",
+    "subtitle": "有项目想法、问题，或只是想打招呼？欢迎留言。",
     "email": {
       "label": "电子邮件",
       "button": "发送邮件"
@@ -202,16 +202,16 @@
       "subject_placeholder": "这是关于什么？",
       "message": "讯息",
       "message_placeholder": "你的讯息...",
-      "submit": "送出",
+      "submit": "发送",
       "success": "讯息已送出！我会尽快回复你。",
       "error": "喔不！出了点问题。请再试一次。"
     }
   },
   "footer": {
-    "copyright": "让我们一起打造有意义的东西。© 2026 Edwin."
+    "copyright": "一起打造有意义的东西。© 2026 Edwin."
   },
   "meta": {
-    "description": "Edwin 的个人网站 — 港大 GEB 二年级，计算机工程 + 金融。项目、摄影、博客。",
+    "description": "Edwin 的个人网站 — 港大 GEBP 二年级，计算机工程 + 金融。项目、摄影、博客。",
     "keywords": "Edwin, HKU, 全球工程与商业, 计算机工程, 金融, 摄影, 博客"
   }
 }

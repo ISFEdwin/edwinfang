@@ -46,7 +46,7 @@
     };
 
     const initReveal = () => {
-        const targets = document.querySelectorAll('section, .card, .blog-card, .photo-card, .blog-article');
+        const targets = document.querySelectorAll('section, .card, .blog-card, .photo-card, .blog-article, .contact-details');
         targets.forEach((el) => el.classList.add('reveal'));
 
         if (reducedMotion) {

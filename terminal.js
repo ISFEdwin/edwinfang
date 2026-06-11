@@ -17,7 +17,7 @@ const TerminalAbout = (() => {
     ],
     'zh-TW': [
       { label: '姓名', value: '方一舟' },
-      { label: '學程', value: '港大 GEB' },
+      { label: '學程', value: '港大 GEBP' },
       { label: '年級', value: '二年級' },
       { label: '學位', value: '工學士 (電腦工程) + 商學士 (金融)' },
       { label: '興趣', value: '實作、AI 工作流、新創' },
@@ -25,7 +25,7 @@ const TerminalAbout = (() => {
     ],
     'zh-CN': [
       { label: '姓名', value: '方一舟' },
-      { label: '学程', value: '港大 GEB' },
+      { label: '学程', value: '港大 GEBP' },
       { label: '年级', value: '二年级' },
       { label: '学位', value: '工学士 (计算机工程) + 商学士 (金融)' },
       { label: '兴趣', value: '实作、AI 工作流、新创' },

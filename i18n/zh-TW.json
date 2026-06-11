@@ -4,34 +4,34 @@
     "about": "關於我",
     "experience": "經驗",
     "cv": "履歷",
-    "accomplishments": "小成就",
-    "photography": "拍照",
-    "blog": "寫字",
-    "contact": "找我",
+    "accomplishments": "成果",
+    "photography": "攝影",
+    "blog": "部落格",
+    "contact": "聯絡",
     "linkedin": "LinkedIn"
   },
   "hero": {
     "greeting": "嘿，我是",
     "name": "Edwin",
-    "role": "港大 GEB · 工+商",
-    "tag": "尋找下一個可能",
-    "description": "香港大學全球工程與商業學程（GEB）二年級。雙學位：電腦工程（工學士）與金融（商學士）。喜歡動手做東西、試錯、快速學習。",
+    "role": "港大 GEBP · 工+商",
+    "tag": "探索下一個可能",
+    "description": "香港大學全球工程與商業學程（GEBP）二年級。雙學位：電腦工程（工學士）與金融（商學士）。喜歡動手實作、從錯誤中學習、快速迭代。",
     "cta_about": "更多關於我",
-    "cta_contact": "來聊天"
+    "cta_contact": "來聊聊"
   },
   "about": {
     "title": "關於我",
-    "subtitle": "重點速覽",
-    "bio": "我在港大全球工程與商業學程（GEB）——雙學位：電腦工程（工學士）與金融（商學士）。喜歡做專案、研究 AI 工作流，還有探索科技與商業的交叉點。",
-    "interests_title": "目前在意",
+    "subtitle": "重點整理",
+    "bio": "我在港大全球工程與商業學程（GEBP）——雙學位：電腦工程（工學士）與金融（商學士）。喜歡做專案、研究 AI 工作流，還有探索科技與商業的交會點。",
+    "interests_title": "目前關注",
     "interests": [
-      "side project 開發",
+      "側專案開發",
       "AI x 工作流優化",
       "黑客松與個案競賽",
       "新創生態系",
       "有空就貢獻開源"
     ],
-    "roles_title": "校園角色",
+    "roles_title": "校園參與",
     "roles": [
       {
         "title": "對外副會長",
@@ -56,15 +56,15 @@
     "current_title": "現在",
     "current_role": "資產管理實習生",
     "current_company": "B2B 部門",
-    "current_desc": "探索 AI 如何優化資產管理工作流程，支援 B2B 客戶解決方案。",
+    "current_desc": "探索 AI 如何優化資產管理工作流程，協助 B2B 端客戶解決方案。",
     "past_title": "之前",
     "card1": {
-      "title": "實作專案",
-      "desc": "交付真正被使用的網頁應用、工具和 side projects。"
+      "title": "實戰專案",
+      "desc": "開發真正有人用的網頁應用、工具和 side projects。"
     },
     "card2": {
-      "title": "團隊協作",
-      "desc": "良好的溝通、共同擁有，把事情做完。"
+      "title": "團隊合作",
+      "desc": "良好溝通、共同參與，把事情做好。"
     },
     "card3": {
       "title": "迭代與交付",
@@ -73,29 +73,29 @@
   },
   "cv": {
     "title": "履歷",
-    "subtitle": "精華版",
+    "subtitle": "精華摘要",
     "download": "下載 PDF",
     "view_online": "線上查看",
     "card1": {
       "title": "學歷",
-      "desc": "港大全球工程與商業學程（GEB）——工學士 + 商學士。"
+      "desc": "港大全球工程與商業學程（GEBP）——工學士 + 商學士。"
     },
     "card2": {
       "title": "目前重心",
-      "desc": "做專案、快速學習、探索交集。"
+      "desc": "做專案、快速學習、探索跨領域機會。"
     },
     "card3": {
       "title": "方向",
-      "desc": "尋找有實質技術擁有權的機會。"
+      "desc": "尋找能實際主導技術的機會。"
     }
   },
   "accomplishments": {
-    "title": "小成就",
+    "title": "成果",
     "subtitle": "值得驕傲的事",
     "section_title": "近期亮點",
     "card1": {
       "title": "Game Dev 專案",
-      "desc": "交付有多關卡、自製系統與 UI 的遊戲。"
+      "desc": "開發多關卡、自製系統與 UI 的遊戲。"
     },
     "card2": {
       "title": "迭代與進步",
@@ -106,21 +106,21 @@
       "desc": "響應式網頁體驗，乾淨的前端結構。"
     },
     "card4": {
-      "title": "團隊交付",
+      "title": "團隊成果",
       "desc": "合作、交付，並從真實限制中學習。"
     }
   },
   "photography": {
-    "title": "拍照",
-    "subtitle": "光影、構圖、故事",
+    "title": "攝影",
+    "subtitle": "光影、構圖、敘事",
     "view_gallery": "查看畫廊"
   },
   "skills": {
     "title": "工具箱",
-    "subtitle": "我實際用來交付的。",
+    "subtitle": "我實際用來交付的工具。",
     "card1": {
       "title": "網頁開發",
-      "desc": "響應式、無障礙介面。HTML、CSS、JS——乾淨快速。"
+      "desc": "響應式、無障礙存取介面。HTML、CSS、JS——乾淨快速。"
     },
     "card2": {
       "title": "Python & CS 基礎",
@@ -132,20 +132,20 @@
     },
     "card4": {
       "title": "問題解決",
-      "desc": "結構化除錯、優化、把事情做完。"
+      "desc": "結構化除錯、優化、把事情做好。"
     },
     "card5": {
       "title": "協作",
-      "desc": "清晰溝通、共同擁有、可靠交付。"
+      "desc": "清晰溝通、共同參與、可靠交付。"
     },
     "card6": {
       "title": "視覺敘事",
-      "desc": "攝影訓練我對構圖與流的眼光。"
+      "desc": "攝影訓練我對構圖與視覺流的眼光。"
     }
   },
   "blog": {
-    "title": "寫字",
-    "subtitle": "想法、實作、學習",
+    "title": "部落格",
+    "subtitle": "想法、實作、學習筆記",
     "read_more": "閱讀更多",
     "view_all": "查看所有文章",
     "template": {
@@ -169,19 +169,19 @@
     },
     "card2": {
       "meta": "最新",
-      "title": "清晰迭代地構建",
+      "title": "迭代式開發",
       "desc": "每次迭代都交付得更好。"
     },
     "card3": {
       "meta": "創意",
-      "title": "攝影教會編碼的事",
+      "title": "攝影教會編程的事",
       "desc": "構圖與節奏提升產品直覺。"
     }
   },
   "contact": {
-    "eyebrow": "來聊天",
-    "title": "讓我們連線",
-    "subtitle": "有專案想法、問題，或只是想打招呼？給我留言。",
+    "eyebrow": "聯絡我",
+    "title": "合作共贏",
+    "subtitle": "有專案想法、問題，或只是想打招呼？歡迎留言。",
     "email": {
       "label": "電子郵件",
       "button": "傳送郵件"
@@ -208,10 +208,10 @@
     }
   },
   "footer": {
-    "copyright": "讓我們一起打造有意義的東西。© 2026 Edwin."
+    "copyright": "一起打造有意義的東西。© 2026 Edwin."
   },
   "meta": {
-    "description": "Edwin 的個人網站 — 港大 GEB 二年級，電腦工程 + 金融。專案、攝影、部落格。",
+    "description": "Edwin 的個人網站 — 港大 GEBP 二年級，電腦工程 + 金融。專案、攝影、部落格。",
     "keywords": "Edwin, HKU, 全球工程與商業, 電腦工程, 金融, 攝影, 部落格"
   }
 }
