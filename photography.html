@@ -15,14 +15,21 @@
     <header class="navbar">
         <div class="container">
             <a class="brand" href="index.html">Edwin</a>
-            <nav class="nav-links" aria-label="Primary">
-                <a href="index.html">Home</a>
-                <a href="index.html#cv">CV</a>
-                <a href="index.html#accomplishments">Accomplishments</a>
-                <a href="photography.html" aria-current="page">Photography</a>
-                <a href="blog.html">Blog</a>
-                <a href="#contact">Get in Contact</a>
-            </nav>
+            <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-overlay">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-overlay" id="nav-overlay" aria-hidden="true">
+                <nav class="nav-links" aria-label="Primary">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#cv">CV</a>
+                    <a href="index.html#accomplishments">Accomplishments</a>
+                    <a href="photography.html" aria-current="page">Photography</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="#contact">Get in Contact</a>
+                </nav>
+            </div>
         </div>
     </header>
 

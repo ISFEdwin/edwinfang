@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "home": "首頁",
+    "about": "關於我",
+    "experience": "工作經驗",
+    "cv": "履歷",
+    "accomplishments": "成就",
+    "photography": "攝影",
+    "blog": "部落格",
+    "contact": "聯絡我"
+  },
+  "hero": {
+    "greeting": "你好，我是",
+    "name": "Edwin",
+    "role": "香港大學 CS + 金融",
+    "tag": "開放實習機會",
+    "description": "香港大學一年級本科生，攻讀電腦工程與金融雙學位。熱衷於將 AI 整合到工作流程中，構建創新解決方案，並探索創業機會。",
+    "cta_about": "關於我",
+    "cta_contact": "聯絡我"
+  },
+  "about": {
+    "title": "關於我",
+    "subtitle": "更深入了解我",
+    "bio": "我是香港大學（HKU）的一年級本科生，攻讀電腦工程與金融雙學位。目前在一家資產管理公司的 B2B 部門實習，熱衷於利用科技解決現實世界中的金融問題。",
+    "interests_title": "興趣與熱情",
+    "interests": [
+      "AI 工作流程整合",
+      "黑客松與競賽",
+      "創業與初創公司",
+      "金融科技",
+      "開源貢獻"
+    ],
+    "roles_title": "在香港大學的角色",
+    "roles": [
+      {
+        "title": "對外副會長",
+        "org": "電腦科學協會 (CDSS)",
+        "desc": "管理與 10+ 家科技/金融公司的合作關係"
+      },
+      {
+        "title": "名譽司庫",
+        "org": "Hornell Hall 學生會",
+        "desc": "管理宿舍預算與活動財務"
+      },
+      {
+        "title": "對外秘書",
+        "org": "全球工程與商業協會",
+        "desc": "支持對外關係與合作夥伴關係"
+      }
+    ]
+  },
+  "experience": {
+    "title": "工作經驗",
+    "subtitle": "我的職業旅程",
+    "current_title": "目前",
+    "current_role": "資產管理實習生",
+    "current_company": "B2B 部門",
+    "current_desc": "致力於將 AI 整合到資產管理工作流程中，分析金融數據，並支持 B2B 客戶解決方案。",
+    "past_title": "過往經驗"
+  },
+  "cv": {
+    "title": "履歷",
+    "subtitle": "我的專業背景",
+    "download": "下載履歷 (PDF)",
+    "view_online": "線上查看"
+  },
+  "accomplishments": {
+    "title": "成就",
+    "subtitle": "獎項、認證與成就",
+    "section_title": "近期成就"
+  },
+  "photography": {
+    "title": "攝影",
+    "subtitle": "透過我的鏡頭捕捉瞬間",
+    "view_gallery": "查看畫廊"
+  },
+  "blog": {
+    "title": "部落格",
+    "subtitle": "想法、教學與見解",
+    "read_more": "閱讀更多",
+    "view_all": "查看所有文章"
+  },
+  "contact": {
+    "title": "聯絡我",
+    "subtitle": "讓我們聯繫與合作",
+    "email_label": "電子郵件",
+    "linkedin_label": "LinkedIn",
+    "github_label": "GitHub",
+    "wechat_label": "微信"
+  },
+  "footer": {
+    "built_with": "用熱情與",
+    "copyright": "保留所有權利"
+  },
+  "meta": {
+    "description": "Edwin 的個人網站 - 香港大學 CS + 金融本科生，展示專案、攝影作品與部落格。",
+    "keywords": "Edwin, HKU, 電腦工程, 金融, 個人網站, 攝影, 部落格"
+  }
+}

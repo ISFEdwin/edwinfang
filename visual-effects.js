@@ -175,4 +175,44 @@
     initLoadIn();
     initReveal();
     initConstellation();
+
+    /* ===== Mobile Menu Toggle ===== */
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navOverlay = document.querySelector('.nav-overlay');
+    const navLinks = document.querySelectorAll('.nav-overlay .nav-links a');
+
+    if (menuToggle && navOverlay) {
+        const toggleMenu = (forceClose = false) => {
+            const isActive = menuToggle.classList.contains('active') && !forceClose;
+
+            menuToggle.classList.toggle('active', !isActive);
+            navOverlay.classList.toggle('active', !isActive);
+            menuToggle.setAttribute('aria-expanded', !isActive);
+            navOverlay.setAttribute('aria-hidden', isActive);
+
+            document.body.style.overflow = isActive ? '' : 'hidden';
+        };
+
+        menuToggle.addEventListener('click', () => toggleMenu());
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (menuToggle.classList.contains('active')) {
+                    toggleMenu(true);
+                }
+            });
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && menuToggle.classList.contains('active')) {
+                toggleMenu(true);
+            }
+        });
+
+        navOverlay.addEventListener('click', (e) => {
+            if (e.target === navOverlay) {
+                toggleMenu(true);
+            }
+        });
+    }
 })();
