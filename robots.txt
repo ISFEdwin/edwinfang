@@ -1,0 +1,12 @@
+# robots.txt for ISFEdwin.github.io
+# Created: 2026-06-11
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://isfedwin.github.io/sitemap.xml
+
+# Disallow admin/ private pages (if any)
+# Disallow: /admin/
+# Disallow: /private/

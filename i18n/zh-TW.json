@@ -10,32 +10,32 @@
     "contact": "聯絡我"
   },
   "hero": {
-    "greeting": "你好，我是",
+    "greeting": "嗨，我是",
     "name": "Edwin",
-    "role": "香港大學 CS + 金融",
-    "tag": "開放實習機會",
-    "description": "香港大學一年級本科生，攻讀電腦工程與金融雙學位。熱衷於將 AI 整合到工作流程中，構建創新解決方案，並探索創業機會。",
+    "role": "港大 GEB 學程 | 工學士 + 商學士",
+    "tag": "開放機會",
+    "description": "香港大學全球工程與商業學程（GEB）二年級。雙學位：電腦工程（工學士）與金融（商學士）。喜歡動手做東西、試錯、快速學習。",
     "cta_about": "關於我",
     "cta_contact": "聯絡我"
   },
   "about": {
     "title": "關於我",
-    "subtitle": "更深入了解我",
-    "bio": "我是香港大學（HKU）的一年級本科生，攻讀電腦工程與金融雙學位。目前在一家資產管理公司的 B2B 部門實習，熱衷於利用科技解決現實世界中的金融問題。",
-    "interests_title": "興趣與熱情",
+    "subtitle": "重點速覽",
+    "bio": "我是香港大學全球工程與商業學程（GEB）的二年級學生——雙學位：電腦工程（工學士）與金融（商學士）。喜歡做專案、研究 AI 工作流程，還有探索科技與商業的交集。",
+    "interests_title": "我在意的",
     "interests": [
-      "AI 工作流程整合",
-      "黑客松與競賽",
-      "創業與初創公司",
-      "金融科技",
-      "開源貢獻"
+      "side project 開發",
+      "AI x 工作流程優化",
+      "黑客松與個案競賽",
+      "新創生態系",
+      "有空就貢獻開源"
     ],
-    "roles_title": "在香港大學的角色",
+    "roles_title": "校園角色",
     "roles": [
       {
         "title": "對外副會長",
         "org": "電腦科學協會 (CDSS)",
-        "desc": "管理與 10+ 家科技/金融公司的合作關係"
+        "desc": "與 10+ 家科技／金融公司建立合作"
       },
       {
         "title": "名譽司庫",
@@ -45,55 +45,55 @@
       {
         "title": "對外秘書",
         "org": "全球工程與商業協會",
-        "desc": "支持對外關係與合作夥伴關係"
+        "desc": "對外關係與合作夥伴關係"
       }
     ]
   },
   "experience": {
     "title": "工作經驗",
-    "subtitle": "我的職業旅程",
+    "subtitle": "實戰學習",
     "current_title": "目前",
     "current_role": "資產管理實習生",
     "current_company": "B2B 部門",
-    "current_desc": "致力於將 AI 整合到資產管理工作流程中，分析金融數據，並支持 B2B 客戶解決方案。",
+    "current_desc": "探索 AI 如何優化資產管理工作流程，支援 B2B 客戶解決方案。",
     "past_title": "過往經驗"
   },
   "cv": {
     "title": "履歷",
-    "subtitle": "我的專業背景",
+    "subtitle": "快速覽",
     "download": "下載履歷 (PDF)",
     "view_online": "線上查看"
   },
   "accomplishments": {
     "title": "成就",
-    "subtitle": "獎項、認證與成就",
-    "section_title": "近期成就"
+    "subtitle": "值得驕傲的事",
+    "section_title": "近期亮點"
   },
   "photography": {
     "title": "攝影",
-    "subtitle": "透過我的鏡頭捕捉瞬間",
+    "subtitle": "光影、構圖、故事",
     "view_gallery": "查看畫廊"
   },
   "blog": {
     "title": "部落格",
-    "subtitle": "想法、教學與見解",
+    "subtitle": "想法、實作、學習",
     "read_more": "閱讀更多",
     "view_all": "查看所有文章"
   },
   "contact": {
     "title": "聯絡我",
-    "subtitle": "讓我們聯繫與合作",
+    "subtitle": "隨時可以聊聊",
     "email_label": "電子郵件",
     "linkedin_label": "LinkedIn",
     "github_label": "GitHub",
     "wechat_label": "微信"
   },
   "footer": {
-    "built_with": "用熱情與",
+    "built_with": "用",
     "copyright": "保留所有權利"
   },
   "meta": {
-    "description": "Edwin 的個人網站 - 香港大學 CS + 金融本科生，展示專案、攝影作品與部落格。",
-    "keywords": "Edwin, HKU, 電腦工程, 金融, 個人網站, 攝影, 部落格"
+    "description": "Edwin 的個人網站 — 港大 GEB 二年級，電腦工程 + 金融。專案、攝影、部落格。",
+    "keywords": "Edwin, HKU, 全球工程與商業, 電腦工程, 金融, 攝影, 部落格"
   }
 }

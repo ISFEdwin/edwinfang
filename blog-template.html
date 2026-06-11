@@ -1,33 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Blog template post by Edwin.">
+    <meta name="description" content="Blog template post by Edwin." data-i18n="meta.description">
+    <meta name="keywords" content="Edwin, Blog, Template" data-i18n="meta.keywords">
     <link rel="icon" type="image/x-icon" href="images/logo.png">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://isfedwin.github.io/blog-template.html">
+    <meta property="og:title" content="Edwin | Blog Template" data-i18n="blog.template.title">
+    <meta property="og:description" content="Blog template post by Edwin." data-i18n="meta.description">
+    <meta property="og:image" content="https://isfedwin.github.io/images/logo.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Edwin | Blog Template" data-i18n="blog.template.title">
+    <meta name="twitter:description" content="Blog template post by Edwin." data-i18n="meta.description">
+    <meta name="twitter:image" content="https://isfedwin.github.io/images/logo.png">
+    
     <link rel="stylesheet" href="styles.css">
+    <script src="i18n.js"></script>
     <script src="visual-effects.js" defer></script>
     <title>Edwin | Blog Template</title>
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "[Blog Title]",
+        "description": "[Blog post description]",
+        "author": {
+            "@type": "Person",
+            "name": "Edwin Fang",
+            "url": "https://isfedwin.github.io/"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Edwin Fang"
+        },
+        "datePublished": "[YYYY-MM-DD]",
+        "url": "https://isfedwin.github.io/blog-template.html"
+    }
+    </script>
 </head>
 <body class="site-body">
     <div class="geometric-accent" aria-hidden="true"></div>
 
     <header class="navbar">
         <div class="container">
-            <a class="brand" href="index.html">Edwin</a>
-            <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-overlay">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <a class="brand" href="index.html" data-i18n="nav.home">Edwin</a>
+            <div class="nav-actions">
+                <div class="lang-switcher" role="group" aria-label="Language selection">
+                    <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
+                    <button class="lang-btn" data-lang="zh-TW" aria-label="繁體中文">繁</button>
+                    <button class="lang-btn" data-lang="zh-CN" aria-label="简体中文">简</button>
+                </div>
+                <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-overlay">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
             <div class="nav-overlay" id="nav-overlay" aria-hidden="true">
                 <nav class="nav-links" aria-label="Primary">
-                    <a href="index.html">Home</a>
-                    <a href="index.html#cv">CV</a>
-                    <a href="index.html#accomplishments">Accomplishments</a>
-                    <a href="photography.html">Photography</a>
-                    <a href="blog.html" aria-current="page">Blog</a>
-                    <a href="#contact">Get in Contact</a>
+                    <a href="index.html" data-i18n="nav.home">Home</a>
+                    <a href="index.html#cv" data-i18n="nav.cv">CV</a>
+                    <a href="index.html#accomplishments" data-i18n="nav.accomplishments">Accomplishments</a>
+                    <a href="photography.html" data-i18n="nav.photography">Photography</a>
+                    <a href="blog.html" aria-current="page" data-i18n="nav.blog">Blog</a>
+                    <a href="#contact" data-i18n="nav.contact">Get in Contact</a>
                 </nav>
             </div>
         </div>
@@ -35,29 +77,29 @@
 
     <main class="section">
         <article class="container blog-article">
-            <p class="eyebrow">Template Post</p>
-            <h1>[Blog Title]</h1>
-            <p class="blog-meta">[Month Day, Year] · [Category]</p>
-
-            <p class="section-intro">
+            <p class="eyebrow" data-i18n="blog.template.eyebrow">Template Post</p>
+            <h1 data-i18n="blog.template.title">[Blog Title]</h1>
+            <p class="blog-meta" data-i18n="blog.template.meta">[Month Day, Year] · [Category]</p>
+            
+            <p class="section-intro" data-i18n="blog.template.intro">
                 [One short intro paragraph summarizing what this post is about and why it matters.]
             </p>
 
-            <h2>Context</h2>
-            <p>[What problem or goal were you working on?]</p>
+            <h2 data-i18n="blog.template.context">Context</h2>
+            <p data-i18n="blog.template.context.text">[What problem or goal were you working on?]</p>
 
-            <h2>What I Did</h2>
-            <p>[Describe your approach, decisions, and implementation process.]</p>
+            <h2 data-i18n="blog.template.what">What I Did</h2>
+            <p data-i18n="blog.template.what.text">[Describe your approach, decisions, and implementation process.]</p>
 
-            <h2>What I Learned</h2>
-            <p>[Summarize key lessons, mistakes, and improvements for next time.]</p>
+            <h2 data-i18n="blog.template.learned">What I Learned</h2>
+            <p data-i18n="blog.template.learned.text">[Summarize key lessons, mistakes, and improvements for next time.]</p>
 
-            <h2>Next Steps</h2>
-            <p>[Add clear follow-up actions or future experiments.]</p>
+            <h2 data-i18n="blog.template.next">Next Steps</h2>
+            <p data-i18n="blog.template.next.text">[Add clear follow-up actions or future experiments.]</p>
 
             <div class="cta-group">
-                <a class="btn btn-primary" href="blog.html">Back to Blog</a>
-                <a class="btn btn-secondary" href="mailto:fyzedwin@gmail.com">Send Email</a>
+                <a class="btn btn-primary" href="blog.html" data-i18n="nav.blog">Back to Blog</a>
+                <a class="btn btn-secondary" href="mailto:fyzedwin@gmail.com" data-i18n="contact.email">Send Email</a>
             </div>
         </article>
     </main>

@@ -1,33 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Photography by Edwin.">
+    <meta name="description" content="Photography by Edwin." data-i18n="meta.description">
+    <meta name="keywords" content="Edwin, Photography, Portfolio" data-i18n="meta.keywords">
     <link rel="icon" type="image/x-icon" href="images/logo.png">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://isfedwin.github.io/photography.html">
+    <meta property="og:title" content="Edwin | Photography" data-i18n="photography.title">
+    <meta property="og:description" content="Photography portfolio by Edwin - capturing moments through the lens." data-i18n="photography.subtitle">
+    <meta property="og:image" content="https://isfedwin.github.io/images/logo.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Edwin | Photography" data-i18n="photography.title">
+    <meta name="twitter:description" content="Photography portfolio by Edwin." data-i18n="photography.subtitle">
+    <meta name="twitter:image" content="https://isfedwin.github.io/images/logo.png">
+    
     <link rel="stylesheet" href="styles.css">
+    <script src="i18n.js"></script>
     <script src="visual-effects.js" defer></script>
     <title>Edwin | Photography</title>
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Photography Portfolio",
+        "description": "Photography portfolio by Edwin Fang",
+        "url": "https://isfedwin.github.io/photography.html",
+        "author": {
+            "@type": "Person",
+            "name": "Edwin Fang",
+            "url": "https://isfedwin.github.io/"
+        }
+    }
+    </script>
 </head>
 <body class="site-body">
     <div class="geometric-accent" aria-hidden="true"></div>
 
     <header class="navbar">
         <div class="container">
-            <a class="brand" href="index.html">Edwin</a>
-            <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-overlay">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <a class="brand" href="index.html" data-i18n="nav.home">Edwin</a>
+            <div class="nav-actions">
+                <div class="lang-switcher" role="group" aria-label="Language selection">
+                    <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
+                    <button class="lang-btn" data-lang="zh-TW" aria-label="繁體中文">繁</button>
+                    <button class="lang-btn" data-lang="zh-CN" aria-label="简体中文">简</button>
+                </div>
+                <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-overlay">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
             <div class="nav-overlay" id="nav-overlay" aria-hidden="true">
                 <nav class="nav-links" aria-label="Primary">
-                    <a href="index.html">Home</a>
-                    <a href="index.html#cv">CV</a>
-                    <a href="index.html#accomplishments">Accomplishments</a>
-                    <a href="photography.html" aria-current="page">Photography</a>
-                    <a href="blog.html">Blog</a>
-                    <a href="#contact">Get in Contact</a>
+                    <a href="index.html" data-i18n="nav.home">Home</a>
+                    <a href="index.html#cv" data-i18n="nav.cv">CV</a>
+                    <a href="index.html#accomplishments" data-i18n="nav.accomplishments">Accomplishments</a>
+                    <a href="photography.html" aria-current="page" data-i18n="nav.photography">Photography</a>
+                    <a href="blog.html" data-i18n="nav.blog">Blog</a>
+                    <a href="#contact" data-i18n="nav.contact">Get in Contact</a>
                 </nav>
             </div>
         </div>
@@ -35,36 +72,36 @@
 
     <main class="section">
         <div class="container">
-            <p class="eyebrow">Creative Work</p>
-            <h1>Photography</h1>
-            <p class="section-intro">
+            <p class="eyebrow" data-i18n="photography.eyebrow">Creative Work</p>
+            <h1 data-i18n="photography.title">Photography</h1>
+            <p class="section-intro" data-i18n="photography.subtitle">
                 Photography is a core part of how I observe and communicate ideas. My focus is on light, atmosphere,
                 and composition that tells a clear story.
             </p>
 
             <div class="photo-grid">
                 <article class="photo-card">
-                    <img src="images/IMG_0003.jpeg" alt="Night city photography">
+                    <img src="images/IMG_0003.jpeg" alt="Night city photography" loading="lazy">
                     <p>Night architecture and mood-driven urban composition.</p>
                 </article>
                 <article class="photo-card">
-                    <img src="images/IMG_0165.jpeg" alt="Minimal street scene photography">
+                    <img src="images/IMG_0165.jpeg" alt="Minimal street scene photography" loading="lazy">
                     <p>Minimal framing and quiet environmental storytelling.</p>
                 </article>
                 <article class="photo-card">
-                    <img src="images/IMG_9960.jpeg" alt="Memory-themed photography">
+                    <img src="images/IMG_9960.jpeg" alt="Memory-themed photography" loading="lazy">
                     <p>Memory-focused moments captured with natural light.</p>
                 </article>
                 <article class="photo-card">
-                    <img src="images/IMG_0182.jpeg" alt="Hong Kong city photo">
+                    <img src="images/IMG_0182.jpeg" alt="Hong Kong city photo" loading="lazy">
                     <p>City life through a documentary lens.</p>
                 </article>
                 <article class="photo-card">
-                    <img src="images/IMG_0279.jpeg" alt="Light and structure photography">
+                    <img src="images/IMG_0279.jpeg" alt="Light and structure photography" loading="lazy">
                     <p>Light, structure, and contrast in everyday scenes.</p>
                 </article>
                 <article class="photo-card">
-                    <img src="images/IMG_0456.jpeg" alt="Sea landscape photography">
+                    <img src="images/IMG_0456.jpeg" alt="Sea landscape photography" loading="lazy">
                     <p>Calm landscapes and open-space visual rhythm.</p>
                 </article>
             </div>
@@ -89,3 +126,33 @@
     </footer>
 </body>
 </html>
+
+<script>
+    // Register service worker for PWA
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js')
+                .then(registration => {
+                    console.log('[PWA] Service Worker registered with scope:', registration.scope);
+                })
+                .catch(error => {
+                    console.error('[PWA] Service Worker registration failed:', error);
+                });
+        });
+    }
+</script>
+
+<script>
+    // Register service worker for PWA
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js')
+                .then(registration => {
+                    console.log('[PWA] Service Worker registered with scope:', registration.scope);
+                })
+                .catch(error => {
+                    console.error('[PWA] Service Worker registration failed:', error);
+                });
+        });
+    }
+</script>

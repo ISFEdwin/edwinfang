@@ -1,0 +1,23 @@
+{
+  "name": "Edwin - Builder & Connector",
+  "short_name": "Edwin",
+  "description": "Personal website of Edwin Fang - CS + Finance undergraduate at HKU",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050a12",
+  "theme_color": "#050a12",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["personal", "portfolio", "education"]
+}

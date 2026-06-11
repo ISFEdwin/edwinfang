@@ -10,90 +10,90 @@
     "contact": "Get in Contact"
   },
   "hero": {
-    "greeting": "Hi, I'm",
+    "greeting": "Hey, I'm",
     "name": "Edwin",
-    "role": "CS + Finance @ HKU",
-    "tag": "Available for Internship",
-    "description": "First-year undergraduate at University of Hong Kong, pursuing a dual-degree in Computer Engineering and Finance. Passionate about integrating AI into workflows, building innovative solutions, and exploring entrepreneurship opportunities.",
+    "role": "GEB @ HKU | BEng + BBA",
+    "tag": "Open to Opportunities",
+    "description": "Sophomore at HKU's Global Engineering and Business Program. Pursuing dual degrees in Computer Engineering and Finance. I build stuff, break things, and learn fast.",
     "cta_about": "About Me",
-    "cta_contact": "Get in Touch"
+    "cta_contact": "Let's Connect"
   },
   "about": {
     "title": "About Me",
-    "subtitle": "Get to know me better",
-    "bio": "I'm a first-year undergraduate at the University of Hong Kong (HKU), pursuing a dual-degree program in Computer Engineering and Finance. Currently interning at an asset management firm in the B2B department, I'm passionate about leveraging technology to solve real-world financial problems.",
-    "interests_title": "Interests & Passions",
+    "subtitle": "The highlights",
+    "bio": "I'm a sophomore in HKU's Global Engineering and Business (GEB) Program — a dual-degree track in Computer Engineering (BEng) and Finance (BBA). I'm into building products, exploring AI workflows, and figuring out how tech and business actually intersect.",
+    "interests_title": "What I'm Into",
     "interests": [
-      "AI Integration in Workflows",
-      "Hackathons & Competitions",
-      "Entrepreneurship & Startups",
-      "Financial Technology",
-      "Open Source Contributions"
+      "Shipping side projects",
+      "AI x workflow hacks",
+      "Hackathons & case comps",
+      "Startup ecosystem",
+      "Open source when I can"
     ],
-    "roles_title": "Roles at HKU",
+    "roles_title": "What I Do on Campus",
     "roles": [
       {
         "title": "External Vice-chairperson",
         "org": "Computer Science Association (CDSS)",
-        "desc": "Managing partnerships with 10+ tech/finance firms"
+        "desc": "Partnering with 10+ tech & finance firms"
       },
       {
         "title": "Honorary Treasurer",
         "org": "Hornell Hall Students' Association",
-        "desc": "Managing hall budget and event finances"
+        "desc": "Managing hall budget & event finances"
       },
       {
         "title": "External Secretary",
         "org": "Global Engineering and Business Society",
-        "desc": "Supporting external relations and partnerships"
+        "desc": "External relations & partnerships"
       }
     ]
   },
   "experience": {
     "title": "Experience",
-    "subtitle": "My professional journey",
+    "subtitle": "Real work, real lessons",
     "current_title": "Current",
     "current_role": "Asset Management Intern",
     "current_company": "B2B Department",
-    "current_desc": "Working on integrating AI into asset management workflows, analyzing financial data, and supporting B2B client solutions.",
+    "current_desc": "Exploring how AI can streamline asset management workflows and support B2B client solutions.",
     "past_title": "Past Experience"
   },
   "cv": {
-    "title": "Curriculum Vitae",
-    "subtitle": "My professional background",
+    "title": "CV",
+    "subtitle": "Quick snapshot",
     "download": "Download CV (PDF)",
     "view_online": "View Online"
   },
   "accomplishments": {
     "title": "Accomplishments",
-    "subtitle": "Awards, certifications, and achievements",
-    "section_title": "Recent Achievements"
+    "subtitle": "Things I'm proud of",
+    "section_title": "Recent Highlights"
   },
   "photography": {
     "title": "Photography",
-    "subtitle": "Capturing moments through my lens",
+    "subtitle": "Light, composition, stories",
     "view_gallery": "View Gallery"
   },
   "blog": {
     "title": "Blog",
-    "subtitle": "Thoughts, tutorials, and insights",
+    "subtitle": "Thoughts, builds, lessons",
     "read_more": "Read More",
     "view_all": "View All Posts"
   },
   "contact": {
-    "title": "Get in Contact",
-    "subtitle": "Let's connect and collaborate",
+    "title": "Let's Connect",
+    "subtitle": "Always down to chat",
     "email_label": "Email",
     "linkedin_label": "LinkedIn",
     "github_label": "GitHub",
     "wechat_label": "WeChat"
   },
   "footer": {
-    "built_with": "Built with passion and",
+    "built_with": "Made with",
     "copyright": "All rights reserved"
   },
   "meta": {
-    "description": "Edwin's personal website - CS + Finance undergraduate at HKU, showcasing projects, photography, and blog.",
-    "keywords": "Edwin, HKU, Computer Engineering, Finance, Personal Website, Photography, Blog"
+    "description": "Edwin's personal site — HKU GEB sophomore, Computer Engineering + Finance. Projects, photos, and blog.",
+    "keywords": "Edwin, HKU, Global Engineering and Business, Computer Engineering, Finance, Photography, Blog"
   }
 }
