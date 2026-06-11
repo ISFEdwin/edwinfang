@@ -23,11 +23,8 @@ const EmailProtection = (() => {
 
             switch(type) {
                 case 'mailto':
-                    // For <a> tags - set href and text
+                    // For <a> tags - set href only, preserve inner HTML (icon + text)
                     el.href = mailto;
-                    if (!el.textContent || el.textContent.includes('@') === false) {
-                        el.textContent = email;
-                    }
                     break;
 
                 case 'text':

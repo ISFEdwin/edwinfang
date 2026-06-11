@@ -15,14 +15,14 @@
     "name": "Edwin",
     "role": "CS + Finance @ HKU",
     "tag": "Down for what's next",
-    "description": "Making things at the intersection of code and capital. GEB sophomore @ HKU — dual degree in Computer Engineering and Finance.",
+    "description": "Making things at the intersection of code and capital. GEBP sophomore @ HKU — dual degree in Computer Engineering and Finance.",
     "cta_about": "More about me",
     "cta_contact": "Let's chat"
   },
   "about": {
     "title": "About",
     "subtitle": "The gist of it",
-    "bio": "I'm in HKU's Global Engineering and Business (GEB) Program — a dual-degree track in Computer Engineering (BEng) and Finance (BBA). I like building products, exploring AI workflows, and figuring out where tech and business actually meet in real life.",
+    "bio": "I'm in HKU's Global Engineering and Business Program (GEBP) — a dual-degree track in Computer Engineering (BEng) and Finance (BBA). I like building products, exploring AI workflows, and figuring out where tech and business actually meet in real life.",
     "interests_title": "Currently into",
     "interests": [
       "Shipping side projects",
@@ -211,7 +211,7 @@
     "copyright": "Let's build something cool. © 2026 Edwin."
   },
   "meta": {
-    "description": "Edwin's personal site — HKU GEB sophomore, Computer Engineering + Finance. Projects, photos, and blog.",
+    "description": "Edwin's personal site — HKU GEBP sophomore, Computer Engineering + Finance. Projects, photos, and blog.",
     "keywords": "Edwin, HKU, Global Engineering and Business, Computer Engineering, Finance, Photography, Blog"
   }
 }

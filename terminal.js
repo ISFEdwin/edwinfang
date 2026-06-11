@@ -1,16 +1,15 @@
 /**
  * Terminal.js - Terminal-style About Me with typewriter effect
  * Displays personal information in a command-line interface style
- * Features: Pause/resume when out of view, language switching
+ * Features: Pause/resume when out of view, language switching, smooth line animations
  */
 
 const TerminalAbout = (() => {
-  // Personal data to display (in English, will be translated by i18n)
-  // Note: Email is intentionally omitted to prevent scraping (available via contact form/footer)
+  // Personal data to display
   const aboutData = {
     en: [
       { label: 'Name', value: 'Edwin Fang' },
-      { label: 'Program', value: 'GEB @ HKU' },
+      { label: 'Program', value: 'GEBP @ HKU' },
       { label: 'Year', value: 'Sophomore' },
       { label: 'Degrees', value: 'BEng (CompEng) + BBA (Finance)' },
       { label: 'Interests', value: 'Building, AI workflows, startups' },
@@ -45,9 +44,9 @@ const TerminalAbout = (() => {
   let isTyping = false;
   let timeouts = [];
   let isInView = true;
-  let lineElements = []; // Track created DOM elements
+  let lineElements = [];
   let observer = null;
-  
+
   const getCurrentLang = () => window.I18n ? window.I18n.getCurrentLang() : 'en';
   const getCurrentData = () => {
     const lang = getCurrentLang();
@@ -60,121 +59,90 @@ const TerminalAbout = (() => {
     timeouts = [];
   };
 
-  // Setup Intersection Observer to pause/resume when out of view
-  const setupObserver = () => {
-    const terminalEl = document.querySelector('.terminal-window') || 
-                        document.getElementById('about');
-    if (!terminalEl || !('IntersectionObserver' in window)) return;
-    
-    // Cleanup previous observer
-    if (observer) {
-      observer.disconnect();
-    }
-    
-    observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const wasInView = isInView;
-        isInView = entry.isIntersecting;
-        
-        if (wasInView && !isInView) {
-          // Went out of view - pause animation
-          clearAllTimeouts();
-        } else if (!wasInView && isInView) {
-          // Came back into view - resume animation
-          if (isTyping && currentLine < getCurrentData().length) {
-            resumeTyping();
-          }
-        }
+  // Create a line element with smooth entrance animation
+  const createLineElement = (line, lineIndex) => {
+    const lineEl = document.createElement('div');
+    lineEl.className = 'line line-entering';
+
+    const labelEl = document.createElement('span');
+    labelEl.className = 'line-label';
+    labelEl.textContent = line.label + ':';
+
+    const valueEl = document.createElement('span');
+    valueEl.className = 'line-value';
+    valueEl.textContent = '';
+
+    lineEl.appendChild(labelEl);
+    lineEl.appendChild(valueEl);
+
+    const outputEl = document.getElementById('typewriter-output');
+    outputEl.appendChild(lineEl);
+
+    // Trigger smooth entrance animation on next frame
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        lineEl.classList.remove('line-entering');
+        lineEl.classList.add('line-visible');
       });
-    }, { threshold: 0.1 });
-    
-    observer.observe(terminalEl);
+    });
+
+    lineElements[lineIndex] = lineEl;
+    return { lineEl, valueEl };
   };
 
-  // Resume typing from current state
-  const resumeTyping = () => {
-    const data = getCurrentData();
-    
-    if (currentLine >= data.length) {
-      // All done
-      isTyping = false;
-      const cursorEl = document.getElementById('terminal-cursor');
-      if (cursorEl) cursorEl.style.display = 'inline';
-      return;
-    }
-
-    const line = data[currentLine];
+  // Get existing line element or create a new one
+  const getOrCreateLine = (lineIndex) => {
+    const line = getCurrentData()[lineIndex];
     const outputEl = document.getElementById('typewriter-output');
-    
-    // Get or create line element
-    let lineEl, valueEl;
-    
-    if (lineElements[currentLine]) {
-      // Line element exists
-      lineEl = lineElements[currentLine];
-      valueEl = lineEl.querySelector('.line-value');
-    } else {
-      // Create new line element with smooth entrance animation
-      lineEl = document.createElement('div');
-      lineEl.className = 'line line-entering';
-      
-      const labelEl = document.createElement('span');
-      labelEl.className = 'line-label';
-      labelEl.textContent = line.label + ':';
-      
-      valueEl = document.createElement('span');
-      valueEl.className = 'line-value';
-      valueEl.textContent = currentLineText;
-      
-      lineEl.appendChild(labelEl);
-      lineEl.appendChild(valueEl);
-      outputEl.appendChild(lineEl);
-      
-      // Trigger smooth entrance animation
+
+    if (lineElements[lineIndex]) {
+      // Reuse existing element
+      const lineEl = lineElements[lineIndex];
+      const valueEl = lineEl.querySelector('.line-value');
+      lineEl.classList.remove('line-visible');
+      lineEl.classList.add('line-entering');
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           lineEl.classList.remove('line-entering');
           lineEl.classList.add('line-visible');
         });
       });
-      
-      lineElements[currentLine] = lineEl;
+      return { lineEl, valueEl };
+    } else {
+      return createLineElement(line, lineIndex);
     }
-    
-    // Continue typing current line
-    const typeChar = () => {
-      if (currentCharIndex < line.value.length) {
-        valueEl.textContent += line.value[currentCharIndex];
-        currentLineText += line.value[currentCharIndex];
-        currentCharIndex++;
-        const timeoutId = setTimeout(typeChar, TYPING_SPEED + Math.random() * 20);
-        timeouts.push(timeoutId);
-      } else {
-        // Current line complete
-        currentLine++;
-        currentCharIndex = 0;
-        currentLineText = '';
-        
-        if (currentLine < data.length) {
-          const timeoutId = setTimeout(typeNextLine, LINE_DELAY);
-          timeouts.push(timeoutId);
-        } else {
-          // All done
-          isTyping = false;
-          const cursorEl = document.getElementById('terminal-cursor');
-          if (cursorEl) cursorEl.style.display = 'inline';
-        }
-      }
-    };
-    
-    const timeoutId = setTimeout(typeChar, TYPING_SPEED);
-    timeouts.push(timeoutId);
   };
 
-  // Type next line (when starting fresh or moving to next line)
+  // Type a single character
+  const typeChar = (line, valueEl) => {
+    if (currentCharIndex < line.value.length) {
+      valueEl.textContent += line.value[currentCharIndex];
+      currentLineText += line.value[currentCharIndex];
+      currentCharIndex++;
+      const timeoutId = setTimeout(() => typeChar(line, valueEl), TYPING_SPEED + Math.random() * 20);
+      timeouts.push(timeoutId);
+    } else {
+      // Current line complete — move to next line
+      currentLine++;
+      currentCharIndex = 0;
+      currentLineText = '';
+
+      if (currentLine < getCurrentData().length) {
+        const timeoutId = setTimeout(typeNextLine, LINE_DELAY);
+        timeouts.push(timeoutId);
+      } else {
+        // All done
+        isTyping = false;
+        const cursorEl = document.getElementById('terminal-cursor');
+        if (cursorEl) cursorEl.style.display = 'inline';
+      }
+    }
+  };
+
+  // Type the next line
   const typeNextLine = () => {
     const data = getCurrentData();
-    
+
     if (currentLine >= data.length) {
       isTyping = false;
       const cursorEl = document.getElementById('terminal-cursor');
@@ -183,53 +151,60 @@ const TerminalAbout = (() => {
     }
 
     const line = data[currentLine];
-    const outputEl = document.getElementById('typewriter-output');
-    
-    // Create line element
-    const lineEl = document.createElement('div');
-    lineEl.className = 'line';
-    
-    const labelEl = document.createElement('span');
-    labelEl.className = 'line-label';
-    labelEl.textContent = line.label + ':';
-    
-    const valueEl = document.createElement('span');
-    valueEl.className = 'line-value';
-    
-    lineEl.appendChild(labelEl);
-    lineEl.appendChild(valueEl);
-    outputEl.appendChild(lineEl);
-    
-    lineElements[currentLine] = lineEl;
+    const { valueEl } = getOrCreateLine(currentLine);
 
-    // Type the value with animation
-    const typeChar = () => {
-      if (currentCharIndex < line.value.length) {
-        valueEl.textContent += line.value[currentCharIndex];
-        currentLineText = valueEl.textContent;
-        currentCharIndex++;
-        const timeoutId = setTimeout(typeChar, TYPING_SPEED + Math.random() * 20);
-        timeouts.push(timeoutId);
-      } else {
-        currentLine++;
-        currentCharIndex = 0;
-        currentLineText = '';
-        
-        if (currentLine < data.length) {
-          const timeoutId = setTimeout(typeNextLine, LINE_DELAY);
-          timeouts.push(timeoutId);
-        } else {
-          isTyping = false;
-          const cursorEl = document.getElementById('terminal-cursor');
-          if (cursorEl) cursorEl.style.display = 'inline';
-        }
-      }
-    };
-
-    const startTimeoutId = setTimeout(typeChar, COMMAND_DELAY);
-    timeouts.push(startTimeoutId);
+    // Start typing characters
+    const timeoutId = setTimeout(() => typeChar(line, valueEl), COMMAND_DELAY);
+    timeouts.push(timeoutId);
   };
 
+  // Setup Intersection Observer to pause/resume when out of view
+  const setupObserver = () => {
+    const terminalEl = document.querySelector('.terminal-window') ||
+                         document.getElementById('about');
+    if (!terminalEl || !('IntersectionObserver' in window)) return;
+
+    if (observer) {
+      observer.disconnect();
+    }
+
+    observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const wasInView = isInView;
+        isInView = entry.isIntersecting;
+
+        if (wasInView && !isInView) {
+          clearAllTimeouts();
+        } else if (!wasInView && isInView) {
+          if (isTyping && currentLine < getCurrentData().length) {
+            resumeTyping();
+          }
+        }
+      });
+    }, { threshold: 0.1 });
+
+    observer.observe(terminalEl);
+  };
+
+  // Resume typing from current state
+  const resumeTyping = () => {
+    const data = getCurrentData();
+
+    if (currentLine >= data.length) {
+      isTyping = false;
+      const cursorEl = document.getElementById('terminal-cursor');
+      if (cursorEl) cursorEl.style.display = 'inline';
+      return;
+    }
+
+    const line = data[currentLine];
+    const { valueEl } = getOrCreateLine(currentLine);
+
+    // Continue typing current line
+    typeChar(line, valueEl);
+  };
+
+  // Start typing from scratch
   const startTyping = () => {
     clearAllTimeouts();
     const outputEl = document.getElementById('typewriter-output');
@@ -242,7 +217,6 @@ const TerminalAbout = (() => {
     lineElements = [];
     isTyping = true;
 
-    // Only start if in view
     if (isInView) {
       timeouts.push(setTimeout(typeNextLine, COMMAND_DELAY));
     }
@@ -250,13 +224,11 @@ const TerminalAbout = (() => {
 
   const init = () => {
     const outputEl = document.getElementById('typewriter-output');
-    
     if (!outputEl) {
       console.warn('[Terminal] typewriter-output element not found');
       return;
     }
 
-    // Setup intersection observer
     setupObserver();
 
     // Remove previous event listener if exists
@@ -269,8 +241,7 @@ const TerminalAbout = (() => {
       if (window.I18n && window.I18n.isInitialized()) {
         clearInterval(checkI18n);
         startTyping();
-        
-        // Re-type on language change (only add once)
+
         window._terminalLangChangeHandler = () => {
           startTyping();
         };
@@ -286,7 +257,6 @@ const TerminalAbout = (() => {
     }, 2000));
   };
 
-  // Public API
   return {
     init,
     restart: startTyping,
