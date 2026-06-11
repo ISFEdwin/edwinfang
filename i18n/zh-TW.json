@@ -1,13 +1,14 @@
 {
   "nav": {
     "home": "首頁",
-    "about": "關於我",
-    "experience": "工作經驗",
+    "about": "關於",
+    "experience": "經驗",
     "cv": "履歷",
-    "accomplishments": "成就",
+    "accomplishments": "成果",
     "photography": "攝影",
     "blog": "部落格",
-    "contact": "聯絡我"
+    "contact": "聯絡",
+    "linkedin": "LinkedIn"
   },
   "hero": {
     "greeting": "嗨，我是",
@@ -56,41 +57,157 @@
     "current_role": "資產管理實習生",
     "current_company": "B2B 部門",
     "current_desc": "探索 AI 如何優化資產管理工作流程，支援 B2B 客戶解決方案。",
-    "past_title": "過往經驗"
+    "past_title": "過往經驗",
+    "card1": {
+      "title": "實作專案",
+      "desc": "交付真正被使用的網頁應用、工具和 side projects。"
+    },
+    "card2": {
+      "title": "團隊協作",
+      "desc": "良好的溝通、共同擁有，把事情做完。"
+    },
+    "card3": {
+      "title": "迭代與交付",
+      "desc": "除錯、測試、優化——每次交付都更好。"
+    }
   },
   "cv": {
     "title": "履歷",
     "subtitle": "快速覽",
     "download": "下載履歷 (PDF)",
-    "view_online": "線上查看"
+    "view_online": "線上查看",
+    "card1": {
+      "title": "學歷",
+      "desc": "港大全球工程與商業學程（GEB）——工學士 + 商學士。"
+    },
+    "card2": {
+      "title": "目前重心",
+      "desc": "做專案、快速學習、探索交集。"
+    },
+    "card3": {
+      "title": "方向",
+      "desc": "尋找有實質技術擁有權的機會。"
+    }
   },
   "accomplishments": {
-    "title": "成就",
+    "title": "成果",
     "subtitle": "值得驕傲的事",
-    "section_title": "近期亮點"
+    "section_title": "近期亮點",
+    "card1": {
+      "title": "Game Dev 專案",
+      "desc": "交付有多關卡、自製系統與 UI 的遊戲。"
+    },
+    "card2": {
+      "title": "迭代與進步",
+      "desc": "記錄決策、除錯，每次交付都更好。"
+    },
+    "card3": {
+      "title": "網頁開發",
+      "desc": "響應式網頁體驗，乾淨的前端結構。"
+    },
+    "card4": {
+      "title": "團隊交付",
+      "desc": "合作、交付，並從真實限制中學習。"
+    }
   },
   "photography": {
     "title": "攝影",
     "subtitle": "光影、構圖、故事",
     "view_gallery": "查看畫廊"
   },
+  "skills": {
+    "title": "技能",
+    "subtitle": "我實際用來交付的。",
+    "card1": {
+      "title": "網頁開發",
+      "desc": "響應式、無障礙介面。HTML、CSS、JS——乾淨快速。"
+    },
+    "card2": {
+      "title": "Python & CS 基礎",
+      "desc": "紮實基礎，實際解題。"
+    },
+    "card3": {
+      "title": "構建與交付",
+      "desc": "端到端：系統、UI、測試、迭代。"
+    },
+    "card4": {
+      "title": "問題解決",
+      "desc": "結構化除錯、優化、把事情做完。"
+    },
+    "card5": {
+      "title": "協作",
+      "desc": "清晰溝通、共同擁有、可靠交付。"
+    },
+    "card6": {
+      "title": "視覺敘事",
+      "desc": "攝影訓練我對構圖與流的眼光。"
+    }
+  },
   "blog": {
     "title": "部落格",
     "subtitle": "想法、實作、學習",
     "read_more": "閱讀更多",
-    "view_all": "查看所有文章"
+    "view_all": "查看所有文章",
+    "template": {
+      "title": "部落格模板",
+      "eyebrow": "模板文章",
+      "meta": "年月日 · 分類",
+      "intro": "[簡短介紹這篇文章在講什麼，為什麼重要。]",
+      "context": "背景",
+      "context_text": "[你在處理什麼問題或目標？]",
+      "what": "我做了什麼",
+      "what_text": "[描述你的方法、決策和實作過程。]",
+      "learned": "我學到的",
+      "learned_text": "[總結關鍵教訓、錯誤和下次改進。]",
+      "next": "下一步",
+      "next_text": "[加入清楚的後續行動或未來實驗。]"
+    },
+    "card1": {
+      "meta": "模板",
+      "title": "如何規劃專案週",
+      "desc": "可重複使用的每週執行與檢討結構。"
+    },
+    "card2": {
+      "meta": "最新",
+      "title": "清晰迭代地構建",
+      "desc": "每次迭代都交付得更好。"
+    },
+    "card3": {
+      "meta": "創意",
+      "title": "攝影教會編碼的事",
+      "desc": "構圖與節奏提升產品直覺。"
+    }
   },
   "contact": {
-    "title": "聯絡我",
-    "subtitle": "隨時可以聊聊",
-    "email_label": "電子郵件",
-    "linkedin_label": "LinkedIn",
-    "github_label": "GitHub",
-    "wechat_label": "微信"
+    "eyebrow": "聯絡我",
+    "title": "讓我們連線",
+    "subtitle": "有專案想法、問題，或只是想打招呼？給我留言。",
+    "email": {
+      "label": "電子郵件"
+    },
+    "linkedin": {
+      "label": "LinkedIn"
+    },
+    "github": {
+      "label": "GitHub"
+    },
+    "form": {
+      "title": "傳送訊息給我",
+      "name": "姓名",
+      "name_placeholder": "你的姓名",
+      "email": "電子郵件",
+      "email_placeholder": "your@email.com",
+      "subject": "主題",
+      "subject_placeholder": "這是關於什麼？",
+      "message": "訊息",
+      "message_placeholder": "你的訊息...",
+      "submit": "傳送訊息",
+      "success": "訊息已送出！我會盡快回覆你。",
+      "error": "喔不！出了點問題。請再試一次。"
+    }
   },
   "footer": {
-    "built_with": "用",
-    "copyright": "保留所有權利"
+    "copyright": "讓我們一起打造有意義的東西。© 2026 Edwin."
   },
   "meta": {
     "description": "Edwin 的個人網站 — 港大 GEB 二年級，電腦工程 + 金融。專案、攝影、部落格。",

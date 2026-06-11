@@ -41,6 +41,13 @@ const TerminalAbout = (() => {
 
   let currentLine = 0;
   let isTyping = false;
+  let timeouts = []; // Track all timeouts to clear them
+
+  // Clear all pending timeouts
+  const clearAllTimeouts = () => {
+    timeouts.forEach(id => clearTimeout(id));
+    timeouts = [];
+  };
 
   const init = () => {
     const outputEl = document.getElementById('typewriter-output');
@@ -51,30 +58,39 @@ const TerminalAbout = (() => {
       return;
     }
 
+    // Remove previous event listener if exists
+    if (window._terminalLangChangeHandler) {
+      window.removeEventListener('languageChanged', window._terminalLangChangeHandler);
+    }
+
     // Wait for i18n to be ready
     const checkI18n = setInterval(() => {
       if (window.I18n && window.I18n.isInitialized()) {
         clearInterval(checkI18n);
         startTyping();
         
-        // Re-type on language change
-        window.addEventListener('languageChanged', () => {
+        // Re-type on language change (only add once)
+        window._terminalLangChangeHandler = () => {
+          clearAllTimeouts();
           outputEl.innerHTML = '';
           currentLine = 0;
+          isTyping = false;
           startTyping();
-        });
+        };
+        window.addEventListener('languageChanged', window._terminalLangChangeHandler);
       }
     }, 100);
 
     // Fallback: start after 2s if i18n fails
-    setTimeout(() => {
+    timeouts.push(setTimeout(() => {
       if (!isTyping) {
         startTyping();
       }
-    }, 2000);
+    }, 2000));
   };
 
   const startTyping = () => {
+    clearAllTimeouts(); // Clear any pending timeouts
     const outputEl = document.getElementById('typewriter-output');
     if (!outputEl) return;
 
@@ -82,7 +98,7 @@ const TerminalAbout = (() => {
     currentLine = 0;
     isTyping = true;
 
-    typeNextLine();
+    timeouts.push(setTimeout(typeNextLine, COMMAND_DELAY));
   };
 
   const typeNextLine = () => {
@@ -122,14 +138,17 @@ const TerminalAbout = (() => {
       if (charIndex < line.value.length) {
         valueEl.textContent += line.value[charIndex];
         charIndex++;
-        setTimeout(typeChar, TYPING_SPEED + Math.random() * 20);
+        const timeoutId = setTimeout(typeChar, TYPING_SPEED + Math.random() * 20);
+        timeouts.push(timeoutId);
       } else {
         currentLine++;
-        setTimeout(typeNextLine, LINE_DELAY);
+        const timeoutId = setTimeout(typeNextLine, LINE_DELAY);
+        timeouts.push(timeoutId);
       }
     };
 
-    setTimeout(typeChar, COMMAND_DELAY);
+    const startTimeoutId = setTimeout(typeChar, COMMAND_DELAY);
+    timeouts.push(startTimeoutId);
   };
 
   // Public API

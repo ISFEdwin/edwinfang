@@ -80,6 +80,17 @@ const I18n = (() => {
       }
     });
 
+    // Update placeholder attributes
+    const placeholderElements = document.querySelectorAll('[data-i18n-placeholder]');
+    placeholderElements.forEach(element => {
+      const key = element.getAttribute('data-i18n-placeholder');
+      const translation = getNestedValue(translations[currentLang], key);
+      
+      if (translation) {
+        element.placeholder = translation;
+      }
+    });
+
     // Update meta tags
     const metaDescription = document.querySelector('meta[name="description"]');
     const metaKeywords = document.querySelector('meta[name="keywords"]');

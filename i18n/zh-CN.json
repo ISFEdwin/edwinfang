@@ -1,13 +1,14 @@
 {
   "nav": {
     "home": "首页",
-    "about": "关于我",
-    "experience": "工作经验",
+    "about": "关于",
+    "experience": "经验",
     "cv": "简历",
-    "accomplishments": "成就",
+    "accomplishments": "成果",
     "photography": "摄影",
     "blog": "博客",
-    "contact": "联系我"
+    "contact": "联系",
+    "linkedin": "LinkedIn"
   },
   "hero": {
     "greeting": "嗨，我是",
@@ -56,41 +57,157 @@
     "current_role": "资产管理实习生",
     "current_company": "B2B 部门",
     "current_desc": "探索 AI 如何优化资产管理工作流程，支持 B2B 客户解决方案。",
-    "past_title": "过往经验"
+    "past_title": "过往经验",
+    "card1": {
+      "title": "实战项目",
+      "desc": "交付真正被使用的网页应用、工具和 side projects。"
+    },
+    "card2": {
+      "title": "团队合作",
+      "desc": "良好的沟通、共同拥有，把事情做完。"
+    },
+    "card3": {
+      "title": "迭代与交付",
+      "desc": "调试、测试、优化——每次交付都更好。"
+    }
   },
   "cv": {
     "title": "简历",
     "subtitle": "快速览",
     "download": "下载简历 (PDF)",
-    "view_online": "在线查看"
+    "view_online": "在线查看",
+    "card1": {
+      "title": "学历",
+      "desc": "港大全球工程与商业学程（GEB）——工学士 + 商学士。"
+    },
+    "card2": {
+      "title": "目前重心",
+      "desc": "做项目、快速学习、探索交集。"
+    },
+    "card3": {
+      "title": "方向",
+      "desc": "寻找有实质技术所有权的机会。"
+    }
   },
   "accomplishments": {
-    "title": "成就",
+    "title": "成果",
     "subtitle": "值得骄傲的事",
-    "section_title": "近期亮点"
+    "section_title": "近期亮点",
+    "card1": {
+      "title": "Game Dev 项目",
+      "desc": "交付有多关卡、自制系统与 UI 的游戏。"
+    },
+    "card2": {
+      "title": "迭代与进步",
+      "desc": "记录决策、调试，每次交付都更好。"
+    },
+    "card3": {
+      "title": "网页开发",
+      "desc": "响应式网页体验，干净的前端结构。"
+    },
+    "card4": {
+      "title": "团队交付",
+      "desc": "合作、交付，并从真实限制中学习。"
+    }
   },
   "photography": {
     "title": "摄影",
     "subtitle": "光影、构图、故事",
     "view_gallery": "查看画廊"
   },
+  "skills": {
+    "title": "技能",
+    "subtitle": "我实际用来交付的。",
+    "card1": {
+      "title": "网页开发",
+      "desc": "响应式、无障碍界面。HTML、CSS、JS——干净快速。"
+    },
+    "card2": {
+      "title": "Python & CS 基础",
+      "desc": "扎实基础，实际解题。"
+    },
+    "card3": {
+      "title": "构建与交付",
+      "desc": "端到端：系统、UI、测试、迭代。"
+    },
+    "card4": {
+      "title": "问题解决",
+      "desc": "结构化调试、优化、把事情做完。"
+    },
+    "card5": {
+      "title": "协作",
+      "desc": "清晰沟通、共同拥有、可靠交付。"
+    },
+    "card6": {
+      "title": "视觉叙事",
+      "desc": "摄影训练我对构图与流的眼光。"
+    }
+  },
   "blog": {
     "title": "博客",
     "subtitle": "想法、实作、学习",
     "read_more": "阅读更多",
-    "view_all": "查看所有文章"
+    "view_all": "查看所有文章",
+    "template": {
+      "title": "博客模板",
+      "eyebrow": "模板文章",
+      "meta": "年月日 · 分类",
+      "intro": "[简短介绍这篇文章在讲什么，为什么重要。]",
+      "context": "背景",
+      "context_text": "[你在处理什么问题或目标？]",
+      "what": "我做了什么",
+      "what_text": "[描述你的方法、决策和实现过程。]",
+      "learned": "我学到的",
+      "learned_text": "[总结关键教训、错误和下次改进。]",
+      "next": "下一步",
+      "next_text": "[加入清楚的后续行动或未来实验。]"
+    },
+    "card1": {
+      "meta": "模板",
+      "title": "如何规划项目周",
+      "desc": "可重复使用的每周执行与检讨结构。"
+    },
+    "card2": {
+      "meta": "最新",
+      "title": "清晰迭代地构建",
+      "desc": "每次迭代都交付得更好。"
+    },
+    "card3": {
+      "meta": "创意",
+      "title": "摄影教会编程的事",
+      "desc": "构图与节奏提升产品直觉。"
+    }
   },
   "contact": {
-    "title": "联系我",
-    "subtitle": "随时可以聊聊",
-    "email_label": "电子邮件",
-    "linkedin_label": "LinkedIn",
-    "github_label": "GitHub",
-    "wechat_label": "微信"
+    "eyebrow": "取得联系",
+    "title": "让我们连线",
+    "subtitle": "有项目想法、问题，或只是想打招呼？给我留言。",
+    "email": {
+      "label": "电子邮件"
+    },
+    "linkedin": {
+      "label": "LinkedIn"
+    },
+    "github": {
+      "label": "GitHub"
+    },
+    "form": {
+      "title": "传送讯息给我",
+      "name": "姓名",
+      "name_placeholder": "你的姓名",
+      "email": "电子邮件",
+      "email_placeholder": "your@email.com",
+      "subject": "主题",
+      "subject_placeholder": "这是关于什么？",
+      "message": "讯息",
+      "message_placeholder": "你的讯息...",
+      "submit": "传送讯息",
+      "success": "讯息已送出！我会尽快回复你。",
+      "error": "喔不！出了点问题。请再试一次。"
+    }
   },
   "footer": {
-    "built_with": "用",
-    "copyright": "保留所有权利"
+    "copyright": "让我们一起打造有意义的东西。© 2026 Edwin."
   },
   "meta": {
     "description": "Edwin 的个人网站 — 港大 GEB 二年级，计算机工程 + 金融。项目、摄影、博客。",

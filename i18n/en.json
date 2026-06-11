@@ -4,23 +4,24 @@
     "about": "About",
     "experience": "Experience",
     "cv": "CV",
-    "accomplishments": "Accomplishments",
-    "photography": "Photography",
+    "accomplishments": "Wins",
+    "photography": "Photos",
     "blog": "Blog",
-    "contact": "Get in Contact"
+    "contact": "Contact",
+    "linkedin": "LinkedIn"
   },
   "hero": {
     "greeting": "Hey, I'm",
     "name": "Edwin",
     "role": "GEB @ HKU | BEng + BBA",
     "tag": "Open to Opportunities",
-    "description": "Sophomore at HKU's Global Engineering and Business Program. Pursuing dual degrees in Computer Engineering and Finance. I build stuff, break things, and learn fast.",
+    "description": "Sophomore at HKU's Global Engineering and Business Program. I build stuff, break things, and learn fast. Dual degrees in Computer Engineering and Finance.",
     "cta_about": "About Me",
     "cta_contact": "Let's Connect"
   },
   "about": {
     "title": "About Me",
-    "subtitle": "The highlights",
+    "subtitle": "Quick highlights",
     "bio": "I'm a sophomore in HKU's Global Engineering and Business (GEB) Program — a dual-degree track in Computer Engineering (BEng) and Finance (BBA). I'm into building products, exploring AI workflows, and figuring out how tech and business actually intersect.",
     "interests_title": "What I'm Into",
     "interests": [
@@ -33,7 +34,7 @@
     "roles_title": "What I Do on Campus",
     "roles": [
       {
-        "title": "External Vice-chairperson",
+        "title": "External VP",
         "org": "Computer Science Association (CDSS)",
         "desc": "Partnering with 10+ tech & finance firms"
       },
@@ -56,41 +57,157 @@
     "current_role": "Asset Management Intern",
     "current_company": "B2B Department",
     "current_desc": "Exploring how AI can streamline asset management workflows and support B2B client solutions.",
-    "past_title": "Past Experience"
+    "past_title": "Past Experience",
+    "card1": {
+      "title": "Building Real Things",
+      "desc": "Shipping web apps, tools, and side projects that actually get used."
+    },
+    "card2": {
+      "title": "Team Work",
+      "desc": "Good communication, shared ownership, and getting stuff done."
+    },
+    "card3": {
+      "title": "Iterate & Ship",
+      "desc": "Debug, test, refine — ship better each time."
+    }
   },
   "cv": {
     "title": "CV",
     "subtitle": "Quick snapshot",
     "download": "Download CV (PDF)",
-    "view_online": "View Online"
+    "view_online": "View Online",
+    "card1": {
+      "title": "Education",
+      "desc": "HKU Global Engineering and Business Program — BEng + BBA."
+    },
+    "card2": {
+      "title": "Current Focus",
+      "desc": "Building projects, learning fast, exploring intersections."
+    },
+    "card3": {
+      "title": "Direction",
+      "desc": "Looking for opportunities with real technical ownership."
+    }
   },
   "accomplishments": {
-    "title": "Accomplishments",
+    "title": "Wins",
     "subtitle": "Things I'm proud of",
-    "section_title": "Recent Highlights"
+    "section_title": "Recent Highlights",
+    "card1": {
+      "title": "Game Dev Project",
+      "desc": "Shipped a multi-level game with custom systems and UI."
+    },
+    "card2": {
+      "title": "Iterate & Improve",
+      "desc": "Tracking decisions, debugging, and shipping better each time."
+    },
+    "card3": {
+      "title": "Web Builds",
+      "desc": "Responsive web experiences with clean front-end structure."
+    },
+    "card4": {
+      "title": "Team Delivery",
+      "desc": "Collaborated, delivered, and learned from real constraints."
+    }
   },
   "photography": {
     "title": "Photography",
     "subtitle": "Light, composition, stories",
     "view_gallery": "View Gallery"
   },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "What I actually use to ship.",
+    "card1": {
+      "title": "Web Dev",
+      "desc": "Responsive, accessible interfaces. HTML, CSS, JS — clean and fast."
+    },
+    "card2": {
+      "title": "Python & CS Fundamentals",
+      "desc": "Solid foundations, practical problem-solving."
+    },
+    "card3": {
+      "title": "Build & Ship",
+      "desc": "End-to-end: systems, UI, testing, iteration."
+    },
+    "card4": {
+      "title": "Problem Solving",
+      "desc": "Structured debugging, optimization, getting to done."
+    },
+    "card5": {
+      "title": "Collaboration",
+      "desc": "Clear communication, shared ownership, reliable delivery."
+    },
+    "card6": {
+      "title": "Visual Storytelling",
+      "desc": "Photography trains my eye for composition and flow."
+    }
+  },
   "blog": {
     "title": "Blog",
     "subtitle": "Thoughts, builds, lessons",
     "read_more": "Read More",
-    "view_all": "View All Posts"
+    "view_all": "View All Posts",
+    "template": {
+      "title": "Blog Template",
+      "eyebrow": "Template Post",
+      "meta": "Month Day, Year · Category",
+      "intro": "[One short intro paragraph summarizing what this post is about and why it matters.]",
+      "context": "Context",
+      "context_text": "[What problem or goal were you working on?]",
+      "what": "What I Did",
+      "what_text": "[Describe your approach, decisions, and implementation process.]",
+      "learned": "What I Learned",
+      "learned_text": "[Summarize key lessons, mistakes, and improvements for next time.]",
+      "next": "Next Steps",
+      "next_text": "[Add clear follow-up actions or future experiments.]"
+    },
+    "card1": {
+      "meta": "Template",
+      "title": "How I Structure a Project Week",
+      "desc": "A reusable structure for weekly execution and review."
+    },
+    "card2": {
+      "meta": "Latest",
+      "title": "Building with Clear Iteration",
+      "desc": "Shipping better with each iteration."
+    },
+    "card3": {
+      "meta": "Creative",
+      "title": "What Photography Teaches Coding",
+      "desc": "Composition and pacing improve product intuition."
+    }
   },
   "contact": {
+    "eyebrow": "Get in Touch",
     "title": "Let's Connect",
-    "subtitle": "Always down to chat",
-    "email_label": "Email",
-    "linkedin_label": "LinkedIn",
-    "github_label": "GitHub",
-    "wechat_label": "WeChat"
+    "subtitle": "Have a project idea, question, or just want to say hi? Drop me a message.",
+    "email": {
+      "label": "Email"
+    },
+    "linkedin": {
+      "label": "LinkedIn"
+    },
+    "github": {
+      "label": "GitHub"
+    },
+    "form": {
+      "title": "Send Me a Message",
+      "name": "Name",
+      "name_placeholder": "Your name",
+      "email": "Email",
+      "email_placeholder": "your@email.com",
+      "subject": "Subject",
+      "subject_placeholder": "What's this about?",
+      "message": "Message",
+      "message_placeholder": "Your message...",
+      "submit": "Send Message",
+      "success": "Message sent! I'll get back to you soon.",
+      "error": "Oops! Something went wrong. Please try again."
+    }
   },
   "footer": {
-    "built_with": "Made with",
-    "copyright": "All rights reserved"
+    "copyright": "Let's build something meaningful. © 2026 Edwin."
   },
   "meta": {
     "description": "Edwin's personal site — HKU GEB sophomore, Computer Engineering + Finance. Projects, photos, and blog.",

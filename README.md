@@ -1,48 +1,27 @@
-# ISFEdwin.github.io
+# Edwin Fang's Personal Website
 
-My personal site.
+A modern, interactive personal website built with vanilla HTML, CSS, and JavaScript. Features a unique terminal-style interface, multilingual support, and a collection of personal accomplishments, blog posts, and photography.
 
----
+## 🛠️ Tech Stack
 
-## Works Cited
+- **Frontend**: HTML5, CSS3, Vanilla JavaScript (ES6+)
+- **i18n**: Custom implementation with JSON language packs
+- **PWA**: Service Worker, Web App Manifest
+- **Styling**: CSS Variables, Flexbox, CSS Grid, Animations
+- **Deployment**: GitHub Pages
 
-> Use this section to  keep track of the resources you reference. You must include a link with a short description of how you used it. 
+## 🤝 Contributing
 
-- [flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) - center content and create structure to the site
-- [google search bar](https://codepen.io/eqbrown/pen/XWBvvjE) - used the css properties for the pill design
-- [wolfie] (https://wolfie.dev/) - taking inspiration from connection section and the animations.
-- [fosshem](https://fossheim.io/writing/posts/css-text-gradient/) - Used the text color mask for title, animation and so on.
-- [Julian] (https://0011050.github.io/) - used linear gradient, which I found out through his website. 
+This is a personal website repository, but suggestions and improvements are welcome!
 
-## Changes to wireframe
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/improvement`)
+3. Commit your changes (`git commit -m 'Add some improvement'`)
+4. Push to the branch (`git push origin feature/improvement`)
+5. Open a Pull Request
 
-**Index.html**
-<br>
--> Due to technical difficulties, I wasn't able to implement the full desktop setup, only the desktop section. 
-<br>
--> Didn't add more info section as it felt unnecessary. 
-<br>
--> Added some pictures 
-<br>
--> Changed the width of the connection section.
-<br>
+## 📄 License
 
-**Accomplishments.html**
-<br>
--> Straight up changed the name of the site (from programming to accomplishments), didn't include a lot of the different sections previously planned, navigation bar is lacking the third site as it was not needed. 
-<br>
--> Added a glossary
-<br>
--> Changed the formatting of the images & videos
-<br>
--> Added sections (some snippets)
-<br>
--> Changed the formatting of some sections (moving stuff from the side to the center)
-<br>
--> Added the connect with me section
-<br>
--> Changed the title formatting 
-<br>
- 
- **Stuff.html**
- -> Scrapped. 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+**Built with ❤️ by Edwin**
