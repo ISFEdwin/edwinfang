@@ -6,6 +6,7 @@
 
 const TerminalAbout = (() => {
   // Personal data to display (in English, will be translated by i18n)
+  // Note: Email is intentionally omitted to prevent scraping (available via contact form/footer)
   const aboutData = {
     en: [
       { label: 'Name', value: 'Edwin Fang' },
@@ -13,8 +14,7 @@ const TerminalAbout = (() => {
       { label: 'Year', value: 'Sophomore' },
       { label: 'Degrees', value: 'BEng (CompEng) + BBA (Finance)' },
       { label: 'Interests', value: 'Building, AI workflows, startups' },
-      { label: 'Location', value: 'Hong Kong / Beijing' },
-      { label: 'Email', value: 'fyzedwin@gmail.com' }
+      { label: 'Location', value: 'Hong Kong / Beijing' }
     ],
     'zh-TW': [
       { label: '姓名', value: '方一舟' },
@@ -22,8 +22,7 @@ const TerminalAbout = (() => {
       { label: '年級', value: '二年級' },
       { label: '學位', value: '工學士 (電腦工程) + 商學士 (金融)' },
       { label: '興趣', value: '實作、AI 工作流、新創' },
-      { label: '地點', value: '香港 / 北京' },
-      { label: '電郵', value: 'fyzedwin@gmail.com' }
+      { label: '地點', value: '香港 / 北京' }
     ],
     'zh-CN': [
       { label: '姓名', value: '方一舟' },
@@ -31,8 +30,7 @@ const TerminalAbout = (() => {
       { label: '年级', value: '二年级' },
       { label: '学位', value: '工学士 (计算机工程) + 商学士 (金融)' },
       { label: '兴趣', value: '实作、AI 工作流、新创' },
-      { label: '地点', value: '香港 / 北京' },
-      { label: '电邮', value: 'fyzedwin@gmail.com' }
+      { label: '地点', value: '香港 / 北京' }
     ]
   };
 
@@ -116,9 +114,9 @@ const TerminalAbout = (() => {
       lineEl = lineElements[currentLine];
       valueEl = lineEl.querySelector('.line-value');
     } else {
-      // Create new line element
+      // Create new line element with smooth entrance animation
       lineEl = document.createElement('div');
-      lineEl.className = 'line';
+      lineEl.className = 'line line-entering';
       
       const labelEl = document.createElement('span');
       labelEl.className = 'line-label';
@@ -131,6 +129,14 @@ const TerminalAbout = (() => {
       lineEl.appendChild(labelEl);
       lineEl.appendChild(valueEl);
       outputEl.appendChild(lineEl);
+      
+      // Trigger smooth entrance animation
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          lineEl.classList.remove('line-entering');
+          lineEl.classList.add('line-visible');
+        });
+      });
       
       lineElements[currentLine] = lineEl;
     }

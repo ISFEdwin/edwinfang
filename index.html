@@ -134,7 +134,7 @@
                     </p>
                     <div class="cta-group load-in">
                         <a class="btn btn-primary" href="https://www.linkedin.com/in/yi-zhou-edwin-fang-989780273/" target="_blank" rel="noopener noreferrer" data-i18n="nav.linkedin">LinkedIn</a>
-                        <a class="btn btn-secondary" href="mailto:fyzedwin@gmail.com" data-i18n="contact.email.button">Send Email</a>
+                        <a class="btn btn-secondary" data-email-protect="link" data-i18n="contact.email.button">Send Email</a>
                         <a class="btn btn-secondary" href="photography.html" data-i18n="nav.photography">Photography</a>
                     </div>
                 </div>
@@ -310,7 +310,7 @@
                     <p class="section-intro" data-i18n="contact.subtitle">Have a project idea, question, or just want to say hi? Drop me a message.</p>
                     
                     <div class="contact-details">
-                        <a href="mailto:fyzedwin@gmail.com" class="contact-detail-item" style="text-decoration: none; color: inherit;">
+                        <a data-email-protect="mailto" class="contact-detail-item" style="text-decoration: none; color: inherit;">
                             <div class="contact-detail-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
@@ -319,7 +319,7 @@
                             </div>
                             <div class="contact-detail-text">
                                 <h4 data-i18n="contact.email.label">Email</h4>
-                                <span>fyzedwin@gmail.com</span>
+                                <span data-email-protect="text"></span>
                             </div>
                         </a>
                         
@@ -394,7 +394,7 @@
                 <a href="https://www.linkedin.com/in/yi-zhou-edwin-fang-989780273/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                 </a>
-                <a href="mailto:fyzedwin@gmail.com" aria-label="Email">
+                <a data-email-protect="link" aria-label="Email">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>
                 </a>
             </div>
@@ -513,5 +513,6 @@
         window.location.reload();
     }
     </script>
+    <script src="email-protection.js"></script>
 </body>
 </html>
