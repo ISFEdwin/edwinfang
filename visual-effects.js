@@ -270,47 +270,49 @@
     let animId = null;
     let startTime = null;
 
-    // Mouse state with ~0.5s lag — follows globalMouseX anywhere on page
+    // Mouse state with ~0.3s lag — follows globalMouseX anywhere on page
     let targetMouseX = -1;   // instant mouse x (page coords)
     let currentMouseX = -1;   // lagged x shown in the wave (page coords)
-    const LERP_ALPHA = 0.035; // ~0.5s exponential lag at 60fps
+    const LERP_ALPHA = 0.065; // ~0.3s exponential lag at 60fps
 
-    const CURSOR_BOOST  = 0.8;
-    const CURSOR_RADIUS = 0.30;
+    const CURSOR_BOOST   = 1.2;
+    const CURSOR_RADIUS  = 0.45;
     const PHASE_PULL     = 0.6;  // 0–1: how much the peak pulls toward cursor
+    const NOISE_SPEED    = 0.09; // how fast the noise texture evolves (lower = calmer)
 
     // --- Noise displacement: makes motion non-uniform and "alive" ---
     // Deterministic 1D noise from nested sines (no external lib needed)
+    // Spatial frequencies chosen so the pattern looks like ocean surface texture.
     const noise1D = (x, t) => {
-        const s1 = Math.sin(x * 0.0037 + t * 0.31) * 0.5;
-        const s2 = Math.sin(x * 0.0081 + t * 0.17 + s1 * 2.1) * 0.3;
-        const s3 = Math.sin(x * 0.0190 + t * 0.09 - s2 * 1.7) * 0.2;
+        const s1 = Math.sin(x * 0.0041 + t * NOISE_SPEED) * 0.5;
+        const s2 = Math.sin(x * 0.0093 + t * NOISE_SPEED * 0.47 + s1 * 2.3) * 0.3;
+        const s3 = Math.sin(x * 0.0210 + t * NOISE_SPEED * 0.23 - s2 * 1.9) * 0.2;
         return s1 + s2 + s3; // range approx -1..1
     };
 
-    // Noise texture follows cursor: the texture "origin" is biased toward currentMouseX
-    // so the most active displacement is centered on the cursor
-    const displacedX = (x, t, cursorPageX) => {
+    // Noise-based x-displacement.
+    // Displacement is strongest near cursorX and scales with cursorProximity
+    // (higher proximity → more chaotic displacement, like wake near a disturbance).
+    const displacedX = (x, t, cursorPageX, cursorProximity) => {
         if (cursorPageX < 0 || W <= 0) return x;
-        // Convert page-x to canvas-local for distance calc
         const footer = canvas.parentElement;
         if (!footer) return x;
         const fRect = footer.getBoundingClientRect();
         const cursorLocalX = cursorPageX - fRect.left;
 
-        // Noise sampling offset: texture center pulled toward cursor
-        const textureCenter = cursorLocalX;
-        // Add noise-based displacement to x — stronger near cursor
-        const dist = Math.abs(x - textureCenter);
-        const influence = Math.max(0, 1.0 - dist / (W * 0.45));
-        const displacement = noise1D(x, t) * 18.0 * influence;
+        const dist = Math.abs(x - cursorLocalX);
+        const influence = Math.max(0, 1.0 - dist / (W * 0.62));
+        // cursorProximity 0..1: 0 = far from footer, 1 = cursor over footer
+        // baseline 0.2 ensures some noise always visible (distant ocean swell)
+        const proximityScale = 0.2 + 0.8 * cursorProximity;
+        const displacement = noise1D(x, t) * 34.0 * influence * proximityScale;
         return x + displacement;
     };
 
     const layers = [
         {
             ampBase: 28,
-            speed: 3.5,
+            speed: 1.6,
             color: 'rgba(227, 86, 84, 0.10)',
             octaves: [
                 { freq: 0.0018, amp: 1.0,  speedMul: 1.0 },
@@ -322,7 +324,7 @@
         },
         {
             ampBase: 20,
-            speed: 4.5,
+            speed: 2.0,
             color: 'rgba(16, 152, 247, 0.08)',
             octaves: [
                 { freq: 0.0022, amp: 1.0,  speedMul: 1.0 },
@@ -334,7 +336,7 @@
         },
         {
             ampBase: 14,
-            speed: 5.8,
+            speed: 2.5,
             color: 'rgba(227, 86, 84, 0.06)',
             octaves: [
                 { freq: 0.0030, amp: 1.0,  speedMul: 1.0 },
@@ -363,12 +365,16 @@
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
 
-    // phaseShift pulls the primary octave's peak toward the cursor position
-    const waveY = (x, layer, t, mxPage) => {
+    // Compute wave Y at canvas-local x.
+    // cursorProximity: 0 = cursor far from footer, 1 = cursor over footer.
+    // When proximity is low the wave is calmer; when high it has more
+    // random fluctuation and sharper peaks (like ocean surface near a disturbance).
+    const waveY = (x, layer, t, mxPage, cursorProximity) => {
         const { ampBase, speed, octaves } = layer;
         let amp = ampBase;
 
-        // Cursor amplitude boost (stronger near cursor, using page coords)
+        // Cursor amplitude boost — stronger near cursor, scaled by proximity
+        const proxScale = 0.15 + 0.85 * cursorProximity; // baseline always some boost
         if (mxPage >= 0 && W > 0) {
             const footer = canvas.parentElement;
             if (footer) {
@@ -377,12 +383,12 @@
                 const distFrac = Math.abs(x - mxLocal) / (W * CURSOR_RADIUS);
                 if (distFrac < 1.0) {
                     const boost = CURSOR_BOOST * (1.0 - distFrac) * (1.0 - distFrac);
-                    amp += ampBase * boost;
+                    amp += ampBase * boost * proxScale;
                 }
             }
         }
 
-        // Phase pull: shift primary octave's peak toward cursor position (page coords)
+        // Phase pull: shift primary octave's peak toward cursor position
         let phaseShift = 0;
         if (mxPage >= 0 && W > 0) {
             const footer = canvas.parentElement;
@@ -394,7 +400,7 @@
         }
 
         // Apply noise displacement to x — makes motion non-uniform
-        const xDisp = displacedX(x, t, mxPage);
+        const xDisp = displacedX(x, t, mxPage, cursorProximity);
 
         let y = 0;
         for (let i = 0; i < octaves.length; i++) {
@@ -405,20 +411,28 @@
         }
         const totalAmp = octaves.reduce((s, o) => s + o.amp, 0);
         y /= totalAmp;
+
+        // --- Multi-modal height variation (ocean-like varying peaks) ---
+        // Noise-based height modulation gives a non-uniform statistical distribution
+        // of wave heights: some x-positions have taller peaks, some shorter.
+        // noise1D range ≈ -1..1, so heightMod range ≈ 0.3..1.7
+        const heightMod = 1.0 + 0.7 * noise1D(x * 0.11, t * NOISE_SPEED * 0.4);
+        y *= heightMod;
+
         return y;
     };
 
-    const drawLayer = (layer, t, mxPage) => {
+    const drawLayer = (layer, t, mxPage, cursorProximity) => {
         const { color, yOffset } = layer;
         const baseY = H * yOffset;
 
         ctx.beginPath();
         ctx.moveTo(0, H);
-        ctx.lineTo(0, baseY + waveY(0, layer, t, mxPage));
+        ctx.lineTo(0, baseY + waveY(0, layer, t, mxPage, cursorProximity));
 
         const step = Math.max(1, Math.floor(W / 320));
         for (let x = 0; x <= W; x += step) {
-            ctx.lineTo(x, baseY + waveY(x, layer, t, mxPage));
+            ctx.lineTo(x, baseY + waveY(x, layer, t, mxPage, cursorProximity));
         }
 
         ctx.lineTo(W, H);
@@ -447,10 +461,22 @@
         }
         const mxPage = currentMouseX;
 
+        // Compute cursor proximity to footer (0 = far, 1 = over footer)
+        // Waves are calmer when cursor is far; more active when cursor is near.
+        let cursorProximity = 0.2; // baseline: some wave activity always visible
+        const footer = canvas.parentElement;
+        if (footer && globalMouseY >= 0) {
+            const fRect = footer.getBoundingClientRect();
+            const cursorAboveFooter = globalMouseY < fRect.top;
+            const distY = cursorAboveFooter ? (fRect.top - globalMouseY) : 0;
+            const falloffDist = window.innerHeight * 0.75;
+            cursorProximity = Math.max(0.1, 1.0 - distY / falloffDist);
+        }
+
         if (W === 0 || H === 0) resize();
         ctx.clearRect(0, 0, W, H);
         for (const layer of layers) {
-            drawLayer(layer, t, mxPage);
+            drawLayer(layer, t, mxPage, cursorProximity);
         }
         animId = requestAnimationFrame(step);
     };
