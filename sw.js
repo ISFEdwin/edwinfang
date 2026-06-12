@@ -4,8 +4,8 @@
  * Version: 2.4.0
  */
 
-const CACHE_NAME = 'edwin-portfolio-v2.6';
-const CACHE_VERSION = '2.4.0';
+const CACHE_NAME = 'edwin-portfolio-v2.7';
+const CACHE_VERSION = '2.7.0';
 
 // Resources to cache immediately (precache)
 const PRECACHE_URLS = [

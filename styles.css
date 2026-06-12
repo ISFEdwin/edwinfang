@@ -1191,10 +1191,10 @@ h3 {
     z-index: 25;
     background: rgba(5, 10, 18, 0.97);
     backdrop-filter: blur(32px) saturate(1.2);
-    padding: 1rem 1.5rem;
+    padding: 4.5rem 1.5rem 2rem;
     opacity: 0;
     transition: opacity 0.35s var(--ease);
-    overflow-y: auto;
+    overflow-y: hidden;
 }
 
 @media (min-width: 769px) {
@@ -1294,6 +1294,18 @@ h3 {
 
     .nav-overlay.active .nav-links {
         display: flex;
+    }
+
+    .nav-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100vh;
+        height: 100dvh;
+        overscroll-behavior: contain;
+        overflow-y: auto;
     }
 
     main {
@@ -1456,6 +1468,15 @@ h3 {
 
     .brand {
         font-size: 1rem;
+    }
+
+    .nav-overlay {
+        padding: 4rem 1rem 1.5rem;
+    }
+
+    .nav-overlay .nav-links a {
+        font-size: 14px;
+        padding: 0.7rem 0.85rem;
     }
 
     .hero-tag {
