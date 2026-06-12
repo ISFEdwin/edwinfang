@@ -17,14 +17,14 @@
     <!-- Performance: Preload critical resources -->
     <link rel="preload" href="styles.css" as="style">
     <link rel="preload" href="i18n.js" as="script">
-    <link rel="preload" href="images/logo.png" as="image">
+    <link rel="preload" href="images/main_placeholder.jpg" as="image">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://isfedwin.github.io/">
     <meta property="og:title" content="Edwin - Builder & Connector">
     <meta property="og:description" content="CS + Finance undergraduate at HKU. Photography, projects, and blog." data-i18n="meta.description">
-    <meta property="og:image" content="https://isfedwin.github.io/images/logo.png">
+    <meta property="og:image" content="https://isfedwin.github.io/images/main_medium.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
@@ -85,17 +85,34 @@
     <header class="navbar">
         <div class="container">
             <a class="brand" href="index.html" data-i18n="nav.home">Edwin</a>
-            <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-overlay">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <div class="nav-overlay" id="nav-overlay" aria-hidden="true">
+            <div class="nav-actions">
+                <!-- Desktop: show all 3 language buttons -->
                 <div class="lang-switcher" role="group" aria-label="Language selection">
                     <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
                     <button class="lang-btn" data-lang="zh-TW" aria-label="繁體中文">繁</button>
                     <button class="lang-btn" data-lang="zh-CN" aria-label="简体中文">简</button>
                 </div>
+                <!-- Mobile: compact dropdown -->
+                <div class="lang-dropdown" role="group" aria-label="Language selection">
+                    <button class="lang-dropdown-btn" aria-expanded="false" aria-controls="lang-dropdown-menu">
+                        <span class="lang-current">EN</span>
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                            <path d="M3 5L6 8L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="lang-dropdown-menu" id="lang-dropdown-menu" aria-hidden="true">
+                        <button class="lang-dropdown-item active" data-lang="en">English</button>
+                        <button class="lang-dropdown-item" data-lang="zh-TW">繁體中文</button>
+                        <button class="lang-dropdown-item" data-lang="zh-CN">简体中文</button>
+                    </div>
+                </div>
+                <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-overlay">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <div class="nav-overlay" id="nav-overlay" aria-hidden="true">
                 <nav class="nav-links" aria-label="Primary">
                     <a href="index.html" aria-current="page" data-i18n="nav.home">Home</a>
                     <a href="#about" data-i18n="nav.about">About</a>
@@ -115,7 +132,7 @@
         <section class="hero">
             <div class="container hero-layout">
                 <div class="hero-portrait">
-                    <img src="images/main.jpg" alt="Casual portrait of Edwin">
+                    <img src="images/main_placeholder.jpg" data-src="images/main_medium.jpg" alt="Casual portrait of Edwin" decoding="async" class="hero-img-blurup">
                 </div>
                 <div class="hero-content">
                     <div class="hero-tag load-in">
@@ -433,6 +450,8 @@
     </div>
     
     <footer class="footer">
+        <!-- Ocean wave canvas background -->
+        <canvas id="footer-ocean" aria-hidden="true"></canvas>
         <div class="container footer-main">
             <p data-i18n="footer.copyright">Let's build something meaningful. © 2026 Edwin.</p>
             <div class="social-links" aria-label="Social media">
@@ -450,6 +469,95 @@
     </footer>
 
     <script>
+        // Three-stage blur-up image loading:
+        // 1. Placeholder (tiny, blurred) loads instantly from HTML src
+        // 2. Medium image loads in background (fast, 169KB)
+        // 3. Original high-res loads in background (3.6MB, best quality)
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroImg = document.querySelector('.hero-img-blurup');
+            if (!heroImg) return;
+
+            const mediumSrc = heroImg.dataset.src;
+            const originalSrc = 'images/main.jpg';
+
+            // Stage 1: Load medium image
+            if (mediumSrc) {
+                const mediumImg = new Image();
+                mediumImg.onload = () => {
+                    heroImg.src = mediumSrc;
+                    heroImg.classList.add('loaded');
+
+                    // Stage 2: Load original high-res image
+                    const originalImg = new Image();
+                    originalImg.onload = () => {
+                        heroImg.src = originalSrc;
+                    };
+                    originalImg.onerror = () => {
+                        // Keep medium image if original fails (offline)
+                        console.log('Original image failed to load, keeping medium');
+                    };
+                    originalImg.src = originalSrc;
+                };
+                mediumImg.onerror = () => {
+                    console.log('Medium image failed to load');
+                };
+                mediumImg.src = mediumSrc;
+            }
+
+            // Mobile language dropdown toggle
+            const langDropdownBtn = document.querySelector('.lang-dropdown-btn');
+            const langDropdownMenu = document.querySelector('.lang-dropdown-menu');
+            
+            if (langDropdownBtn && langDropdownMenu) {
+                langDropdownBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const isActive = langDropdownMenu.classList.contains('active');
+                    langDropdownMenu.classList.toggle('active', !isActive);
+                    langDropdownBtn.setAttribute('aria-expanded', (!isActive).toString());
+                });
+
+                // Handle language selection from dropdown
+                const dropdownItems = langDropdownMenu.querySelectorAll('.lang-dropdown-item');
+                dropdownItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        const lang = item.dataset.lang;
+                        
+                        // Update active state in dropdown
+                        dropdownItems.forEach(i => i.classList.remove('active'));
+                        item.classList.add('active');
+                        
+                        // Update dropdown button text
+                        const langText = { 'en': 'EN', 'zh-TW': '繁', 'zh-CN': '简' };
+                        langDropdownBtn.querySelector('.lang-current').textContent = langText[lang] || 'EN';
+                        
+                        // Sync with desktop buttons
+                        const desktopBtns = document.querySelectorAll('.lang-switcher .lang-btn');
+                        desktopBtns.forEach(btn => {
+                            btn.classList.toggle('active', btn.dataset.lang === lang);
+                        });
+                        
+                        // Close dropdown
+                        langDropdownMenu.classList.remove('active');
+                        langDropdownBtn.setAttribute('aria-expanded', 'false');
+                        
+                        // Switch language
+                        if (window.I18n) {
+                            window.I18n.switchLanguage(lang);
+                        }
+                    });
+                });
+
+                // Close dropdown on outside click
+                document.addEventListener('click', (e) => {
+                    if (!langDropdownBtn.contains(e.target) && !langDropdownMenu.contains(e.target)) {
+                        langDropdownMenu.classList.remove('active');
+                        langDropdownBtn.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+        });
+
         // Handle contact form submission with fallback
         const contactForm = document.getElementById('contactForm');
         const formStatus = document.getElementById('formStatus');

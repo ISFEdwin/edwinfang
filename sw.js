@@ -1,11 +1,11 @@
 /**
  * Service Worker for ISFEdwin.github.io
  * Provides PWA support, caching, and offline functionality
- * Version: 2.0.0
+ * Version: 2.4.0
  */
 
-const CACHE_NAME = 'edwin-portfolio-v2.1';
-const CACHE_VERSION = '2.1.0';
+const CACHE_NAME = 'edwin-portfolio-v2.4';
+const CACHE_VERSION = '2.4.0';
 
 // Resources to cache immediately (precache)
 const PRECACHE_URLS = [
@@ -18,7 +18,13 @@ const PRECACHE_URLS = [
   '/visual-effects.js',
   '/i18n/en.json',
   '/i18n/zh-TW.json',
-  '/i18n/zh-CN.json'
+  '/i18n/zh-CN.json',
+  '/images/main_placeholder.jpg',
+  '/images/main_medium.jpg',
+  '/images/logo.png',
+  '/images/logo-192.png',
+  '/images/logo-512.png',
+  '/manifest.json'
 ];
 
 // Runtime cache patterns
@@ -90,8 +96,16 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // Skip cross-origin requests (except for allowed patterns)
   const url = new URL(event.request.url);
+
+  // Explicitly skip Google Fonts — let the browser handle them directly
+  // This avoids 408 timeouts and opaque response issues
+  if (url.origin === 'https://fonts.googleapis.com' ||
+      url.origin === 'https://fonts.gstatic.com') {
+    return;
+  }
+
+  // Skip other cross-origin requests (except for allowed patterns)
   if (url.origin !== self.origin && !isAllowedCrossOrigin(url)) {
     return;
   }
@@ -133,9 +147,12 @@ const safeBackgroundFetch = (request) => {
     .catch(() => {}); // Silently ignore all background fetch failures
 };
 
-// Helper: Fetch from network with fallback (never rejects)
+// Helper: Fetch from network with fallback (never rejects for HTML, rejects for images)
 const fetchFromNetwork = (request) => {
-  return fetch(request.clone())
+  const isHTML = request.headers.get('accept') && request.headers.get('accept').includes('text/html');
+
+  // Fetch from network
+  const fetchPromise = fetch(request.clone())
     .then(response => {
       if (!response || response.status !== 200) {
         throw new Error('Network response was not ok');
@@ -150,25 +167,19 @@ const fetchFromNetwork = (request) => {
       }
 
       return response;
-    })
-    .catch(error => {
-      console.warn('[Service Worker] Network fetch failed:', request.url, error.message);
-
-      // Return offline fallback for HTML requests
-      if (request.headers.get('accept') && request.headers.get('accept').includes('text/html')) {
-        return caches.match('/index.html');
-      }
-
-      // Return a fallback response for images
-      if (request.url.match(/\.(?:png|jpg|jpeg|svg|gif|webp)$/)) {
-        return createImageFallback();
-      }
-
-      return new Response('Network error', {
-        status: 408,
-        headers: { 'Content-Type': 'text/plain' }
-      });
     });
+
+  // Only add error handler for HTML requests (return offline fallback)
+  if (isHTML) {
+    return fetchPromise.catch(error => {
+      console.warn('[Service Worker] Network fetch failed:', request.url, error.message);
+      return caches.match('/index.html');
+    });
+  }
+
+  // For non-HTML requests (images, fonts, etc.), let the error propagate naturally
+  // The browser will handle the error (trigger onerror handler for images)
+  return fetchPromise;
 };
 
 // Helper: Check if URL should be cached
@@ -192,29 +203,18 @@ const shouldCache = (url) => {
 
 // Helper: Check if cross-origin is allowed
 const isAllowedCrossOrigin = (url) => {
+  // Don't intercept Google Fonts - let the browser handle them
+  // This avoids CORS issues and opaque response errors
+  if (url.origin === 'https://fonts.googleapis.com' ||
+      url.origin === 'https://fonts.gstatic.com') {
+    return false;
+  }
+  
   const allowedOrigins = [
-    'https://fonts.googleapis.com',
-    'https://fonts.gstatic.com',
     'https://ipapi.co'
   ];
   
   return allowedOrigins.includes(url.origin);
-};
-
-// Helper: Create image fallback
-const createImageFallback = () => {
-  const svg = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="400" height="300">
-      <rect width="400" height="300" fill="#0a0e17"/>
-      <text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="#5a5a5a" font-family="monospace">
-        Image unavailable offline
-      </text>
-    </svg>
-  `;
-  
-  return new Response(svg, {
-    headers: { 'Content-Type': 'image/svg+xml' }
-  });
 };
 
 // Listen for messages from the main thread
