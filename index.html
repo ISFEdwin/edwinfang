@@ -115,7 +115,7 @@
         <section class="hero">
             <div class="container hero-layout">
                 <div class="hero-portrait">
-                    <img src="images/coolphoto.jpg" alt="Professional portrait of Edwin with a confident and approachable expression">
+                    <img src="images/main.jpg" alt="Casual portrait of Edwin">
                 </div>
                 <div class="hero-content">
                     <div class="hero-tag load-in">
@@ -380,7 +380,9 @@
                 
                 <div class="contact-form">
                     <h3 data-i18n="contact.form.title">Send Me a Message</h3>
-                    <form id="contactForm" action="https://formspree.io/f/xwkzgqla" method="POST">
+                    <form id="contactForm" action="https://formspree.io/f/mojzkkky" method="POST">
+                        <input type="hidden" name="_next" value="https://isfedwin.github.io/?success#contact">
+                        <input type="hidden" name="_subject" value="New message from portfolio">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name" data-i18n="contact.form.name">Name</label>
@@ -410,7 +412,26 @@
             </div>
         </section>
     </main>
-
+    
+    <!-- Ocean wave transition -->
+    <div class="ocean-waves" aria-hidden="true">
+        <div class="wave-layer wave-back">
+            <svg viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,85 C240,35 480,105 720,85 C960,35 1200,105 1440,85 C1680,35 1920,105 2160,85 C2400,35 2640,105 2880,85 L2880,120 L0,120 Z" fill="rgba(227,86,84,0.07)"/>
+            </svg>
+        </div>
+        <div class="wave-layer wave-mid">
+            <svg viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,95 C360,45 720,115 1080,95 C1440,45 1800,115 2160,95 C2520,45 2700,115 2880,95 L2880,120 L0,120 Z" fill="rgba(16,152,247,0.06)"/>
+            </svg>
+        </div>
+        <div class="wave-layer wave-front">
+            <svg viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,100 C180,60 360,110 540,80 C720,110 900,50 1080,90 C1260,50 1440,110 1620,75 C1800,110 1980,55 2160,95 C2340,55 2520,110 2700,70 C2790,95 2850,110 2880,100 L2880,120 L0,120 Z" fill="rgba(227,86,84,0.05)"/>
+            </svg>
+        </div>
+    </div>
+    
     <footer class="footer">
         <div class="container footer-main">
             <p data-i18n="footer.copyright">Let's build something meaningful. © 2026 Edwin.</p>
@@ -429,9 +450,22 @@
     </footer>
 
     <script>
-        // Handle contact form submission
+        // Handle contact form submission with fallback
         const contactForm = document.getElementById('contactForm');
         const formStatus = document.getElementById('formStatus');
+        
+        // Show success message if redirected back with ?success
+        if (window.location.search.includes('success')) {
+            if (formStatus) {
+                formStatus.className = 'form-status success';
+                formStatus.textContent = window.I18n 
+                    ? window.I18n.getTranslation('contact.form.success') || 'Message sent! I\'ll get back to you soon.'
+                    : 'Message sent! I\'ll get back to you soon.';
+                formStatus.style.display = 'block';
+                // Clean URL
+                window.history.replaceState({}, document.title, window.location.pathname + window.location.hash);
+            }
+        }
         
         if (contactForm) {
             contactForm.addEventListener('submit', async (e) => {
@@ -445,20 +479,25 @@
                 submitBtn.textContent = 'Sending...';
                 formStatus.style.display = 'none';
                 
-                // Get form data
+                // Build JSON payload (Formspree accepts JSON with Accept: application/json)
                 const formData = new FormData(contactForm);
+                const jsonData = {};
+                formData.forEach((value, key) => {
+                    if (key !== '_next' && key !== '_subject') jsonData[key] = value;
+                });
                 
                 try {
                     const response = await fetch(contactForm.action, {
                         method: 'POST',
-                        body: formData,
+                        body: JSON.stringify(jsonData),
                         headers: {
-                            'Accept': 'application/json'
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
                         }
                     });
                     
                     if (response.ok) {
-                        // Success
+                        // Success - show inline message
                         formStatus.className = 'form-status success';
                         formStatus.textContent = window.I18n 
                             ? window.I18n.getTranslation('contact.form.success') || 'Message sent! I\'ll get back to you soon.'
@@ -466,17 +505,15 @@
                         formStatus.style.display = 'block';
                         contactForm.reset();
                     } else {
-                        throw new Error('Form submission failed');
+                        // Fallback: submit form directly (let Formspree handle redirect)
+                        contactForm.submit();
                     }
                 } catch (error) {
-                    // Error
-                    formStatus.className = 'form-status error';
-                    formStatus.textContent = window.I18n 
-                        ? window.I18n.getTranslation('contact.form.error') || 'Oops! Something went wrong. Please try again.'
-                        : 'Oops! Something went wrong. Please try again.';
-                    formStatus.style.display = 'block';
+                    // Network error - fall back to direct submission
+                    contactForm.submit();
                 } finally {
-                    // Re-enable button
+                    // Re-enable button (only if we're still on the page)
+                    if (!contactForm.querySelector('.btn-submit').disabled) return;
                     submitBtn.disabled = false;
                     submitBtn.textContent = originalText;
                 }

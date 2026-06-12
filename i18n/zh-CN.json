@@ -1,19 +1,18 @@
 {
   "nav": {
-    "home": "主页",
+    "home": "首页",
     "about": "关于我",
     "experience": "经历",
     "cv": "简历",
-    "accomplishments": "成果",
+    "accomplishments": "成就",
     "photography": "摄影",
     "blog": "博客",
-    "contact": "联系",
-    "linkedin": "LinkedIn"
+    "contact": "联系"
   },
   "hero": {
     "greeting": "嘿，我是",
     "name": "Edwin",
-    "role": "港大 GEBP · 工+商",
+    "role": "港大 GEBP · 工程+商学",
     "tag": "探索下一个可能",
     "description": "香港大学全球工程与商业学程（GEBP）二年级。双学位：计算机工程（工学士）与金融（商学士）。喜欢动手实操、从错误中学习、快速迭代。",
     "cta_about": "更多关于我",
@@ -25,10 +24,10 @@
     "bio": "我在港大全球工程与商业学程（GEBP）——双学位：计算机工程（工学士）与金融（商学士）。喜欢做项目、研究 AI 工作流，还有探索科技与商业的交汇点。",
     "interests_title": "目前关注",
     "interests": [
-      "副项目开发",
+      "Side Project 开发",
       "AI x 工作流优化",
       "黑客松与案例竞赛",
-      "新创生态系",
+      "新创生态圈",
       "有空就贡献开源"
     ],
     "roles_title": "校园参与",
@@ -46,7 +45,7 @@
       {
         "title": "对外秘书",
         "org": "全球工程与商业协会",
-        "desc": "对外关系与合作伙伴关系"
+        "desc": "对外关系与合作伙伴联系"
       }
     ]
   },
@@ -105,7 +104,7 @@
     }
   },
   "accomplishments": {
-    "title": "成果",
+    "title": "成就",
     "subtitle": "值得骄傲的事",
     "section_title": "近期亮点",
     "card1": {
@@ -122,7 +121,7 @@
     },
     "card4": {
       "title": "团队成果",
-      "desc": "合作、交付，并从真实限制中学习。"
+      "desc": "合作、交付，并从实际的约束中学习。"
     }
   },
   "photography": {
@@ -135,11 +134,11 @@
     "subtitle": "我实际用来交付的工具。",
     "card1": {
       "title": "网页开发",
-      "desc": "响应式、无障碍访问界面。HTML、CSS、JS——干净快速。"
+      "desc": "响应式、无障碍界面。HTML、CSS、JS——干净快速。"
     },
     "card2": {
       "title": "Python & CS 基础",
-      "desc": "扎实基础，实际解题。"
+      "desc": "扎实基础，实际解决问题。"
     },
     "card3": {
       "title": "构建与交付",
@@ -155,7 +154,7 @@
     },
     "card6": {
       "title": "视觉叙事",
-      "desc": "摄影训练我对构图与视觉流的眼光。"
+      "desc": "摄影训练我对构图与视觉叙事的敏感度。"
     }
   },
   "blog": {
@@ -173,7 +172,7 @@
       "what": "我做了什么",
       "what_text": "[描述你的方法、决策和实现过程。]",
       "learned": "我学到的",
-      "learned_text": "[总结关键教训、错误和下次改进。]",
+      "learned_text": "[总结关键学习、犯过的错误，以及下次如何改进。]",
       "next": "下一步",
       "next_text": "[加入清楚的后续行动或未来实验。]"
     },
@@ -208,17 +207,17 @@
       "label": "GitHub"
     },
     "form": {
-      "title": "传送讯息给我",
+      "title": "发送消息给我",
       "name": "姓名",
       "name_placeholder": "你的姓名",
       "email": "电子邮件",
       "email_placeholder": "your@email.com",
       "subject": "主题",
       "subject_placeholder": "这是关于什么？",
-      "message": "讯息",
-      "message_placeholder": "你的讯息...",
+      "message": "消息",
+      "message_placeholder": "你的消息...",
       "submit": "发送",
-      "success": "讯息已送出！我会尽快回复你。",
+      "success": "消息已发送！我会尽快回复你。",
       "error": "喔不！出了点问题。请再试一次。"
     }
   },

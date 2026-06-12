@@ -4,8 +4,8 @@
  * Version: 2.0.0
  */
 
-const CACHE_NAME = 'edwin-portfolio-v2';
-const CACHE_VERSION = '2.0.0';
+const CACHE_NAME = 'edwin-portfolio-v2.1';
+const CACHE_VERSION = '2.1.0';
 
 // Resources to cache immediately (precache)
 const PRECACHE_URLS = [
@@ -102,64 +102,72 @@ self.addEventListener('fetch', event => {
         // Return cached response if found
         if (cachedResponse) {
           console.log('[Service Worker] Serving from cache:', event.request.url);
-          
+
           // Fetch in background to update cache (stale-while-revalidate)
-          fetchAndCache(event.request);
-          
+          // safeBackgroundFetch never throws — fire and forget
+          safeBackgroundFetch(event.request);
+
           return cachedResponse;
         }
 
         // Not in cache, fetch from network
-        return fetchAndCache(event.request)
-          .then(response => {
-            if (!response || response.status !== 200 || response.type !== 'basic') {
-              return response;
-            }
-            return response;
-          })
-          .catch(error => {
-            console.error('[Service Worker] Fetch failed:', error);
-            
-            // Return offline fallback for HTML requests
-            if (event.request.headers.get('accept').includes('text/html')) {
-              return caches.match('/index.html');
-            }
-            
-            // Return a fallback response for images
-            if (event.request.url.match(/\.(?:png|jpg|jpeg|svg|gif|webp)$/)) {
-              return createImageFallback();
-            }
-            
-            return new Response('Network error', {
-              status: 408,
-              headers: { 'Content-Type': 'text/plain' }
-            });
-          });
+        return fetchFromNetwork(event.request);
       })
   );
 });
 
-// Helper: Fetch and cache
-const fetchAndCache = (request) => {
-  return fetch(request)
+// Helper: Safe background fetch (stale-while-revalidate) — never throws
+const safeBackgroundFetch = (request) => {
+  const safeReq = request.clone();
+  fetch(safeReq)
     .then(response => {
       if (!response || response.status !== 200 || response.type !== 'basic') {
-        return response;
+        return;
+      }
+      if (shouldCache(safeReq.url)) {
+        caches.open(CACHE_NAME)
+          .then(cache => cache.put(safeReq, response.clone()))
+          .catch(() => {});
+      }
+    })
+    .catch(() => {}); // Silently ignore all background fetch failures
+};
+
+// Helper: Fetch from network with fallback (never rejects)
+const fetchFromNetwork = (request) => {
+  return fetch(request.clone())
+    .then(response => {
+      if (!response || response.status !== 200) {
+        throw new Error('Network response was not ok');
       }
 
-      // Clone the response
-      const responseToCache = response.clone();
-
-      // Check if this should be cached
-      if (shouldCache(request.url)) {
+      // Cache the response if applicable
+      if (response.type === 'basic' && shouldCache(request.url)) {
+        const responseToCache = response.clone();
         caches.open(CACHE_NAME)
-          .then(cache => {
-            cache.put(request, responseToCache);
-            console.log('[Service Worker] Cached:', request.url);
-          });
+          .then(cache => cache.put(request, responseToCache))
+          .catch(() => {});
       }
 
       return response;
+    })
+    .catch(error => {
+      console.warn('[Service Worker] Network fetch failed:', request.url, error.message);
+
+      // Return offline fallback for HTML requests
+      if (request.headers.get('accept') && request.headers.get('accept').includes('text/html')) {
+        return caches.match('/index.html');
+      }
+
+      // Return a fallback response for images
+      if (request.url.match(/\.(?:png|jpg|jpeg|svg|gif|webp)$/)) {
+        return createImageFallback();
+      }
+
+      return new Response('Network error', {
+        status: 408,
+        headers: { 'Content-Type': 'text/plain' }
+      });
     });
 };
 

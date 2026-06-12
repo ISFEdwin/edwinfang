@@ -698,10 +698,74 @@ h3 {
     margin-top: 0.8rem;
 }
 
+/* ===== Ocean Wave Transition ===== */
+.ocean-waves {
+    position: relative;
+    height: 140px;
+    margin-top: -70px;
+    margin-bottom: -70px;
+    z-index: 2;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+@keyframes waveReveal {
+    0%   { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.wave-layer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.wave-layer svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+}
+
+.wave-back svg {
+    animation: waveDrift 18s linear infinite;
+    opacity: 0.9;
+}
+
+.wave-mid svg {
+    animation: waveDrift 13s linear infinite reverse;
+    opacity: 0.9;
+}
+
+.wave-front svg {
+    animation: waveDrift 9s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes waveDrift {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* ===== Footer ===== */
 .footer {
-    margin-top: 1rem;
+    margin-top: 0;
     border-top: 1px solid var(--border);
     padding: 1.5rem 0 2rem;
+    background: 
+        linear-gradient(135deg, rgba(227, 86, 84, 0.03) 0%, transparent 40%), 
+        linear-gradient(225deg, rgba(16, 152, 247, 0.025) 0%, transparent 40%), 
+        var(--bg);
+    background-size: 200% 200%, 200% 200%;
+    animation: footerGradientShift 12s ease-in-out infinite;
+    position: relative;
+    z-index: 3;
+    overflow: hidden;
+    margin-top: 0;
 }
 
 .compact-cta {
@@ -1448,19 +1512,110 @@ img, video, iframe {
 
 /* ===== Contact Form ===== */
 .contact-section {
-    padding: 84px 0 48px;
+    padding: 84px 0 40px;
+    position: relative;
+    overflow: hidden;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(227, 86, 84, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(16, 152, 247, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 50% 20%, rgba(168, 130, 255, 0.03) 0%, transparent 50%);
+    background-size: 100% 100%;
+    animation: contactBgFloat 25s ease-in-out infinite;
 }
 
-/* Gradient bridge that fades into the footer */
+
+/* ===== Futuristic Contact Section Animations ===== */
+
+/* Scanning glow line that sweeps across on reveal */
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 60%; height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(227, 86, 84, 0.8), rgba(16, 152, 247, 0.6), transparent);
+    z-index: 5;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.contact-section.reveal.is-visible::before {
+    opacity: 1;
+    animation: scanLine 2.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes scanLine {
+    0%   { left: -60%; opacity: 1; }
+    75%  { left: 120%; opacity: 1; }
+    100% { left: 120%; opacity: 0; }
+}
+
+/* Neon border ripple on contact form (continuous) */
+/* Data-particle dots floating up */
 .contact-section::after {
     content: '';
     position: absolute;
     bottom: 0; left: 0; right: 0;
-    height: 100px;
-    background: linear-gradient(to bottom, transparent, var(--bg));
+    height: 100%;
+    background:
+        radial-gradient(1.5px 1.5px at 15% 85%, rgba(227, 86, 84, 0.5) 50%, transparent 100%),
+        radial-gradient(1px 1px at 35% 90%, rgba(16, 152, 247, 0.4) 50%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 55% 88%, rgba(227, 86, 84, 0.4) 50%, transparent 100%),
+        radial-gradient(1px 1px at 75% 92%, rgba(16, 152, 247, 0.5) 50%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 90% 86%, rgba(227, 86, 84, 0.3) 50%, transparent 100%);
+    background-size: 100% 100%;
+    z-index: 0;
     pointer-events: none;
+    opacity: 0;
+    animation: none;
+}
+
+.contact-section.reveal.is-visible::after {
+    opacity: 1;
+    animation: particleFloat 8s ease-in-out infinite 1.5s;
+}
+
+@keyframes particleFloat {
+    0%, 100% {
+        background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+        opacity: 0.7;
+    }
+    50% {
+        background-position: 0% -20px, 0% -15px, 0% -25px, 0% -18px, 0% -22px;
+        opacity: 1;
+    }
+}
+
+/* Ensure contact-form is above the ::after particles */
+.contact-form {
     z-index: 1;
 }
+
+/* Data-stream reveal: letters appear with a glow */
+.contact-section.reveal.is-visible .section-intro,
+.contact-section.reveal.is-visible h2[data-i18n="contact.title"],
+.contact-section.reveal.is-visible .contact-eyebrow {
+    animation: dataReveal 0.8s ease forwards;
+    opacity: 0;
+    text-shadow: 0 0 20px rgba(227, 86, 84, 0.3);
+}
+
+.contact-section.reveal.is-visible h2[data-i18n="contact.title"] {
+    animation-delay: 0.3s;
+}
+
+.contact-section.reveal.is-visible .section-intro {
+    animation-delay: 0.6s;
+}
+
+@keyframes dataReveal {
+    0%   { opacity: 0; transform: translateY(8px); text-shadow: 0 0 30px rgba(227, 86, 84, 0.6); }
+    60%  { opacity: 1; text-shadow: 0 0 10px rgba(227, 86, 84, 0.2); }
+    100% { opacity: 1; transform: translateY(0); text-shadow: none; }
+}
+
+/* ===== Footer Extended Gradient Animation ===== */
+
 
 .contact-layout {
     display: grid;
@@ -1469,26 +1624,7 @@ img, video, iframe {
     align-items: start;
 }
 
-.contact-section {
-    position: relative;
-    overflow: hidden;
-}
 
-.contact-section::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: 
-        radial-gradient(circle at 20% 50%, rgba(227, 86, 84, 0.06) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(16, 152, 247, 0.04) 0%, transparent 50%),
-        radial-gradient(circle at 50% 20%, rgba(168, 130, 255, 0.03) 0%, transparent 50%);
-    animation: contactBgFloat 25s ease-in-out infinite;
-    pointer-events: none;
-    z-index: 0;
-}
 
 @keyframes contactBgFloat {
     0%, 100% {
@@ -1645,6 +1781,29 @@ img, video, iframe {
 .contact-details.reveal.is-visible .contact-detail-item:nth-child(2) { transition-delay: 0.22s; }
 .contact-details.reveal.is-visible .contact-detail-item:nth-child(3) { transition-delay: 0.34s; }
 
+
+/* Shimmer sweep on hover */
+
+
+/* Glow bar that sweeps across the top edge on hover */
+
+/* Shimmer sweep on hover */
+.contact-form::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(227, 86, 84, 0.05), transparent);
+    pointer-events: none;
+    z-index: 0;
+    transition: left 0.6s var(--ease);
+}
+
+.contact-form:hover::before {
+    left: 100%;
+}
+
+/* Glow bar that sweeps across the top edge on hover */
 .contact-form {
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -1662,22 +1821,6 @@ img, video, iframe {
     transform: translateY(0) scale(1);
 }
 
-.contact-form::before {
-    content: '';
-    position: absolute;
-    top: 0; left: -100%;
-    width: 100%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(227, 86, 84, 0.05), transparent);
-    pointer-events: none;
-    z-index: 0;
-    transition: left 0.6s var(--ease);
-}
-
-.contact-form:hover::before {
-    left: 100%;
-}
-
-/* Glowing border effect on hover */
 .contact-form:hover {
     border-color: rgba(227, 86, 84, 0.35);
     box-shadow:
@@ -1703,22 +1846,7 @@ img, video, iframe {
     transform: translateX(-50%) scaleX(1);
 }
 
-.contact-form::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(227, 86, 84, 0.05), transparent);
-    pointer-events: none;
-    z-index: 0;
-    transition: left 0.6s var(--ease);
-}
 
-.contact-form:hover::before {
-    left: 100%;
-}
 
 .contact-form > * {
     position: relative;
@@ -2279,4 +2407,52 @@ img, video, iframe {
     .update-toast.show {
         transform: translateY(0);
     }
+}
+
+
+@keyframes footerGradientShift {
+    0%, 100% { background-position: 0% 0%, 0% 0%, 0 0; }
+    50%       { background-position: 100% 100%, 100% 100%, 0 0; }
+}
+
+/* Subtle top-edge glow line on footer */
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(227, 86, 84, 0.4) 30%, 
+        rgba(16, 152, 247, 0.3) 70%, 
+        transparent 100%
+    );
+    animation: footerGlowPulse 4s ease-in-out infinite;
+}
+
+@keyframes footerGlowPulse {
+    0%, 100% { opacity: 0.4; }
+    50%       { opacity: 1; }
+}
+
+/* Floating data particles in footer */
+.footer::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0; top: 0;
+    background:
+        radial-gradient(1px 1px at 10% 80%, rgba(227, 86, 84, 0.3) 50%, transparent 100%),
+        radial-gradient(1px 1px at 30% 60%, rgba(16, 152, 247, 0.25) 50%, transparent 100%),
+        radial-gradient(1px 1px at 50% 90%, rgba(227, 86, 84, 0.2) 50%, transparent 100%),
+        radial-gradient(1px 1px at 70% 70%, rgba(16, 152, 247, 0.3) 50%, transparent 100%),
+        radial-gradient(1px 1px at 90% 85%, rgba(227, 86, 84, 0.25) 50%, transparent 100%);
+    background-size: 100% 100%;
+    pointer-events: none;
+    z-index: -1;
+    animation: footerParticles 10s ease-in-out infinite;
+}
+
+@keyframes footerParticles {
+    0%, 100% { opacity: 0.5; }
+    50%       { opacity: 1; }
 }
